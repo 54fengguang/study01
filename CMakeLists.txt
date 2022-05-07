@@ -10,23 +10,22 @@ add_subdirectory(third_party)
 
 find_library(
     Protobuf_LIBRARIES protobuf 
-    PATHS  ${Protobuf_DIR}
-    PATH_SUFFIXES   lib
-    NO_DEFAULT_PATH
+    PATHS  "/usr/local/include"
+    PATH_SUFFIXES   google
 )
 
 find_program(
     PROTOBUF_PROTOC_EXECUTABLE  protoc 
-    PATHS  ${Protobuf_DIR}
+    PATHS  "/usr/local/bin"
     PATH_SUFFIXES   bin
-    NO_DEFAULT_PATH
+    
 )
 
 find_path(
     Protobuf_INCLUDE_DIRS  google
-    PATHS  ${Protobuf_DIR}
-    PATH_SUFFIXES   include()
-    NO_DEFAULT_PATH
+    PATHS  "/usr/local/include"
+    PATH_SUFFIXES   include
+    
 )
 
 if("${Protobuf_LIBRARIES}" STREQUAL "Protobuf_LIBRARIES-NOTFOUND")
