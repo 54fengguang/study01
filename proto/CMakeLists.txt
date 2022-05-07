@@ -2,9 +2,7 @@ cmake_minimum_required(VERSION 3.10.0)
 
 
 file(GLOB_RECURSE   PROTO_FILES  
-        RELATIVE  "${CMAKE_CURRENT_SOURCE_DIR}"   .proto)
-
-
+        RELATIVE  "${CMAKE_CURRENT_SOURCE_DIR}"  *.proto)
 
 set(PROTO_FILES  ${PROTO_FILES}  PARENT_SCOPE)
 
