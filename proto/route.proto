@@ -1,0 +1,84 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.hx.schedule.algorithm.grpc";
+option java_outer_classname = "RoutingProto";
+option objc_class_prefix = "hxkj";
+
+package haoxing.route;
+
+message NodeXYZ
+{
+  double x = 1;  // 横坐标
+  double y = 2;  // 纵坐标
+  double z = 3;  // 高程
+  double yaw = 4;  // 航向角
+  double curvature = 5;  // curvature 曲率
+  int32 segment = 6;  // 段号
+  bool reverse = 7; // 倒车
+  int32 node_type = 8; // 点类型：1 田块，2机耕道
+  int32 impl_state = 9; // 农具工作类型：1.不作业，2.作业
+  int32 impl_plough_ori = 10; //犁翻转方向
+}
+
+message FieldInfo {
+  NodeXYZ entrance_node = 1; // 田块入口点
+  NodeXYZ exit_node = 2; // 田块出口点
+  repeated NodeXYZ fieldNodes = 3; // 田块区域组成点集（闭合点集）
+  repeated Obstacle obstacles = 4; // 障碍物列表
+  repeated double preset_spaces = 5; // 田块每条边预留空间
+}
+
+message PlanParam {
+  double inter_sp = 1;         // 插值分辨率
+  double route_type = 2;       // 掉头作业模式
+  double task_type = 3;        // 任务类型
+  bool modify_orientation = 4;   // 改变作业朝向(90度)
+  bool acc_overlap = 5;        // 是否覆盖作业
+  bool multi_vehicle = 6;      // 是否多机作业
+  repeated int32 task_vehicle_num  = 7; // 同一任务下的单/多机编号
+  repeated NodeXYZ service_nodes = 8; // 补给点  卸粮点
+  
+}
+
+message Vehicle {
+  double length = 1; // 长度
+  bool reverse = 2; // 是否可以倒车
+  double over_all_width = 3; // 整车宽度（单拖拉机）
+  double front_end_to_location = 4; // 车前端到定位点距离
+  double rear_end_to_location = 5; // 车后端到定位点距离
+  double wheel_base = 6; // 轴距
+  double radius = 7;  //作业最小转弯半径
+}
+
+message Implement {
+  double width = 1;         // 机具幅宽
+  double length = 2;        // 机具长度
+  double right_offset = 3;  // 机具右偏移量
+  double left_offset = 4;   // 机具左偏移量
+  int32 linkage_mode = 5;   // 农具悬挂方式
+}
+
+message Obstacle {
+  double x = 1;   // 
+  double y = 2;
+  double z = 3;
+  double r = 4;   //轮廓半径
+  double r_w = 5; //实际作业半径
+}
+
+message RequestParam {
+  repeated FieldInfo field_infos = 1; // 田块列表
+  PlanParam plan_param = 2; // 规划参数
+  Vehicle vehicle = 3; // 农机（设备）参数
+  Implement implement = 4; // 农具参数
+}
+
+message ResponseParam {
+  repeated NodeXYZ nodes = 1;  // 响应点集
+  double mileage = 2; // 规划总里程
+}
+
+service RoutingService{
+  rpc GetNodeXYZList(RequestParam) returns (ResponseParam) {}
+}
