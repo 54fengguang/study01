@@ -51,9 +51,9 @@ endforeach()
 
 
 include_directories(
-    include
+    ./include
     ${Protobuf_INCLUDE_DIRS}
-    proto
+    ./proto
 )
 
 aux_source_directory(./src  SRC_LIST)
@@ -64,7 +64,7 @@ message(STATUS  "SRC_LIST  directory is :  ${SRC_LIST}")
 message(STATUS  "PROTO_LIST  directory is :  ${PROTO_LIST}")
 
 
-add_executable(Server  ./src/server.cpp  ${PROTO_LIST})
+add_executable(Server  ./src/server.cpp  ./src/routeServer.cpp  ${PROTO_LIST})
 
 target_link_libraries( Server
     ${Protobuf_LIBRARIES}

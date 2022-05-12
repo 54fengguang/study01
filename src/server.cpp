@@ -8,13 +8,15 @@
 #include <grpc++/server_builder.h>
 #include <grpc++/server_context.h>
  
-#include "../proto/example.grpc.pb.h"
+#include "example.grpc.pb.h"
+#include "routeServer.h"
  
 using grpc::Server;
 using grpc::ServerBuilder;
 using grpc::ServerContext;
 using grpc::Status;
 using namespace std;
+using  haoxing::route1::RoutingServiceImpl;
  
 class SearchRequestImpl final : public SearchService::Service {
   Status Search(ServerContext* context, const SearchRequest* request,
@@ -27,12 +29,16 @@ class SearchRequestImpl final : public SearchService::Service {
 };
  
 void RunServer() {
-  std::string server_address("0.0.0.0:50051");
-  SearchRequestImpl service;
+  std::string server_address("0.0.0.0:5001");
+  SearchRequestImpl  searchService;
+  RoutingServiceImpl  routeingService;
+
  
   ServerBuilder builder;
   builder.AddListeningPort(server_address, grpc::InsecureServerCredentials());
-  builder.RegisterService(&service);
+  builder.RegisterService(&searchService);
+  builder.RegisterService(&routeingService);
+
   std::unique_ptr<Server> server(builder.BuildAndStart());
   std::cout << "Server listening on " << server_address << std::endl;
  
