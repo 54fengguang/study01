@@ -5,14 +5,20 @@
 #include "route.pb.h"
 #include "route.grpc.pb.h"
 
-#include <grpc++/impl/codegen/async_stream.h>
-#include <grpc++/impl/codegen/async_unary_call.h>
-#include <grpc++/impl/codegen/channel_interface.h>
-#include <grpc++/impl/codegen/client_unary_call.h>
-#include <grpc++/impl/codegen/method_handler_impl.h>
-#include <grpc++/impl/codegen/rpc_service_method.h>
-#include <grpc++/impl/codegen/service_type.h>
-#include <grpc++/impl/codegen/sync_stream.h>
+#include <functional>
+#include <grpcpp/impl/codegen/async_stream.h>
+#include <grpcpp/impl/codegen/async_unary_call.h>
+#include <grpcpp/impl/codegen/channel_interface.h>
+#include <grpcpp/impl/codegen/client_unary_call.h>
+#include <grpcpp/impl/codegen/client_callback.h>
+#include <grpcpp/impl/codegen/message_allocator.h>
+#include <grpcpp/impl/codegen/method_handler.h>
+#include <grpcpp/impl/codegen/rpc_service_method.h>
+#include <grpcpp/impl/codegen/server_callback.h>
+#include <grpcpp/impl/codegen/server_callback_handlers.h>
+#include <grpcpp/impl/codegen/server_context.h>
+#include <grpcpp/impl/codegen/service_type.h>
+#include <grpcpp/impl/codegen/sync_stream.h>
 namespace haoxing {
 namespace route {
 
@@ -22,32 +28,48 @@ static const char* RoutingService_method_names[] = {
 
 std::unique_ptr< RoutingService::Stub> RoutingService::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
   (void)options;
-  std::unique_ptr< RoutingService::Stub> stub(new RoutingService::Stub(channel));
+  std::unique_ptr< RoutingService::Stub> stub(new RoutingService::Stub(channel, options));
   return stub;
 }
 
-RoutingService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
-  : channel_(channel), rpcmethod_GetNodeXYZList_(RoutingService_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+RoutingService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
+  : channel_(channel), rpcmethod_GetNodeXYZList_(RoutingService_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status RoutingService::Stub::GetNodeXYZList(::grpc::ClientContext* context, const ::haoxing::route::RequestParam& request, ::haoxing::route::ResponseParam* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_GetNodeXYZList_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::haoxing::route::RequestParam, ::haoxing::route::ResponseParam, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetNodeXYZList_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::haoxing::route::ResponseParam>* RoutingService::Stub::AsyncGetNodeXYZListRaw(::grpc::ClientContext* context, const ::haoxing::route::RequestParam& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::haoxing::route::ResponseParam>::Create(channel_.get(), cq, rpcmethod_GetNodeXYZList_, context, request, true);
+void RoutingService::Stub::async::GetNodeXYZList(::grpc::ClientContext* context, const ::haoxing::route::RequestParam* request, ::haoxing::route::ResponseParam* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::haoxing::route::RequestParam, ::haoxing::route::ResponseParam, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetNodeXYZList_, context, request, response, std::move(f));
+}
+
+void RoutingService::Stub::async::GetNodeXYZList(::grpc::ClientContext* context, const ::haoxing::route::RequestParam* request, ::haoxing::route::ResponseParam* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetNodeXYZList_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::haoxing::route::ResponseParam>* RoutingService::Stub::PrepareAsyncGetNodeXYZListRaw(::grpc::ClientContext* context, const ::haoxing::route::RequestParam& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::haoxing::route::ResponseParam>::Create(channel_.get(), cq, rpcmethod_GetNodeXYZList_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::haoxing::route::ResponseParam, ::haoxing::route::RequestParam, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetNodeXYZList_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::haoxing::route::ResponseParam>* RoutingService::Stub::AsyncGetNodeXYZListRaw(::grpc::ClientContext* context, const ::haoxing::route::RequestParam& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncGetNodeXYZListRaw(context, request, cq);
+  result->StartCall();
+  return result;
 }
 
 RoutingService::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       RoutingService_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< RoutingService::Service, ::haoxing::route::RequestParam, ::haoxing::route::ResponseParam>(
-          std::mem_fn(&RoutingService::Service::GetNodeXYZList), this)));
+      new ::grpc::internal::RpcMethodHandler< RoutingService::Service, ::haoxing::route::RequestParam, ::haoxing::route::ResponseParam, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](RoutingService::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::haoxing::route::RequestParam* req,
+             ::haoxing::route::ResponseParam* resp) {
+               return service->GetNodeXYZList(ctx, req, resp);
+             }, this)));
 }
 
 RoutingService::Service::~Service() {

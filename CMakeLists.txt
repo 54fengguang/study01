@@ -2,29 +2,7 @@ cmake_minimum_required(VERSION 3.10.0)
 
 project(study01)
 
-
-set(THIRDPARTY_DIR "${CMAKE_CURRENT_SOURCE_DIR}/third_party")
-set(Protobuf_DIR  "${THIRDPARTY_DIR}/protobuf")
-
-add_subdirectory(third_party)
-
-find_library(
-    Protobuf_LIBRARIES protobuf 
-    PATHS  "/usr/local/include"
-    PATH_SUFFIXES   google
-)
-
-find_program(
-    PROTOBUF_PROTOC_EXECUTABLE  protoc 
-    PATHS  "/usr/local/bin"
-    PATH_SUFFIXES   bin
-)
-
-find_path(
-    Protobuf_INCLUDE_DIRS  google
-    PATHS  "/usr/local/include"
-    PATH_SUFFIXES   include
-)
+find_package(Protobuf  REQUIRED)
 
 if("${Protobuf_LIBRARIES}" STREQUAL "Protobuf_LIBRARIES-NOTFOUND")
   message(WARNING "Protobuf package not found")
@@ -34,81 +12,69 @@ else()
 endif()
 
 
+
+find_package(gRPC CONFIG  REQUIRED)
+
+message(STATUS "Using gRPC ${gRPC_VERSION}")
+
+  message(STATUS "gRPC include path : ${gRPC_INCLUDE_DIRS}")
+  message(STATUS "gRPC libraries : ${gRPC_LIBRARIES}")
+
+
+
 #get_filename_component(PROTO_META_BASE_DIR ${CMAKE_CURRENT_BINARY_DIR} DIRECTORY)
 
 set(PROTO_META_BASE_DIR  ${CMAKE_CURRENT_SOURCE_DIR}/proto)
 
 message(STATUS   "PROTO_META_BASE_DIR  value is :   ${PROTO_META_BASE_DIR}")
-#设置输出路径
-#set(MESSAGE_DIR ${CMAKE_BINARY_DIR}/proto)
-
-
-#f(EXISTS "${MESSAGE_DIR}" AND IS_DIRECTORY "${MESSAGE_DIR}")
-#       SET(DST_DIR ${MESSAGE_DIR})
-#else()
-#        file(MAKE_DIRECTORY ${MESSAGE_DIR})
-#        SET(DST_DIR ${MESSAGE_DIR})
-#endif()
 
 
 add_subdirectory(proto)
 
 #设置protoc的搜索路径
-LIST(APPEND PROTO_FLAGS  -I${PROTO_INCLUDE_DIRS})
+LIST(APPEND PROTO_FLAGS  -I${PROTO_META_BASE_DIR})
 
-#获取需要编译的proto文件
-set(MESSAGE_SRC "")
-set(MESSAGE_HDRS "")
+foreach(FILE  ${PROTO_FILES})
 
-foreach(msg ${PROTO_FILES})
-
-        message(STATUS  "protobuf  file is  :    ${msg}")
-        get_filename_component(FIL_WE ${msg} NAME_WE)
-
-        list(APPEND MESSAGE_SRC "${PROJECT_BINARY_DIR}/proto/${FIL_WE}.pb.cc")
-        list(APPEND MESSAGE_HDRS "${PROJECT_BINARY_DIR}/proto/${FIL_WE}.pb.h")
+        message(STATUS  "protobuf  file is  :    ${FILE}")
         
-        # 生成源码
+        # 生成protobuf 
         execute_process(
-            COMMAND ${PROTOBUF_PROTOC_EXECUTABLE}  ${PROTO_FLAGS} --cpp_out=${PROTO_META_BASE_DIR}    ${msg}
+            COMMAND ${PROTOBUF_PROTOC_EXECUTABLE}  ${PROTO_FLAGS}  --cpp_out=${PROJECT_SOURCE_DIR}/proto    ${FILE}
+            )
+        
+         # 生成grpc
+         execute_process(
+            COMMAND ${PROTOBUF_PROTOC_EXECUTABLE}  ${PROTO_FLAGS}  --grpc_out=${PROJECT_SOURCE_DIR}/proto  --plugin=protoc-gen-grpc=/usr/local/bin/grpc_cpp_plugin   ${FILE}
             )
 endforeach()
 
 
-if (WITH_GRPC)
-    find_package(gRPC CONFIG)
-    # First attempt to set up gRPC via cmake; but if cmake config files aren't
-    # available, fallback to pkg-config.
-    if (gRPC_FOUND)
-        set(GRPC_CPP_PLUGIN $<TARGET_FILE:gRPC::grpc_cpp_plugin>)
-        list(APPEND LIGHTSTEP_LINK_LIBRARIES gRPC::grpc++)
-        include_directories(SYSTEM
-                $<TARGET_PROPERTY:gRPC::grpc++,INTERFACE_INCLUDE_DIRECTORIES>)
-    else()
-        message("Falling back to finding gRPC with pkg-config")
-        find_program(GRPC_CPP_PLUGIN grpc_cpp_plugin)
-        if (NOT GRPC_CPP_PLUGIN)
-            message(FATAL_ERROR "grpc_cpp_plugin not found!")
-        endif()
-        find_package(PkgConfig REQUIRED)
-        pkg_search_module(GRPC REQUIRED grpc)
-        pkg_search_module(GRPCPP REQUIRED grpc++)
-        list(APPEND LIGHTSTEP_LINK_LIBRARIES ${GRPCPP_LDFLAGS} ${GRPC_LDFLAGS})
-        include_directories(SYSTEM ${GRPC_INCLUDE_DIRS} ${GRPCPP_INCLUDE_DIRS})
-    endif()
-endif()
-
-message(STATUS "GRPCPP_INCLUDE_DIRS directory is :  ${GRPCPP_INCLUDE_DIRS}")
 include_directories(
     include
-    ${PROTO_META_BASE_DIR}
-    ${GRPCPP_INCLUDE_DIRS}
+    ${Protobuf_INCLUDE_DIRS}
+    proto
 )
 
 aux_source_directory(./src  SRC_LIST)
+aux_source_directory(./proto  PROTO_LIST)
 
-add_executable(${PROJECT_NAME}  ${SRC_LIST})
 
-target_link_libraries( ${PROJECT_NAME} 
+message(STATUS  "SRC_LIST  directory is :  ${SRC_LIST}")
+message(STATUS  "PROTO_LIST  directory is :  ${PROTO_LIST}")
+
+
+add_executable(Server  ./src/server.cpp  ${PROTO_LIST})
+
+target_link_libraries( Server
     ${Protobuf_LIBRARIES}
+     gRPC::grpc++
+)
+
+
+add_executable(Client  ./src/client.cpp  ${PROTO_LIST})
+
+target_link_libraries( Client
+    ${Protobuf_LIBRARIES}
+    gRPC::grpc++
 )

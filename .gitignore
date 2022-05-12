@@ -39,6 +39,12 @@
 *.out
 *.app
 
+#grpc
+proto/*.pb.cc
+proto/*.grpc.pb.cc
+proto/*.grpc.pb.h
+proto/*.pb.h
+
 
 # CMake ================================
 bin/
