@@ -15,8 +15,10 @@ using grpc::Server;
 using grpc::ServerBuilder;
 using grpc::ServerContext;
 using grpc::Status;
-using namespace std;
 using  haoxing::route1::RoutingServiceImpl;
+
+using namespace std;
+
  
 class SearchRequestImpl final : public SearchService::Service {
   Status Search(ServerContext* context, const SearchRequest* request,
@@ -29,7 +31,7 @@ class SearchRequestImpl final : public SearchService::Service {
 };
  
 void RunServer() {
-  std::string server_address("0.0.0.0:5001");
+  std::string server_address("0.0.0.0:50051");
   SearchRequestImpl  searchService;
   RoutingServiceImpl  routeingService;
 

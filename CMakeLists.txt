@@ -17,8 +17,8 @@ find_package(gRPC CONFIG  REQUIRED)
 
 message(STATUS "Using gRPC ${gRPC_VERSION}")
 
-  message(STATUS "gRPC include path : ${gRPC_INCLUDE_DIRS}")
-  message(STATUS "gRPC libraries : ${gRPC_LIBRARIES}")
+message(STATUS "gRPC include path : ${gRPC_INCLUDE_DIRS}")
+message(STATUS "gRPC libraries : ${gRPC_LIBRARIES}")
 
 
 
@@ -62,6 +62,13 @@ aux_source_directory(./proto  PROTO_LIST)
 
 message(STATUS  "SRC_LIST  directory is :  ${SRC_LIST}")
 message(STATUS  "PROTO_LIST  directory is :  ${PROTO_LIST}")
+
+link_directories(${PROJECT_SOURCE_DIR}/libs/)
+
+add_executable(Path_poins  ./src/road_planning_service.cpp )
+target_link_libraries( Path_poins
+  librouting.so
+)
 
 
 add_executable(Server  ./src/server.cpp  ./src/routeServer.cpp  ${PROTO_LIST})
