@@ -46,40 +46,40 @@ struct TableStruct_route_2eproto {
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_route_2eproto;
 namespace haoxing {
 namespace route {
-class FieldInfo;
-struct FieldInfoDefaultTypeInternal;
-extern FieldInfoDefaultTypeInternal _FieldInfo_default_instance_;
-class Implement;
-struct ImplementDefaultTypeInternal;
-extern ImplementDefaultTypeInternal _Implement_default_instance_;
+class FarmTools;
+struct FarmToolsDefaultTypeInternal;
+extern FarmToolsDefaultTypeInternal _FarmTools_default_instance_;
+class GisFieldInfo;
+struct GisFieldInfoDefaultTypeInternal;
+extern GisFieldInfoDefaultTypeInternal _GisFieldInfo_default_instance_;
 class NodeXYZ;
 struct NodeXYZDefaultTypeInternal;
 extern NodeXYZDefaultTypeInternal _NodeXYZ_default_instance_;
-class Obstacle;
-struct ObstacleDefaultTypeInternal;
-extern ObstacleDefaultTypeInternal _Obstacle_default_instance_;
+class ObstacleReq;
+struct ObstacleReqDefaultTypeInternal;
+extern ObstacleReqDefaultTypeInternal _ObstacleReq_default_instance_;
 class PlanParam;
 struct PlanParamDefaultTypeInternal;
 extern PlanParamDefaultTypeInternal _PlanParam_default_instance_;
-class RequestParam;
-struct RequestParamDefaultTypeInternal;
-extern RequestParamDefaultTypeInternal _RequestParam_default_instance_;
-class ResponseParam;
-struct ResponseParamDefaultTypeInternal;
-extern ResponseParamDefaultTypeInternal _ResponseParam_default_instance_;
+class RoadPlanRequest;
+struct RoadPlanRequestDefaultTypeInternal;
+extern RoadPlanRequestDefaultTypeInternal _RoadPlanRequest_default_instance_;
+class RoadPlanRespond;
+struct RoadPlanRespondDefaultTypeInternal;
+extern RoadPlanRespondDefaultTypeInternal _RoadPlanRespond_default_instance_;
 class Vehicle;
 struct VehicleDefaultTypeInternal;
 extern VehicleDefaultTypeInternal _Vehicle_default_instance_;
 }  // namespace route
 }  // namespace haoxing
 PROTOBUF_NAMESPACE_OPEN
-template<> ::haoxing::route::FieldInfo* Arena::CreateMaybeMessage<::haoxing::route::FieldInfo>(Arena*);
-template<> ::haoxing::route::Implement* Arena::CreateMaybeMessage<::haoxing::route::Implement>(Arena*);
+template<> ::haoxing::route::FarmTools* Arena::CreateMaybeMessage<::haoxing::route::FarmTools>(Arena*);
+template<> ::haoxing::route::GisFieldInfo* Arena::CreateMaybeMessage<::haoxing::route::GisFieldInfo>(Arena*);
 template<> ::haoxing::route::NodeXYZ* Arena::CreateMaybeMessage<::haoxing::route::NodeXYZ>(Arena*);
-template<> ::haoxing::route::Obstacle* Arena::CreateMaybeMessage<::haoxing::route::Obstacle>(Arena*);
+template<> ::haoxing::route::ObstacleReq* Arena::CreateMaybeMessage<::haoxing::route::ObstacleReq>(Arena*);
 template<> ::haoxing::route::PlanParam* Arena::CreateMaybeMessage<::haoxing::route::PlanParam>(Arena*);
-template<> ::haoxing::route::RequestParam* Arena::CreateMaybeMessage<::haoxing::route::RequestParam>(Arena*);
-template<> ::haoxing::route::ResponseParam* Arena::CreateMaybeMessage<::haoxing::route::ResponseParam>(Arena*);
+template<> ::haoxing::route::RoadPlanRequest* Arena::CreateMaybeMessage<::haoxing::route::RoadPlanRequest>(Arena*);
+template<> ::haoxing::route::RoadPlanRespond* Arena::CreateMaybeMessage<::haoxing::route::RoadPlanRespond>(Arena*);
 template<> ::haoxing::route::Vehicle* Arena::CreateMaybeMessage<::haoxing::route::Vehicle>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace haoxing {
@@ -212,12 +212,13 @@ class NodeXYZ final :
     kYFieldNumber = 2,
     kZFieldNumber = 3,
     kYawFieldNumber = 4,
-    kCurvatureFieldNumber = 5,
-    kSegmentFieldNumber = 6,
-    kReverseFieldNumber = 7,
-    kNodeTypeFieldNumber = 8,
-    kImplStateFieldNumber = 9,
-    kImplPloughOriFieldNumber = 10,
+    kVFieldNumber = 5,
+    kSFieldNumber = 6,
+    kCurvatureFieldNumber = 7,
+    kBackFieldNumber = 8,
+    kStrCurFieldNumber = 9,
+    kReverseFieldNumber = 10,
+    kTypeFieldNumber = 11,
   };
   // double x = 1;
   void clear_x();
@@ -255,7 +256,25 @@ class NodeXYZ final :
   void _internal_set_yaw(double value);
   public:
 
-  // double curvature = 5;
+  // double v = 5;
+  void clear_v();
+  double v() const;
+  void set_v(double value);
+  private:
+  double _internal_v() const;
+  void _internal_set_v(double value);
+  public:
+
+  // double s = 6;
+  void clear_s();
+  double s() const;
+  void set_s(double value);
+  private:
+  double _internal_s() const;
+  void _internal_set_s(double value);
+  public:
+
+  // double curvature = 7;
   void clear_curvature();
   double curvature() const;
   void set_curvature(double value);
@@ -264,16 +283,25 @@ class NodeXYZ final :
   void _internal_set_curvature(double value);
   public:
 
-  // int32 segment = 6;
-  void clear_segment();
-  int32_t segment() const;
-  void set_segment(int32_t value);
+  // int32 back = 8;
+  void clear_back();
+  int32_t back() const;
+  void set_back(int32_t value);
   private:
-  int32_t _internal_segment() const;
-  void _internal_set_segment(int32_t value);
+  int32_t _internal_back() const;
+  void _internal_set_back(int32_t value);
   public:
 
-  // bool reverse = 7;
+  // int32 str_cur = 9;
+  void clear_str_cur();
+  int32_t str_cur() const;
+  void set_str_cur(int32_t value);
+  private:
+  int32_t _internal_str_cur() const;
+  void _internal_set_str_cur(int32_t value);
+  public:
+
+  // bool reverse = 10;
   void clear_reverse();
   bool reverse() const;
   void set_reverse(bool value);
@@ -282,31 +310,13 @@ class NodeXYZ final :
   void _internal_set_reverse(bool value);
   public:
 
-  // int32 node_type = 8;
-  void clear_node_type();
-  int32_t node_type() const;
-  void set_node_type(int32_t value);
+  // int32 type = 11;
+  void clear_type();
+  int32_t type() const;
+  void set_type(int32_t value);
   private:
-  int32_t _internal_node_type() const;
-  void _internal_set_node_type(int32_t value);
-  public:
-
-  // int32 impl_state = 9;
-  void clear_impl_state();
-  int32_t impl_state() const;
-  void set_impl_state(int32_t value);
-  private:
-  int32_t _internal_impl_state() const;
-  void _internal_set_impl_state(int32_t value);
-  public:
-
-  // int32 impl_plough_ori = 10;
-  void clear_impl_plough_ori();
-  int32_t impl_plough_ori() const;
-  void set_impl_plough_ori(int32_t value);
-  private:
-  int32_t _internal_impl_plough_ori() const;
-  void _internal_set_impl_plough_ori(int32_t value);
+  int32_t _internal_type() const;
+  void _internal_set_type(int32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:haoxing.route.NodeXYZ)
@@ -321,12 +331,13 @@ class NodeXYZ final :
     double y_;
     double z_;
     double yaw_;
+    double v_;
+    double s_;
     double curvature_;
-    int32_t segment_;
+    int32_t back_;
+    int32_t str_cur_;
     bool reverse_;
-    int32_t node_type_;
-    int32_t impl_state_;
-    int32_t impl_plough_ori_;
+    int32_t type_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -334,24 +345,24 @@ class NodeXYZ final :
 };
 // -------------------------------------------------------------------
 
-class FieldInfo final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:haoxing.route.FieldInfo) */ {
+class GisFieldInfo final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:haoxing.route.GisFieldInfo) */ {
  public:
-  inline FieldInfo() : FieldInfo(nullptr) {}
-  ~FieldInfo() override;
-  explicit PROTOBUF_CONSTEXPR FieldInfo(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline GisFieldInfo() : GisFieldInfo(nullptr) {}
+  ~GisFieldInfo() override;
+  explicit PROTOBUF_CONSTEXPR GisFieldInfo(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  FieldInfo(const FieldInfo& from);
-  FieldInfo(FieldInfo&& from) noexcept
-    : FieldInfo() {
+  GisFieldInfo(const GisFieldInfo& from);
+  GisFieldInfo(GisFieldInfo&& from) noexcept
+    : GisFieldInfo() {
     *this = ::std::move(from);
   }
 
-  inline FieldInfo& operator=(const FieldInfo& from) {
+  inline GisFieldInfo& operator=(const GisFieldInfo& from) {
     CopyFrom(from);
     return *this;
   }
-  inline FieldInfo& operator=(FieldInfo&& from) noexcept {
+  inline GisFieldInfo& operator=(GisFieldInfo&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -374,20 +385,20 @@ class FieldInfo final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const FieldInfo& default_instance() {
+  static const GisFieldInfo& default_instance() {
     return *internal_default_instance();
   }
-  static inline const FieldInfo* internal_default_instance() {
-    return reinterpret_cast<const FieldInfo*>(
-               &_FieldInfo_default_instance_);
+  static inline const GisFieldInfo* internal_default_instance() {
+    return reinterpret_cast<const GisFieldInfo*>(
+               &_GisFieldInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     1;
 
-  friend void swap(FieldInfo& a, FieldInfo& b) {
+  friend void swap(GisFieldInfo& a, GisFieldInfo& b) {
     a.Swap(&b);
   }
-  inline void Swap(FieldInfo* other) {
+  inline void Swap(GisFieldInfo* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -400,7 +411,7 @@ class FieldInfo final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(FieldInfo* other) {
+  void UnsafeArenaSwap(GisFieldInfo* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -408,14 +419,14 @@ class FieldInfo final :
 
   // implements Message ----------------------------------------------
 
-  FieldInfo* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<FieldInfo>(arena);
+  GisFieldInfo* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<GisFieldInfo>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const FieldInfo& from);
+  void CopyFrom(const GisFieldInfo& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const FieldInfo& from) {
-    FieldInfo::MergeImpl(*this, from);
+  void MergeFrom( const GisFieldInfo& from) {
+    GisFieldInfo::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -433,15 +444,15 @@ class FieldInfo final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(FieldInfo* other);
+  void InternalSwap(GisFieldInfo* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "haoxing.route.FieldInfo";
+    return "haoxing.route.GisFieldInfo";
   }
   protected:
-  explicit FieldInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit GisFieldInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   public:
 
@@ -456,7 +467,7 @@ class FieldInfo final :
 
   enum : int {
     kFieldNodesFieldNumber = 3,
-    kObstaclesFieldNumber = 4,
+    kObstacleReqFieldNumber = 4,
     kPresetSpacesFieldNumber = 5,
     kEntranceNodeFieldNumber = 1,
     kExitNodeFieldNumber = 2,
@@ -479,23 +490,23 @@ class FieldInfo final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::haoxing::route::NodeXYZ >&
       fieldnodes() const;
 
-  // repeated .haoxing.route.Obstacle obstacles = 4;
-  int obstacles_size() const;
+  // repeated .haoxing.route.ObstacleReq obstacleReq = 4;
+  int obstaclereq_size() const;
   private:
-  int _internal_obstacles_size() const;
+  int _internal_obstaclereq_size() const;
   public:
-  void clear_obstacles();
-  ::haoxing::route::Obstacle* mutable_obstacles(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::haoxing::route::Obstacle >*
-      mutable_obstacles();
+  void clear_obstaclereq();
+  ::haoxing::route::ObstacleReq* mutable_obstaclereq(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::haoxing::route::ObstacleReq >*
+      mutable_obstaclereq();
   private:
-  const ::haoxing::route::Obstacle& _internal_obstacles(int index) const;
-  ::haoxing::route::Obstacle* _internal_add_obstacles();
+  const ::haoxing::route::ObstacleReq& _internal_obstaclereq(int index) const;
+  ::haoxing::route::ObstacleReq* _internal_add_obstaclereq();
   public:
-  const ::haoxing::route::Obstacle& obstacles(int index) const;
-  ::haoxing::route::Obstacle* add_obstacles();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::haoxing::route::Obstacle >&
-      obstacles() const;
+  const ::haoxing::route::ObstacleReq& obstaclereq(int index) const;
+  ::haoxing::route::ObstacleReq* add_obstaclereq();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::haoxing::route::ObstacleReq >&
+      obstaclereq() const;
 
   // repeated double preset_spaces = 5;
   int preset_spaces_size() const;
@@ -555,7 +566,7 @@ class FieldInfo final :
       ::haoxing::route::NodeXYZ* exit_node);
   ::haoxing::route::NodeXYZ* unsafe_arena_release_exit_node();
 
-  // @@protoc_insertion_point(class_scope:haoxing.route.FieldInfo)
+  // @@protoc_insertion_point(class_scope:haoxing.route.GisFieldInfo)
  private:
   class _Internal;
 
@@ -564,7 +575,7 @@ class FieldInfo final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::haoxing::route::NodeXYZ > fieldnodes_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::haoxing::route::Obstacle > obstacles_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::haoxing::route::ObstacleReq > obstaclereq_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< double > preset_spaces_;
     ::haoxing::route::NodeXYZ* entrance_node_;
     ::haoxing::route::NodeXYZ* exit_node_;
@@ -575,24 +586,24 @@ class FieldInfo final :
 };
 // -------------------------------------------------------------------
 
-class PlanParam final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:haoxing.route.PlanParam) */ {
+class FarmTools final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:haoxing.route.FarmTools) */ {
  public:
-  inline PlanParam() : PlanParam(nullptr) {}
-  ~PlanParam() override;
-  explicit PROTOBUF_CONSTEXPR PlanParam(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline FarmTools() : FarmTools(nullptr) {}
+  ~FarmTools() override;
+  explicit PROTOBUF_CONSTEXPR FarmTools(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  PlanParam(const PlanParam& from);
-  PlanParam(PlanParam&& from) noexcept
-    : PlanParam() {
+  FarmTools(const FarmTools& from);
+  FarmTools(FarmTools&& from) noexcept
+    : FarmTools() {
     *this = ::std::move(from);
   }
 
-  inline PlanParam& operator=(const PlanParam& from) {
+  inline FarmTools& operator=(const FarmTools& from) {
     CopyFrom(from);
     return *this;
   }
-  inline PlanParam& operator=(PlanParam&& from) noexcept {
+  inline FarmTools& operator=(FarmTools&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -615,20 +626,20 @@ class PlanParam final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const PlanParam& default_instance() {
+  static const FarmTools& default_instance() {
     return *internal_default_instance();
   }
-  static inline const PlanParam* internal_default_instance() {
-    return reinterpret_cast<const PlanParam*>(
-               &_PlanParam_default_instance_);
+  static inline const FarmTools* internal_default_instance() {
+    return reinterpret_cast<const FarmTools*>(
+               &_FarmTools_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     2;
 
-  friend void swap(PlanParam& a, PlanParam& b) {
+  friend void swap(FarmTools& a, FarmTools& b) {
     a.Swap(&b);
   }
-  inline void Swap(PlanParam* other) {
+  inline void Swap(FarmTools* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -641,7 +652,7 @@ class PlanParam final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(PlanParam* other) {
+  void UnsafeArenaSwap(FarmTools* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -649,14 +660,14 @@ class PlanParam final :
 
   // implements Message ----------------------------------------------
 
-  PlanParam* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<PlanParam>(arena);
+  FarmTools* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<FarmTools>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const PlanParam& from);
+  void CopyFrom(const FarmTools& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const PlanParam& from) {
-    PlanParam::MergeImpl(*this, from);
+  void MergeFrom( const FarmTools& from) {
+    FarmTools::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -674,15 +685,15 @@ class PlanParam final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(PlanParam* other);
+  void InternalSwap(FarmTools* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "haoxing.route.PlanParam";
+    return "haoxing.route.FarmTools";
   }
   protected:
-  explicit PlanParam(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit FarmTools(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   public:
 
@@ -696,110 +707,48 @@ class PlanParam final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kTaskVehicleNumFieldNumber = 7,
-    kServiceNodesFieldNumber = 8,
-    kInterSpFieldNumber = 1,
-    kRouteTypeFieldNumber = 2,
-    kTaskTypeFieldNumber = 3,
-    kModifyOrientationFieldNumber = 4,
-    kAccOverlapFieldNumber = 5,
-    kMultiVehicleFieldNumber = 6,
+    kWidthFieldNumber = 1,
+    kLengthFieldNumber = 2,
+    kLeftOffsetFieldNumber = 3,
+    kRightOffsetFieldNumber = 4,
   };
-  // repeated int32 task_vehicle_num = 7;
-  int task_vehicle_num_size() const;
+  // double width = 1;
+  void clear_width();
+  double width() const;
+  void set_width(double value);
   private:
-  int _internal_task_vehicle_num_size() const;
-  public:
-  void clear_task_vehicle_num();
-  private:
-  int32_t _internal_task_vehicle_num(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
-      _internal_task_vehicle_num() const;
-  void _internal_add_task_vehicle_num(int32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
-      _internal_mutable_task_vehicle_num();
-  public:
-  int32_t task_vehicle_num(int index) const;
-  void set_task_vehicle_num(int index, int32_t value);
-  void add_task_vehicle_num(int32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
-      task_vehicle_num() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
-      mutable_task_vehicle_num();
-
-  // repeated .haoxing.route.NodeXYZ service_nodes = 8;
-  int service_nodes_size() const;
-  private:
-  int _internal_service_nodes_size() const;
-  public:
-  void clear_service_nodes();
-  ::haoxing::route::NodeXYZ* mutable_service_nodes(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::haoxing::route::NodeXYZ >*
-      mutable_service_nodes();
-  private:
-  const ::haoxing::route::NodeXYZ& _internal_service_nodes(int index) const;
-  ::haoxing::route::NodeXYZ* _internal_add_service_nodes();
-  public:
-  const ::haoxing::route::NodeXYZ& service_nodes(int index) const;
-  ::haoxing::route::NodeXYZ* add_service_nodes();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::haoxing::route::NodeXYZ >&
-      service_nodes() const;
-
-  // double inter_sp = 1;
-  void clear_inter_sp();
-  double inter_sp() const;
-  void set_inter_sp(double value);
-  private:
-  double _internal_inter_sp() const;
-  void _internal_set_inter_sp(double value);
+  double _internal_width() const;
+  void _internal_set_width(double value);
   public:
 
-  // double route_type = 2;
-  void clear_route_type();
-  double route_type() const;
-  void set_route_type(double value);
+  // double length = 2;
+  void clear_length();
+  double length() const;
+  void set_length(double value);
   private:
-  double _internal_route_type() const;
-  void _internal_set_route_type(double value);
+  double _internal_length() const;
+  void _internal_set_length(double value);
   public:
 
-  // double task_type = 3;
-  void clear_task_type();
-  double task_type() const;
-  void set_task_type(double value);
+  // double leftOffset = 3;
+  void clear_leftoffset();
+  double leftoffset() const;
+  void set_leftoffset(double value);
   private:
-  double _internal_task_type() const;
-  void _internal_set_task_type(double value);
+  double _internal_leftoffset() const;
+  void _internal_set_leftoffset(double value);
   public:
 
-  // bool modify_orientation = 4;
-  void clear_modify_orientation();
-  bool modify_orientation() const;
-  void set_modify_orientation(bool value);
+  // double rightOffset = 4;
+  void clear_rightoffset();
+  double rightoffset() const;
+  void set_rightoffset(double value);
   private:
-  bool _internal_modify_orientation() const;
-  void _internal_set_modify_orientation(bool value);
+  double _internal_rightoffset() const;
+  void _internal_set_rightoffset(double value);
   public:
 
-  // bool acc_overlap = 5;
-  void clear_acc_overlap();
-  bool acc_overlap() const;
-  void set_acc_overlap(bool value);
-  private:
-  bool _internal_acc_overlap() const;
-  void _internal_set_acc_overlap(bool value);
-  public:
-
-  // bool multi_vehicle = 6;
-  void clear_multi_vehicle();
-  bool multi_vehicle() const;
-  void set_multi_vehicle(bool value);
-  private:
-  bool _internal_multi_vehicle() const;
-  void _internal_set_multi_vehicle(bool value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:haoxing.route.PlanParam)
+  // @@protoc_insertion_point(class_scope:haoxing.route.FarmTools)
  private:
   class _Internal;
 
@@ -807,15 +756,10 @@ class PlanParam final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > task_vehicle_num_;
-    mutable std::atomic<int> _task_vehicle_num_cached_byte_size_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::haoxing::route::NodeXYZ > service_nodes_;
-    double inter_sp_;
-    double route_type_;
-    double task_type_;
-    bool modify_orientation_;
-    bool acc_overlap_;
-    bool multi_vehicle_;
+    double width_;
+    double length_;
+    double leftoffset_;
+    double rightoffset_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -1037,24 +981,24 @@ class Vehicle final :
 };
 // -------------------------------------------------------------------
 
-class Implement final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:haoxing.route.Implement) */ {
+class ObstacleReq final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:haoxing.route.ObstacleReq) */ {
  public:
-  inline Implement() : Implement(nullptr) {}
-  ~Implement() override;
-  explicit PROTOBUF_CONSTEXPR Implement(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline ObstacleReq() : ObstacleReq(nullptr) {}
+  ~ObstacleReq() override;
+  explicit PROTOBUF_CONSTEXPR ObstacleReq(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  Implement(const Implement& from);
-  Implement(Implement&& from) noexcept
-    : Implement() {
+  ObstacleReq(const ObstacleReq& from);
+  ObstacleReq(ObstacleReq&& from) noexcept
+    : ObstacleReq() {
     *this = ::std::move(from);
   }
 
-  inline Implement& operator=(const Implement& from) {
+  inline ObstacleReq& operator=(const ObstacleReq& from) {
     CopyFrom(from);
     return *this;
   }
-  inline Implement& operator=(Implement&& from) noexcept {
+  inline ObstacleReq& operator=(ObstacleReq&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -1077,20 +1021,20 @@ class Implement final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const Implement& default_instance() {
+  static const ObstacleReq& default_instance() {
     return *internal_default_instance();
   }
-  static inline const Implement* internal_default_instance() {
-    return reinterpret_cast<const Implement*>(
-               &_Implement_default_instance_);
+  static inline const ObstacleReq* internal_default_instance() {
+    return reinterpret_cast<const ObstacleReq*>(
+               &_ObstacleReq_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     4;
 
-  friend void swap(Implement& a, Implement& b) {
+  friend void swap(ObstacleReq& a, ObstacleReq& b) {
     a.Swap(&b);
   }
-  inline void Swap(Implement* other) {
+  inline void Swap(ObstacleReq* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -1103,7 +1047,7 @@ class Implement final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(Implement* other) {
+  void UnsafeArenaSwap(ObstacleReq* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -1111,14 +1055,14 @@ class Implement final :
 
   // implements Message ----------------------------------------------
 
-  Implement* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<Implement>(arena);
+  ObstacleReq* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ObstacleReq>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const Implement& from);
+  void CopyFrom(const ObstacleReq& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const Implement& from) {
-    Implement::MergeImpl(*this, from);
+  void MergeFrom( const ObstacleReq& from) {
+    ObstacleReq::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -1136,207 +1080,15 @@ class Implement final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(Implement* other);
+  void InternalSwap(ObstacleReq* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "haoxing.route.Implement";
+    return "haoxing.route.ObstacleReq";
   }
   protected:
-  explicit Implement(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kWidthFieldNumber = 1,
-    kLengthFieldNumber = 2,
-    kRightOffsetFieldNumber = 3,
-    kLeftOffsetFieldNumber = 4,
-    kLinkageModeFieldNumber = 5,
-  };
-  // double width = 1;
-  void clear_width();
-  double width() const;
-  void set_width(double value);
-  private:
-  double _internal_width() const;
-  void _internal_set_width(double value);
-  public:
-
-  // double length = 2;
-  void clear_length();
-  double length() const;
-  void set_length(double value);
-  private:
-  double _internal_length() const;
-  void _internal_set_length(double value);
-  public:
-
-  // double right_offset = 3;
-  void clear_right_offset();
-  double right_offset() const;
-  void set_right_offset(double value);
-  private:
-  double _internal_right_offset() const;
-  void _internal_set_right_offset(double value);
-  public:
-
-  // double left_offset = 4;
-  void clear_left_offset();
-  double left_offset() const;
-  void set_left_offset(double value);
-  private:
-  double _internal_left_offset() const;
-  void _internal_set_left_offset(double value);
-  public:
-
-  // int32 linkage_mode = 5;
-  void clear_linkage_mode();
-  int32_t linkage_mode() const;
-  void set_linkage_mode(int32_t value);
-  private:
-  int32_t _internal_linkage_mode() const;
-  void _internal_set_linkage_mode(int32_t value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:haoxing.route.Implement)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    double width_;
-    double length_;
-    double right_offset_;
-    double left_offset_;
-    int32_t linkage_mode_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_route_2eproto;
-};
-// -------------------------------------------------------------------
-
-class Obstacle final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:haoxing.route.Obstacle) */ {
- public:
-  inline Obstacle() : Obstacle(nullptr) {}
-  ~Obstacle() override;
-  explicit PROTOBUF_CONSTEXPR Obstacle(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  Obstacle(const Obstacle& from);
-  Obstacle(Obstacle&& from) noexcept
-    : Obstacle() {
-    *this = ::std::move(from);
-  }
-
-  inline Obstacle& operator=(const Obstacle& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline Obstacle& operator=(Obstacle&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const Obstacle& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const Obstacle* internal_default_instance() {
-    return reinterpret_cast<const Obstacle*>(
-               &_Obstacle_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    5;
-
-  friend void swap(Obstacle& a, Obstacle& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(Obstacle* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(Obstacle* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  Obstacle* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<Obstacle>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const Obstacle& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const Obstacle& from) {
-    Obstacle::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(Obstacle* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "haoxing.route.Obstacle";
-  }
-  protected:
-  explicit Obstacle(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit ObstacleReq(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   public:
 
@@ -1355,6 +1107,7 @@ class Obstacle final :
     kZFieldNumber = 3,
     kRFieldNumber = 4,
     kRWFieldNumber = 5,
+    kTaskIndexFieldNumber = 6,
   };
   // double x = 1;
   void clear_x();
@@ -1401,7 +1154,16 @@ class Obstacle final :
   void _internal_set_r_w(double value);
   public:
 
-  // @@protoc_insertion_point(class_scope:haoxing.route.Obstacle)
+  // int32 taskIndex = 6;
+  void clear_taskindex();
+  int32_t taskindex() const;
+  void set_taskindex(int32_t value);
+  private:
+  int32_t _internal_taskindex() const;
+  void _internal_set_taskindex(int32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:haoxing.route.ObstacleReq)
  private:
   class _Internal;
 
@@ -1414,6 +1176,7 @@ class Obstacle final :
     double z_;
     double r_;
     double r_w_;
+    int32_t taskindex_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -1421,24 +1184,24 @@ class Obstacle final :
 };
 // -------------------------------------------------------------------
 
-class RequestParam final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:haoxing.route.RequestParam) */ {
+class PlanParam final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:haoxing.route.PlanParam) */ {
  public:
-  inline RequestParam() : RequestParam(nullptr) {}
-  ~RequestParam() override;
-  explicit PROTOBUF_CONSTEXPR RequestParam(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline PlanParam() : PlanParam(nullptr) {}
+  ~PlanParam() override;
+  explicit PROTOBUF_CONSTEXPR PlanParam(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  RequestParam(const RequestParam& from);
-  RequestParam(RequestParam&& from) noexcept
-    : RequestParam() {
+  PlanParam(const PlanParam& from);
+  PlanParam(PlanParam&& from) noexcept
+    : PlanParam() {
     *this = ::std::move(from);
   }
 
-  inline RequestParam& operator=(const RequestParam& from) {
+  inline PlanParam& operator=(const PlanParam& from) {
     CopyFrom(from);
     return *this;
   }
-  inline RequestParam& operator=(RequestParam&& from) noexcept {
+  inline PlanParam& operator=(PlanParam&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -1461,20 +1224,20 @@ class RequestParam final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const RequestParam& default_instance() {
+  static const PlanParam& default_instance() {
     return *internal_default_instance();
   }
-  static inline const RequestParam* internal_default_instance() {
-    return reinterpret_cast<const RequestParam*>(
-               &_RequestParam_default_instance_);
+  static inline const PlanParam* internal_default_instance() {
+    return reinterpret_cast<const PlanParam*>(
+               &_PlanParam_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    5;
 
-  friend void swap(RequestParam& a, RequestParam& b) {
+  friend void swap(PlanParam& a, PlanParam& b) {
     a.Swap(&b);
   }
-  inline void Swap(RequestParam* other) {
+  inline void Swap(PlanParam* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -1487,7 +1250,7 @@ class RequestParam final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(RequestParam* other) {
+  void UnsafeArenaSwap(PlanParam* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -1495,14 +1258,14 @@ class RequestParam final :
 
   // implements Message ----------------------------------------------
 
-  RequestParam* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<RequestParam>(arena);
+  PlanParam* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<PlanParam>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const RequestParam& from);
+  void CopyFrom(const PlanParam& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const RequestParam& from) {
-    RequestParam::MergeImpl(*this, from);
+  void MergeFrom( const PlanParam& from) {
+    PlanParam::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -1520,15 +1283,15 @@ class RequestParam final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(RequestParam* other);
+  void InternalSwap(PlanParam* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "haoxing.route.RequestParam";
+    return "haoxing.route.PlanParam";
   }
   protected:
-  explicit RequestParam(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit PlanParam(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   public:
 
@@ -1542,46 +1305,302 @@ class RequestParam final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kFieldInfosFieldNumber = 1,
-    kPlanParamFieldNumber = 2,
-    kVehicleFieldNumber = 3,
-    kImplementFieldNumber = 4,
+    kServiceNodesFieldNumber = 10,
+    kLineSpaceFieldNumber = 1,
+    kInterspaceFieldNumber = 2,
+    kSafeDistanceFieldNumber = 3,
+    kTurnRoundTypeFieldNumber = 4,
+    kTaskTypeFieldNumber = 5,
+    kTypeSeedingFieldNumber = 6,
+    kModifyOrientationFieldNumber = 7,
+    kAccOverlapFieldNumber = 8,
+    kMultiVehicleFieldNumber = 9,
   };
-  // repeated .haoxing.route.FieldInfo field_infos = 1;
-  int field_infos_size() const;
+  // repeated .haoxing.route.NodeXYZ service_nodes = 10;
+  int service_nodes_size() const;
   private:
-  int _internal_field_infos_size() const;
+  int _internal_service_nodes_size() const;
   public:
-  void clear_field_infos();
-  ::haoxing::route::FieldInfo* mutable_field_infos(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::haoxing::route::FieldInfo >*
-      mutable_field_infos();
+  void clear_service_nodes();
+  ::haoxing::route::NodeXYZ* mutable_service_nodes(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::haoxing::route::NodeXYZ >*
+      mutable_service_nodes();
   private:
-  const ::haoxing::route::FieldInfo& _internal_field_infos(int index) const;
-  ::haoxing::route::FieldInfo* _internal_add_field_infos();
+  const ::haoxing::route::NodeXYZ& _internal_service_nodes(int index) const;
+  ::haoxing::route::NodeXYZ* _internal_add_service_nodes();
   public:
-  const ::haoxing::route::FieldInfo& field_infos(int index) const;
-  ::haoxing::route::FieldInfo* add_field_infos();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::haoxing::route::FieldInfo >&
-      field_infos() const;
+  const ::haoxing::route::NodeXYZ& service_nodes(int index) const;
+  ::haoxing::route::NodeXYZ* add_service_nodes();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::haoxing::route::NodeXYZ >&
+      service_nodes() const;
 
-  // .haoxing.route.PlanParam plan_param = 2;
-  bool has_plan_param() const;
+  // double lineSpace = 1;
+  void clear_linespace();
+  double linespace() const;
+  void set_linespace(double value);
   private:
-  bool _internal_has_plan_param() const;
+  double _internal_linespace() const;
+  void _internal_set_linespace(double value);
   public:
-  void clear_plan_param();
-  const ::haoxing::route::PlanParam& plan_param() const;
-  PROTOBUF_NODISCARD ::haoxing::route::PlanParam* release_plan_param();
-  ::haoxing::route::PlanParam* mutable_plan_param();
-  void set_allocated_plan_param(::haoxing::route::PlanParam* plan_param);
+
+  // double interspace = 2;
+  void clear_interspace();
+  double interspace() const;
+  void set_interspace(double value);
   private:
-  const ::haoxing::route::PlanParam& _internal_plan_param() const;
-  ::haoxing::route::PlanParam* _internal_mutable_plan_param();
+  double _internal_interspace() const;
+  void _internal_set_interspace(double value);
   public:
-  void unsafe_arena_set_allocated_plan_param(
-      ::haoxing::route::PlanParam* plan_param);
-  ::haoxing::route::PlanParam* unsafe_arena_release_plan_param();
+
+  // double safe_distance = 3;
+  void clear_safe_distance();
+  double safe_distance() const;
+  void set_safe_distance(double value);
+  private:
+  double _internal_safe_distance() const;
+  void _internal_set_safe_distance(double value);
+  public:
+
+  // double turn_round_type = 4;
+  void clear_turn_round_type();
+  double turn_round_type() const;
+  void set_turn_round_type(double value);
+  private:
+  double _internal_turn_round_type() const;
+  void _internal_set_turn_round_type(double value);
+  public:
+
+  // double task_type = 5;
+  void clear_task_type();
+  double task_type() const;
+  void set_task_type(double value);
+  private:
+  double _internal_task_type() const;
+  void _internal_set_task_type(double value);
+  public:
+
+  // double type_seeding = 6;
+  void clear_type_seeding();
+  double type_seeding() const;
+  void set_type_seeding(double value);
+  private:
+  double _internal_type_seeding() const;
+  void _internal_set_type_seeding(double value);
+  public:
+
+  // bool modify_orientation = 7;
+  void clear_modify_orientation();
+  bool modify_orientation() const;
+  void set_modify_orientation(bool value);
+  private:
+  bool _internal_modify_orientation() const;
+  void _internal_set_modify_orientation(bool value);
+  public:
+
+  // bool acc_overlap = 8;
+  void clear_acc_overlap();
+  bool acc_overlap() const;
+  void set_acc_overlap(bool value);
+  private:
+  bool _internal_acc_overlap() const;
+  void _internal_set_acc_overlap(bool value);
+  public:
+
+  // bool multi_vehicle = 9;
+  void clear_multi_vehicle();
+  bool multi_vehicle() const;
+  void set_multi_vehicle(bool value);
+  private:
+  bool _internal_multi_vehicle() const;
+  void _internal_set_multi_vehicle(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:haoxing.route.PlanParam)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::haoxing::route::NodeXYZ > service_nodes_;
+    double linespace_;
+    double interspace_;
+    double safe_distance_;
+    double turn_round_type_;
+    double task_type_;
+    double type_seeding_;
+    bool modify_orientation_;
+    bool acc_overlap_;
+    bool multi_vehicle_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_route_2eproto;
+};
+// -------------------------------------------------------------------
+
+class RoadPlanRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:haoxing.route.RoadPlanRequest) */ {
+ public:
+  inline RoadPlanRequest() : RoadPlanRequest(nullptr) {}
+  ~RoadPlanRequest() override;
+  explicit PROTOBUF_CONSTEXPR RoadPlanRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  RoadPlanRequest(const RoadPlanRequest& from);
+  RoadPlanRequest(RoadPlanRequest&& from) noexcept
+    : RoadPlanRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline RoadPlanRequest& operator=(const RoadPlanRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline RoadPlanRequest& operator=(RoadPlanRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const RoadPlanRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const RoadPlanRequest* internal_default_instance() {
+    return reinterpret_cast<const RoadPlanRequest*>(
+               &_RoadPlanRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    6;
+
+  friend void swap(RoadPlanRequest& a, RoadPlanRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(RoadPlanRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(RoadPlanRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  RoadPlanRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<RoadPlanRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const RoadPlanRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const RoadPlanRequest& from) {
+    RoadPlanRequest::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(RoadPlanRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "haoxing.route.RoadPlanRequest";
+  }
+  protected:
+  explicit RoadPlanRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kGisFieldInfoFieldNumber = 1,
+    kFarmToolsFieldNumber = 2,
+    kVehicleFieldNumber = 3,
+    kPlanParamFieldNumber = 4,
+  };
+  // .haoxing.route.GisFieldInfo gisFieldInfo = 1;
+  bool has_gisfieldinfo() const;
+  private:
+  bool _internal_has_gisfieldinfo() const;
+  public:
+  void clear_gisfieldinfo();
+  const ::haoxing::route::GisFieldInfo& gisfieldinfo() const;
+  PROTOBUF_NODISCARD ::haoxing::route::GisFieldInfo* release_gisfieldinfo();
+  ::haoxing::route::GisFieldInfo* mutable_gisfieldinfo();
+  void set_allocated_gisfieldinfo(::haoxing::route::GisFieldInfo* gisfieldinfo);
+  private:
+  const ::haoxing::route::GisFieldInfo& _internal_gisfieldinfo() const;
+  ::haoxing::route::GisFieldInfo* _internal_mutable_gisfieldinfo();
+  public:
+  void unsafe_arena_set_allocated_gisfieldinfo(
+      ::haoxing::route::GisFieldInfo* gisfieldinfo);
+  ::haoxing::route::GisFieldInfo* unsafe_arena_release_gisfieldinfo();
+
+  // .haoxing.route.FarmTools farmTools = 2;
+  bool has_farmtools() const;
+  private:
+  bool _internal_has_farmtools() const;
+  public:
+  void clear_farmtools();
+  const ::haoxing::route::FarmTools& farmtools() const;
+  PROTOBUF_NODISCARD ::haoxing::route::FarmTools* release_farmtools();
+  ::haoxing::route::FarmTools* mutable_farmtools();
+  void set_allocated_farmtools(::haoxing::route::FarmTools* farmtools);
+  private:
+  const ::haoxing::route::FarmTools& _internal_farmtools() const;
+  ::haoxing::route::FarmTools* _internal_mutable_farmtools();
+  public:
+  void unsafe_arena_set_allocated_farmtools(
+      ::haoxing::route::FarmTools* farmtools);
+  ::haoxing::route::FarmTools* unsafe_arena_release_farmtools();
 
   // .haoxing.route.Vehicle vehicle = 3;
   bool has_vehicle() const;
@@ -1601,25 +1620,25 @@ class RequestParam final :
       ::haoxing::route::Vehicle* vehicle);
   ::haoxing::route::Vehicle* unsafe_arena_release_vehicle();
 
-  // .haoxing.route.Implement implement = 4;
-  bool has_implement() const;
+  // .haoxing.route.PlanParam planParam = 4;
+  bool has_planparam() const;
   private:
-  bool _internal_has_implement() const;
+  bool _internal_has_planparam() const;
   public:
-  void clear_implement();
-  const ::haoxing::route::Implement& implement() const;
-  PROTOBUF_NODISCARD ::haoxing::route::Implement* release_implement();
-  ::haoxing::route::Implement* mutable_implement();
-  void set_allocated_implement(::haoxing::route::Implement* implement);
+  void clear_planparam();
+  const ::haoxing::route::PlanParam& planparam() const;
+  PROTOBUF_NODISCARD ::haoxing::route::PlanParam* release_planparam();
+  ::haoxing::route::PlanParam* mutable_planparam();
+  void set_allocated_planparam(::haoxing::route::PlanParam* planparam);
   private:
-  const ::haoxing::route::Implement& _internal_implement() const;
-  ::haoxing::route::Implement* _internal_mutable_implement();
+  const ::haoxing::route::PlanParam& _internal_planparam() const;
+  ::haoxing::route::PlanParam* _internal_mutable_planparam();
   public:
-  void unsafe_arena_set_allocated_implement(
-      ::haoxing::route::Implement* implement);
-  ::haoxing::route::Implement* unsafe_arena_release_implement();
+  void unsafe_arena_set_allocated_planparam(
+      ::haoxing::route::PlanParam* planparam);
+  ::haoxing::route::PlanParam* unsafe_arena_release_planparam();
 
-  // @@protoc_insertion_point(class_scope:haoxing.route.RequestParam)
+  // @@protoc_insertion_point(class_scope:haoxing.route.RoadPlanRequest)
  private:
   class _Internal;
 
@@ -1627,10 +1646,10 @@ class RequestParam final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::haoxing::route::FieldInfo > field_infos_;
-    ::haoxing::route::PlanParam* plan_param_;
+    ::haoxing::route::GisFieldInfo* gisfieldinfo_;
+    ::haoxing::route::FarmTools* farmtools_;
     ::haoxing::route::Vehicle* vehicle_;
-    ::haoxing::route::Implement* implement_;
+    ::haoxing::route::PlanParam* planparam_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -1638,24 +1657,24 @@ class RequestParam final :
 };
 // -------------------------------------------------------------------
 
-class ResponseParam final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:haoxing.route.ResponseParam) */ {
+class RoadPlanRespond final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:haoxing.route.RoadPlanRespond) */ {
  public:
-  inline ResponseParam() : ResponseParam(nullptr) {}
-  ~ResponseParam() override;
-  explicit PROTOBUF_CONSTEXPR ResponseParam(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline RoadPlanRespond() : RoadPlanRespond(nullptr) {}
+  ~RoadPlanRespond() override;
+  explicit PROTOBUF_CONSTEXPR RoadPlanRespond(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  ResponseParam(const ResponseParam& from);
-  ResponseParam(ResponseParam&& from) noexcept
-    : ResponseParam() {
+  RoadPlanRespond(const RoadPlanRespond& from);
+  RoadPlanRespond(RoadPlanRespond&& from) noexcept
+    : RoadPlanRespond() {
     *this = ::std::move(from);
   }
 
-  inline ResponseParam& operator=(const ResponseParam& from) {
+  inline RoadPlanRespond& operator=(const RoadPlanRespond& from) {
     CopyFrom(from);
     return *this;
   }
-  inline ResponseParam& operator=(ResponseParam&& from) noexcept {
+  inline RoadPlanRespond& operator=(RoadPlanRespond&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -1678,20 +1697,20 @@ class ResponseParam final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const ResponseParam& default_instance() {
+  static const RoadPlanRespond& default_instance() {
     return *internal_default_instance();
   }
-  static inline const ResponseParam* internal_default_instance() {
-    return reinterpret_cast<const ResponseParam*>(
-               &_ResponseParam_default_instance_);
+  static inline const RoadPlanRespond* internal_default_instance() {
+    return reinterpret_cast<const RoadPlanRespond*>(
+               &_RoadPlanRespond_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     7;
 
-  friend void swap(ResponseParam& a, ResponseParam& b) {
+  friend void swap(RoadPlanRespond& a, RoadPlanRespond& b) {
     a.Swap(&b);
   }
-  inline void Swap(ResponseParam* other) {
+  inline void Swap(RoadPlanRespond* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -1704,7 +1723,7 @@ class ResponseParam final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(ResponseParam* other) {
+  void UnsafeArenaSwap(RoadPlanRespond* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -1712,14 +1731,14 @@ class ResponseParam final :
 
   // implements Message ----------------------------------------------
 
-  ResponseParam* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<ResponseParam>(arena);
+  RoadPlanRespond* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<RoadPlanRespond>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const ResponseParam& from);
+  void CopyFrom(const RoadPlanRespond& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const ResponseParam& from) {
-    ResponseParam::MergeImpl(*this, from);
+  void MergeFrom( const RoadPlanRespond& from) {
+    RoadPlanRespond::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -1737,15 +1756,15 @@ class ResponseParam final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(ResponseParam* other);
+  void InternalSwap(RoadPlanRespond* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "haoxing.route.ResponseParam";
+    return "haoxing.route.RoadPlanRespond";
   }
   protected:
-  explicit ResponseParam(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit RoadPlanRespond(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   public:
 
@@ -1789,7 +1808,7 @@ class ResponseParam final :
   void _internal_set_mileage(double value);
   public:
 
-  // @@protoc_insertion_point(class_scope:haoxing.route.ResponseParam)
+  // @@protoc_insertion_point(class_scope:haoxing.route.RoadPlanRespond)
  private:
   class _Internal;
 
@@ -1895,7 +1914,47 @@ inline void NodeXYZ::set_yaw(double value) {
   // @@protoc_insertion_point(field_set:haoxing.route.NodeXYZ.yaw)
 }
 
-// double curvature = 5;
+// double v = 5;
+inline void NodeXYZ::clear_v() {
+  _impl_.v_ = 0;
+}
+inline double NodeXYZ::_internal_v() const {
+  return _impl_.v_;
+}
+inline double NodeXYZ::v() const {
+  // @@protoc_insertion_point(field_get:haoxing.route.NodeXYZ.v)
+  return _internal_v();
+}
+inline void NodeXYZ::_internal_set_v(double value) {
+  
+  _impl_.v_ = value;
+}
+inline void NodeXYZ::set_v(double value) {
+  _internal_set_v(value);
+  // @@protoc_insertion_point(field_set:haoxing.route.NodeXYZ.v)
+}
+
+// double s = 6;
+inline void NodeXYZ::clear_s() {
+  _impl_.s_ = 0;
+}
+inline double NodeXYZ::_internal_s() const {
+  return _impl_.s_;
+}
+inline double NodeXYZ::s() const {
+  // @@protoc_insertion_point(field_get:haoxing.route.NodeXYZ.s)
+  return _internal_s();
+}
+inline void NodeXYZ::_internal_set_s(double value) {
+  
+  _impl_.s_ = value;
+}
+inline void NodeXYZ::set_s(double value) {
+  _internal_set_s(value);
+  // @@protoc_insertion_point(field_set:haoxing.route.NodeXYZ.s)
+}
+
+// double curvature = 7;
 inline void NodeXYZ::clear_curvature() {
   _impl_.curvature_ = 0;
 }
@@ -1915,27 +1974,47 @@ inline void NodeXYZ::set_curvature(double value) {
   // @@protoc_insertion_point(field_set:haoxing.route.NodeXYZ.curvature)
 }
 
-// int32 segment = 6;
-inline void NodeXYZ::clear_segment() {
-  _impl_.segment_ = 0;
+// int32 back = 8;
+inline void NodeXYZ::clear_back() {
+  _impl_.back_ = 0;
 }
-inline int32_t NodeXYZ::_internal_segment() const {
-  return _impl_.segment_;
+inline int32_t NodeXYZ::_internal_back() const {
+  return _impl_.back_;
 }
-inline int32_t NodeXYZ::segment() const {
-  // @@protoc_insertion_point(field_get:haoxing.route.NodeXYZ.segment)
-  return _internal_segment();
+inline int32_t NodeXYZ::back() const {
+  // @@protoc_insertion_point(field_get:haoxing.route.NodeXYZ.back)
+  return _internal_back();
 }
-inline void NodeXYZ::_internal_set_segment(int32_t value) {
+inline void NodeXYZ::_internal_set_back(int32_t value) {
   
-  _impl_.segment_ = value;
+  _impl_.back_ = value;
 }
-inline void NodeXYZ::set_segment(int32_t value) {
-  _internal_set_segment(value);
-  // @@protoc_insertion_point(field_set:haoxing.route.NodeXYZ.segment)
+inline void NodeXYZ::set_back(int32_t value) {
+  _internal_set_back(value);
+  // @@protoc_insertion_point(field_set:haoxing.route.NodeXYZ.back)
 }
 
-// bool reverse = 7;
+// int32 str_cur = 9;
+inline void NodeXYZ::clear_str_cur() {
+  _impl_.str_cur_ = 0;
+}
+inline int32_t NodeXYZ::_internal_str_cur() const {
+  return _impl_.str_cur_;
+}
+inline int32_t NodeXYZ::str_cur() const {
+  // @@protoc_insertion_point(field_get:haoxing.route.NodeXYZ.str_cur)
+  return _internal_str_cur();
+}
+inline void NodeXYZ::_internal_set_str_cur(int32_t value) {
+  
+  _impl_.str_cur_ = value;
+}
+inline void NodeXYZ::set_str_cur(int32_t value) {
+  _internal_set_str_cur(value);
+  // @@protoc_insertion_point(field_set:haoxing.route.NodeXYZ.str_cur)
+}
+
+// bool reverse = 10;
 inline void NodeXYZ::clear_reverse() {
   _impl_.reverse_ = false;
 }
@@ -1955,93 +2034,53 @@ inline void NodeXYZ::set_reverse(bool value) {
   // @@protoc_insertion_point(field_set:haoxing.route.NodeXYZ.reverse)
 }
 
-// int32 node_type = 8;
-inline void NodeXYZ::clear_node_type() {
-  _impl_.node_type_ = 0;
+// int32 type = 11;
+inline void NodeXYZ::clear_type() {
+  _impl_.type_ = 0;
 }
-inline int32_t NodeXYZ::_internal_node_type() const {
-  return _impl_.node_type_;
+inline int32_t NodeXYZ::_internal_type() const {
+  return _impl_.type_;
 }
-inline int32_t NodeXYZ::node_type() const {
-  // @@protoc_insertion_point(field_get:haoxing.route.NodeXYZ.node_type)
-  return _internal_node_type();
+inline int32_t NodeXYZ::type() const {
+  // @@protoc_insertion_point(field_get:haoxing.route.NodeXYZ.type)
+  return _internal_type();
 }
-inline void NodeXYZ::_internal_set_node_type(int32_t value) {
+inline void NodeXYZ::_internal_set_type(int32_t value) {
   
-  _impl_.node_type_ = value;
+  _impl_.type_ = value;
 }
-inline void NodeXYZ::set_node_type(int32_t value) {
-  _internal_set_node_type(value);
-  // @@protoc_insertion_point(field_set:haoxing.route.NodeXYZ.node_type)
-}
-
-// int32 impl_state = 9;
-inline void NodeXYZ::clear_impl_state() {
-  _impl_.impl_state_ = 0;
-}
-inline int32_t NodeXYZ::_internal_impl_state() const {
-  return _impl_.impl_state_;
-}
-inline int32_t NodeXYZ::impl_state() const {
-  // @@protoc_insertion_point(field_get:haoxing.route.NodeXYZ.impl_state)
-  return _internal_impl_state();
-}
-inline void NodeXYZ::_internal_set_impl_state(int32_t value) {
-  
-  _impl_.impl_state_ = value;
-}
-inline void NodeXYZ::set_impl_state(int32_t value) {
-  _internal_set_impl_state(value);
-  // @@protoc_insertion_point(field_set:haoxing.route.NodeXYZ.impl_state)
-}
-
-// int32 impl_plough_ori = 10;
-inline void NodeXYZ::clear_impl_plough_ori() {
-  _impl_.impl_plough_ori_ = 0;
-}
-inline int32_t NodeXYZ::_internal_impl_plough_ori() const {
-  return _impl_.impl_plough_ori_;
-}
-inline int32_t NodeXYZ::impl_plough_ori() const {
-  // @@protoc_insertion_point(field_get:haoxing.route.NodeXYZ.impl_plough_ori)
-  return _internal_impl_plough_ori();
-}
-inline void NodeXYZ::_internal_set_impl_plough_ori(int32_t value) {
-  
-  _impl_.impl_plough_ori_ = value;
-}
-inline void NodeXYZ::set_impl_plough_ori(int32_t value) {
-  _internal_set_impl_plough_ori(value);
-  // @@protoc_insertion_point(field_set:haoxing.route.NodeXYZ.impl_plough_ori)
+inline void NodeXYZ::set_type(int32_t value) {
+  _internal_set_type(value);
+  // @@protoc_insertion_point(field_set:haoxing.route.NodeXYZ.type)
 }
 
 // -------------------------------------------------------------------
 
-// FieldInfo
+// GisFieldInfo
 
 // .haoxing.route.NodeXYZ entrance_node = 1;
-inline bool FieldInfo::_internal_has_entrance_node() const {
+inline bool GisFieldInfo::_internal_has_entrance_node() const {
   return this != internal_default_instance() && _impl_.entrance_node_ != nullptr;
 }
-inline bool FieldInfo::has_entrance_node() const {
+inline bool GisFieldInfo::has_entrance_node() const {
   return _internal_has_entrance_node();
 }
-inline void FieldInfo::clear_entrance_node() {
+inline void GisFieldInfo::clear_entrance_node() {
   if (GetArenaForAllocation() == nullptr && _impl_.entrance_node_ != nullptr) {
     delete _impl_.entrance_node_;
   }
   _impl_.entrance_node_ = nullptr;
 }
-inline const ::haoxing::route::NodeXYZ& FieldInfo::_internal_entrance_node() const {
+inline const ::haoxing::route::NodeXYZ& GisFieldInfo::_internal_entrance_node() const {
   const ::haoxing::route::NodeXYZ* p = _impl_.entrance_node_;
   return p != nullptr ? *p : reinterpret_cast<const ::haoxing::route::NodeXYZ&>(
       ::haoxing::route::_NodeXYZ_default_instance_);
 }
-inline const ::haoxing::route::NodeXYZ& FieldInfo::entrance_node() const {
-  // @@protoc_insertion_point(field_get:haoxing.route.FieldInfo.entrance_node)
+inline const ::haoxing::route::NodeXYZ& GisFieldInfo::entrance_node() const {
+  // @@protoc_insertion_point(field_get:haoxing.route.GisFieldInfo.entrance_node)
   return _internal_entrance_node();
 }
-inline void FieldInfo::unsafe_arena_set_allocated_entrance_node(
+inline void GisFieldInfo::unsafe_arena_set_allocated_entrance_node(
     ::haoxing::route::NodeXYZ* entrance_node) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.entrance_node_);
@@ -2052,9 +2091,9 @@ inline void FieldInfo::unsafe_arena_set_allocated_entrance_node(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:haoxing.route.FieldInfo.entrance_node)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:haoxing.route.GisFieldInfo.entrance_node)
 }
-inline ::haoxing::route::NodeXYZ* FieldInfo::release_entrance_node() {
+inline ::haoxing::route::NodeXYZ* GisFieldInfo::release_entrance_node() {
   
   ::haoxing::route::NodeXYZ* temp = _impl_.entrance_node_;
   _impl_.entrance_node_ = nullptr;
@@ -2069,14 +2108,14 @@ inline ::haoxing::route::NodeXYZ* FieldInfo::release_entrance_node() {
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::haoxing::route::NodeXYZ* FieldInfo::unsafe_arena_release_entrance_node() {
-  // @@protoc_insertion_point(field_release:haoxing.route.FieldInfo.entrance_node)
+inline ::haoxing::route::NodeXYZ* GisFieldInfo::unsafe_arena_release_entrance_node() {
+  // @@protoc_insertion_point(field_release:haoxing.route.GisFieldInfo.entrance_node)
   
   ::haoxing::route::NodeXYZ* temp = _impl_.entrance_node_;
   _impl_.entrance_node_ = nullptr;
   return temp;
 }
-inline ::haoxing::route::NodeXYZ* FieldInfo::_internal_mutable_entrance_node() {
+inline ::haoxing::route::NodeXYZ* GisFieldInfo::_internal_mutable_entrance_node() {
   
   if (_impl_.entrance_node_ == nullptr) {
     auto* p = CreateMaybeMessage<::haoxing::route::NodeXYZ>(GetArenaForAllocation());
@@ -2084,12 +2123,12 @@ inline ::haoxing::route::NodeXYZ* FieldInfo::_internal_mutable_entrance_node() {
   }
   return _impl_.entrance_node_;
 }
-inline ::haoxing::route::NodeXYZ* FieldInfo::mutable_entrance_node() {
+inline ::haoxing::route::NodeXYZ* GisFieldInfo::mutable_entrance_node() {
   ::haoxing::route::NodeXYZ* _msg = _internal_mutable_entrance_node();
-  // @@protoc_insertion_point(field_mutable:haoxing.route.FieldInfo.entrance_node)
+  // @@protoc_insertion_point(field_mutable:haoxing.route.GisFieldInfo.entrance_node)
   return _msg;
 }
-inline void FieldInfo::set_allocated_entrance_node(::haoxing::route::NodeXYZ* entrance_node) {
+inline void GisFieldInfo::set_allocated_entrance_node(::haoxing::route::NodeXYZ* entrance_node) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete _impl_.entrance_node_;
@@ -2106,32 +2145,32 @@ inline void FieldInfo::set_allocated_entrance_node(::haoxing::route::NodeXYZ* en
     
   }
   _impl_.entrance_node_ = entrance_node;
-  // @@protoc_insertion_point(field_set_allocated:haoxing.route.FieldInfo.entrance_node)
+  // @@protoc_insertion_point(field_set_allocated:haoxing.route.GisFieldInfo.entrance_node)
 }
 
 // .haoxing.route.NodeXYZ exit_node = 2;
-inline bool FieldInfo::_internal_has_exit_node() const {
+inline bool GisFieldInfo::_internal_has_exit_node() const {
   return this != internal_default_instance() && _impl_.exit_node_ != nullptr;
 }
-inline bool FieldInfo::has_exit_node() const {
+inline bool GisFieldInfo::has_exit_node() const {
   return _internal_has_exit_node();
 }
-inline void FieldInfo::clear_exit_node() {
+inline void GisFieldInfo::clear_exit_node() {
   if (GetArenaForAllocation() == nullptr && _impl_.exit_node_ != nullptr) {
     delete _impl_.exit_node_;
   }
   _impl_.exit_node_ = nullptr;
 }
-inline const ::haoxing::route::NodeXYZ& FieldInfo::_internal_exit_node() const {
+inline const ::haoxing::route::NodeXYZ& GisFieldInfo::_internal_exit_node() const {
   const ::haoxing::route::NodeXYZ* p = _impl_.exit_node_;
   return p != nullptr ? *p : reinterpret_cast<const ::haoxing::route::NodeXYZ&>(
       ::haoxing::route::_NodeXYZ_default_instance_);
 }
-inline const ::haoxing::route::NodeXYZ& FieldInfo::exit_node() const {
-  // @@protoc_insertion_point(field_get:haoxing.route.FieldInfo.exit_node)
+inline const ::haoxing::route::NodeXYZ& GisFieldInfo::exit_node() const {
+  // @@protoc_insertion_point(field_get:haoxing.route.GisFieldInfo.exit_node)
   return _internal_exit_node();
 }
-inline void FieldInfo::unsafe_arena_set_allocated_exit_node(
+inline void GisFieldInfo::unsafe_arena_set_allocated_exit_node(
     ::haoxing::route::NodeXYZ* exit_node) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.exit_node_);
@@ -2142,9 +2181,9 @@ inline void FieldInfo::unsafe_arena_set_allocated_exit_node(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:haoxing.route.FieldInfo.exit_node)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:haoxing.route.GisFieldInfo.exit_node)
 }
-inline ::haoxing::route::NodeXYZ* FieldInfo::release_exit_node() {
+inline ::haoxing::route::NodeXYZ* GisFieldInfo::release_exit_node() {
   
   ::haoxing::route::NodeXYZ* temp = _impl_.exit_node_;
   _impl_.exit_node_ = nullptr;
@@ -2159,14 +2198,14 @@ inline ::haoxing::route::NodeXYZ* FieldInfo::release_exit_node() {
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::haoxing::route::NodeXYZ* FieldInfo::unsafe_arena_release_exit_node() {
-  // @@protoc_insertion_point(field_release:haoxing.route.FieldInfo.exit_node)
+inline ::haoxing::route::NodeXYZ* GisFieldInfo::unsafe_arena_release_exit_node() {
+  // @@protoc_insertion_point(field_release:haoxing.route.GisFieldInfo.exit_node)
   
   ::haoxing::route::NodeXYZ* temp = _impl_.exit_node_;
   _impl_.exit_node_ = nullptr;
   return temp;
 }
-inline ::haoxing::route::NodeXYZ* FieldInfo::_internal_mutable_exit_node() {
+inline ::haoxing::route::NodeXYZ* GisFieldInfo::_internal_mutable_exit_node() {
   
   if (_impl_.exit_node_ == nullptr) {
     auto* p = CreateMaybeMessage<::haoxing::route::NodeXYZ>(GetArenaForAllocation());
@@ -2174,12 +2213,12 @@ inline ::haoxing::route::NodeXYZ* FieldInfo::_internal_mutable_exit_node() {
   }
   return _impl_.exit_node_;
 }
-inline ::haoxing::route::NodeXYZ* FieldInfo::mutable_exit_node() {
+inline ::haoxing::route::NodeXYZ* GisFieldInfo::mutable_exit_node() {
   ::haoxing::route::NodeXYZ* _msg = _internal_mutable_exit_node();
-  // @@protoc_insertion_point(field_mutable:haoxing.route.FieldInfo.exit_node)
+  // @@protoc_insertion_point(field_mutable:haoxing.route.GisFieldInfo.exit_node)
   return _msg;
 }
-inline void FieldInfo::set_allocated_exit_node(::haoxing::route::NodeXYZ* exit_node) {
+inline void GisFieldInfo::set_allocated_exit_node(::haoxing::route::NodeXYZ* exit_node) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete _impl_.exit_node_;
@@ -2196,345 +2235,218 @@ inline void FieldInfo::set_allocated_exit_node(::haoxing::route::NodeXYZ* exit_n
     
   }
   _impl_.exit_node_ = exit_node;
-  // @@protoc_insertion_point(field_set_allocated:haoxing.route.FieldInfo.exit_node)
+  // @@protoc_insertion_point(field_set_allocated:haoxing.route.GisFieldInfo.exit_node)
 }
 
 // repeated .haoxing.route.NodeXYZ fieldNodes = 3;
-inline int FieldInfo::_internal_fieldnodes_size() const {
+inline int GisFieldInfo::_internal_fieldnodes_size() const {
   return _impl_.fieldnodes_.size();
 }
-inline int FieldInfo::fieldnodes_size() const {
+inline int GisFieldInfo::fieldnodes_size() const {
   return _internal_fieldnodes_size();
 }
-inline void FieldInfo::clear_fieldnodes() {
+inline void GisFieldInfo::clear_fieldnodes() {
   _impl_.fieldnodes_.Clear();
 }
-inline ::haoxing::route::NodeXYZ* FieldInfo::mutable_fieldnodes(int index) {
-  // @@protoc_insertion_point(field_mutable:haoxing.route.FieldInfo.fieldNodes)
+inline ::haoxing::route::NodeXYZ* GisFieldInfo::mutable_fieldnodes(int index) {
+  // @@protoc_insertion_point(field_mutable:haoxing.route.GisFieldInfo.fieldNodes)
   return _impl_.fieldnodes_.Mutable(index);
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::haoxing::route::NodeXYZ >*
-FieldInfo::mutable_fieldnodes() {
-  // @@protoc_insertion_point(field_mutable_list:haoxing.route.FieldInfo.fieldNodes)
+GisFieldInfo::mutable_fieldnodes() {
+  // @@protoc_insertion_point(field_mutable_list:haoxing.route.GisFieldInfo.fieldNodes)
   return &_impl_.fieldnodes_;
 }
-inline const ::haoxing::route::NodeXYZ& FieldInfo::_internal_fieldnodes(int index) const {
+inline const ::haoxing::route::NodeXYZ& GisFieldInfo::_internal_fieldnodes(int index) const {
   return _impl_.fieldnodes_.Get(index);
 }
-inline const ::haoxing::route::NodeXYZ& FieldInfo::fieldnodes(int index) const {
-  // @@protoc_insertion_point(field_get:haoxing.route.FieldInfo.fieldNodes)
+inline const ::haoxing::route::NodeXYZ& GisFieldInfo::fieldnodes(int index) const {
+  // @@protoc_insertion_point(field_get:haoxing.route.GisFieldInfo.fieldNodes)
   return _internal_fieldnodes(index);
 }
-inline ::haoxing::route::NodeXYZ* FieldInfo::_internal_add_fieldnodes() {
+inline ::haoxing::route::NodeXYZ* GisFieldInfo::_internal_add_fieldnodes() {
   return _impl_.fieldnodes_.Add();
 }
-inline ::haoxing::route::NodeXYZ* FieldInfo::add_fieldnodes() {
+inline ::haoxing::route::NodeXYZ* GisFieldInfo::add_fieldnodes() {
   ::haoxing::route::NodeXYZ* _add = _internal_add_fieldnodes();
-  // @@protoc_insertion_point(field_add:haoxing.route.FieldInfo.fieldNodes)
+  // @@protoc_insertion_point(field_add:haoxing.route.GisFieldInfo.fieldNodes)
   return _add;
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::haoxing::route::NodeXYZ >&
-FieldInfo::fieldnodes() const {
-  // @@protoc_insertion_point(field_list:haoxing.route.FieldInfo.fieldNodes)
+GisFieldInfo::fieldnodes() const {
+  // @@protoc_insertion_point(field_list:haoxing.route.GisFieldInfo.fieldNodes)
   return _impl_.fieldnodes_;
 }
 
-// repeated .haoxing.route.Obstacle obstacles = 4;
-inline int FieldInfo::_internal_obstacles_size() const {
-  return _impl_.obstacles_.size();
+// repeated .haoxing.route.ObstacleReq obstacleReq = 4;
+inline int GisFieldInfo::_internal_obstaclereq_size() const {
+  return _impl_.obstaclereq_.size();
 }
-inline int FieldInfo::obstacles_size() const {
-  return _internal_obstacles_size();
+inline int GisFieldInfo::obstaclereq_size() const {
+  return _internal_obstaclereq_size();
 }
-inline void FieldInfo::clear_obstacles() {
-  _impl_.obstacles_.Clear();
+inline void GisFieldInfo::clear_obstaclereq() {
+  _impl_.obstaclereq_.Clear();
 }
-inline ::haoxing::route::Obstacle* FieldInfo::mutable_obstacles(int index) {
-  // @@protoc_insertion_point(field_mutable:haoxing.route.FieldInfo.obstacles)
-  return _impl_.obstacles_.Mutable(index);
+inline ::haoxing::route::ObstacleReq* GisFieldInfo::mutable_obstaclereq(int index) {
+  // @@protoc_insertion_point(field_mutable:haoxing.route.GisFieldInfo.obstacleReq)
+  return _impl_.obstaclereq_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::haoxing::route::Obstacle >*
-FieldInfo::mutable_obstacles() {
-  // @@protoc_insertion_point(field_mutable_list:haoxing.route.FieldInfo.obstacles)
-  return &_impl_.obstacles_;
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::haoxing::route::ObstacleReq >*
+GisFieldInfo::mutable_obstaclereq() {
+  // @@protoc_insertion_point(field_mutable_list:haoxing.route.GisFieldInfo.obstacleReq)
+  return &_impl_.obstaclereq_;
 }
-inline const ::haoxing::route::Obstacle& FieldInfo::_internal_obstacles(int index) const {
-  return _impl_.obstacles_.Get(index);
+inline const ::haoxing::route::ObstacleReq& GisFieldInfo::_internal_obstaclereq(int index) const {
+  return _impl_.obstaclereq_.Get(index);
 }
-inline const ::haoxing::route::Obstacle& FieldInfo::obstacles(int index) const {
-  // @@protoc_insertion_point(field_get:haoxing.route.FieldInfo.obstacles)
-  return _internal_obstacles(index);
+inline const ::haoxing::route::ObstacleReq& GisFieldInfo::obstaclereq(int index) const {
+  // @@protoc_insertion_point(field_get:haoxing.route.GisFieldInfo.obstacleReq)
+  return _internal_obstaclereq(index);
 }
-inline ::haoxing::route::Obstacle* FieldInfo::_internal_add_obstacles() {
-  return _impl_.obstacles_.Add();
+inline ::haoxing::route::ObstacleReq* GisFieldInfo::_internal_add_obstaclereq() {
+  return _impl_.obstaclereq_.Add();
 }
-inline ::haoxing::route::Obstacle* FieldInfo::add_obstacles() {
-  ::haoxing::route::Obstacle* _add = _internal_add_obstacles();
-  // @@protoc_insertion_point(field_add:haoxing.route.FieldInfo.obstacles)
+inline ::haoxing::route::ObstacleReq* GisFieldInfo::add_obstaclereq() {
+  ::haoxing::route::ObstacleReq* _add = _internal_add_obstaclereq();
+  // @@protoc_insertion_point(field_add:haoxing.route.GisFieldInfo.obstacleReq)
   return _add;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::haoxing::route::Obstacle >&
-FieldInfo::obstacles() const {
-  // @@protoc_insertion_point(field_list:haoxing.route.FieldInfo.obstacles)
-  return _impl_.obstacles_;
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::haoxing::route::ObstacleReq >&
+GisFieldInfo::obstaclereq() const {
+  // @@protoc_insertion_point(field_list:haoxing.route.GisFieldInfo.obstacleReq)
+  return _impl_.obstaclereq_;
 }
 
 // repeated double preset_spaces = 5;
-inline int FieldInfo::_internal_preset_spaces_size() const {
+inline int GisFieldInfo::_internal_preset_spaces_size() const {
   return _impl_.preset_spaces_.size();
 }
-inline int FieldInfo::preset_spaces_size() const {
+inline int GisFieldInfo::preset_spaces_size() const {
   return _internal_preset_spaces_size();
 }
-inline void FieldInfo::clear_preset_spaces() {
+inline void GisFieldInfo::clear_preset_spaces() {
   _impl_.preset_spaces_.Clear();
 }
-inline double FieldInfo::_internal_preset_spaces(int index) const {
+inline double GisFieldInfo::_internal_preset_spaces(int index) const {
   return _impl_.preset_spaces_.Get(index);
 }
-inline double FieldInfo::preset_spaces(int index) const {
-  // @@protoc_insertion_point(field_get:haoxing.route.FieldInfo.preset_spaces)
+inline double GisFieldInfo::preset_spaces(int index) const {
+  // @@protoc_insertion_point(field_get:haoxing.route.GisFieldInfo.preset_spaces)
   return _internal_preset_spaces(index);
 }
-inline void FieldInfo::set_preset_spaces(int index, double value) {
+inline void GisFieldInfo::set_preset_spaces(int index, double value) {
   _impl_.preset_spaces_.Set(index, value);
-  // @@protoc_insertion_point(field_set:haoxing.route.FieldInfo.preset_spaces)
+  // @@protoc_insertion_point(field_set:haoxing.route.GisFieldInfo.preset_spaces)
 }
-inline void FieldInfo::_internal_add_preset_spaces(double value) {
+inline void GisFieldInfo::_internal_add_preset_spaces(double value) {
   _impl_.preset_spaces_.Add(value);
 }
-inline void FieldInfo::add_preset_spaces(double value) {
+inline void GisFieldInfo::add_preset_spaces(double value) {
   _internal_add_preset_spaces(value);
-  // @@protoc_insertion_point(field_add:haoxing.route.FieldInfo.preset_spaces)
+  // @@protoc_insertion_point(field_add:haoxing.route.GisFieldInfo.preset_spaces)
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< double >&
-FieldInfo::_internal_preset_spaces() const {
+GisFieldInfo::_internal_preset_spaces() const {
   return _impl_.preset_spaces_;
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< double >&
-FieldInfo::preset_spaces() const {
-  // @@protoc_insertion_point(field_list:haoxing.route.FieldInfo.preset_spaces)
+GisFieldInfo::preset_spaces() const {
+  // @@protoc_insertion_point(field_list:haoxing.route.GisFieldInfo.preset_spaces)
   return _internal_preset_spaces();
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< double >*
-FieldInfo::_internal_mutable_preset_spaces() {
+GisFieldInfo::_internal_mutable_preset_spaces() {
   return &_impl_.preset_spaces_;
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< double >*
-FieldInfo::mutable_preset_spaces() {
-  // @@protoc_insertion_point(field_mutable_list:haoxing.route.FieldInfo.preset_spaces)
+GisFieldInfo::mutable_preset_spaces() {
+  // @@protoc_insertion_point(field_mutable_list:haoxing.route.GisFieldInfo.preset_spaces)
   return _internal_mutable_preset_spaces();
 }
 
 // -------------------------------------------------------------------
 
-// PlanParam
+// FarmTools
 
-// double inter_sp = 1;
-inline void PlanParam::clear_inter_sp() {
-  _impl_.inter_sp_ = 0;
+// double width = 1;
+inline void FarmTools::clear_width() {
+  _impl_.width_ = 0;
 }
-inline double PlanParam::_internal_inter_sp() const {
-  return _impl_.inter_sp_;
+inline double FarmTools::_internal_width() const {
+  return _impl_.width_;
 }
-inline double PlanParam::inter_sp() const {
-  // @@protoc_insertion_point(field_get:haoxing.route.PlanParam.inter_sp)
-  return _internal_inter_sp();
+inline double FarmTools::width() const {
+  // @@protoc_insertion_point(field_get:haoxing.route.FarmTools.width)
+  return _internal_width();
 }
-inline void PlanParam::_internal_set_inter_sp(double value) {
+inline void FarmTools::_internal_set_width(double value) {
   
-  _impl_.inter_sp_ = value;
+  _impl_.width_ = value;
 }
-inline void PlanParam::set_inter_sp(double value) {
-  _internal_set_inter_sp(value);
-  // @@protoc_insertion_point(field_set:haoxing.route.PlanParam.inter_sp)
+inline void FarmTools::set_width(double value) {
+  _internal_set_width(value);
+  // @@protoc_insertion_point(field_set:haoxing.route.FarmTools.width)
 }
 
-// double route_type = 2;
-inline void PlanParam::clear_route_type() {
-  _impl_.route_type_ = 0;
+// double length = 2;
+inline void FarmTools::clear_length() {
+  _impl_.length_ = 0;
 }
-inline double PlanParam::_internal_route_type() const {
-  return _impl_.route_type_;
+inline double FarmTools::_internal_length() const {
+  return _impl_.length_;
 }
-inline double PlanParam::route_type() const {
-  // @@protoc_insertion_point(field_get:haoxing.route.PlanParam.route_type)
-  return _internal_route_type();
+inline double FarmTools::length() const {
+  // @@protoc_insertion_point(field_get:haoxing.route.FarmTools.length)
+  return _internal_length();
 }
-inline void PlanParam::_internal_set_route_type(double value) {
+inline void FarmTools::_internal_set_length(double value) {
   
-  _impl_.route_type_ = value;
+  _impl_.length_ = value;
 }
-inline void PlanParam::set_route_type(double value) {
-  _internal_set_route_type(value);
-  // @@protoc_insertion_point(field_set:haoxing.route.PlanParam.route_type)
+inline void FarmTools::set_length(double value) {
+  _internal_set_length(value);
+  // @@protoc_insertion_point(field_set:haoxing.route.FarmTools.length)
 }
 
-// double task_type = 3;
-inline void PlanParam::clear_task_type() {
-  _impl_.task_type_ = 0;
+// double leftOffset = 3;
+inline void FarmTools::clear_leftoffset() {
+  _impl_.leftoffset_ = 0;
 }
-inline double PlanParam::_internal_task_type() const {
-  return _impl_.task_type_;
+inline double FarmTools::_internal_leftoffset() const {
+  return _impl_.leftoffset_;
 }
-inline double PlanParam::task_type() const {
-  // @@protoc_insertion_point(field_get:haoxing.route.PlanParam.task_type)
-  return _internal_task_type();
+inline double FarmTools::leftoffset() const {
+  // @@protoc_insertion_point(field_get:haoxing.route.FarmTools.leftOffset)
+  return _internal_leftoffset();
 }
-inline void PlanParam::_internal_set_task_type(double value) {
+inline void FarmTools::_internal_set_leftoffset(double value) {
   
-  _impl_.task_type_ = value;
+  _impl_.leftoffset_ = value;
 }
-inline void PlanParam::set_task_type(double value) {
-  _internal_set_task_type(value);
-  // @@protoc_insertion_point(field_set:haoxing.route.PlanParam.task_type)
+inline void FarmTools::set_leftoffset(double value) {
+  _internal_set_leftoffset(value);
+  // @@protoc_insertion_point(field_set:haoxing.route.FarmTools.leftOffset)
 }
 
-// bool modify_orientation = 4;
-inline void PlanParam::clear_modify_orientation() {
-  _impl_.modify_orientation_ = false;
+// double rightOffset = 4;
+inline void FarmTools::clear_rightoffset() {
+  _impl_.rightoffset_ = 0;
 }
-inline bool PlanParam::_internal_modify_orientation() const {
-  return _impl_.modify_orientation_;
+inline double FarmTools::_internal_rightoffset() const {
+  return _impl_.rightoffset_;
 }
-inline bool PlanParam::modify_orientation() const {
-  // @@protoc_insertion_point(field_get:haoxing.route.PlanParam.modify_orientation)
-  return _internal_modify_orientation();
+inline double FarmTools::rightoffset() const {
+  // @@protoc_insertion_point(field_get:haoxing.route.FarmTools.rightOffset)
+  return _internal_rightoffset();
 }
-inline void PlanParam::_internal_set_modify_orientation(bool value) {
+inline void FarmTools::_internal_set_rightoffset(double value) {
   
-  _impl_.modify_orientation_ = value;
+  _impl_.rightoffset_ = value;
 }
-inline void PlanParam::set_modify_orientation(bool value) {
-  _internal_set_modify_orientation(value);
-  // @@protoc_insertion_point(field_set:haoxing.route.PlanParam.modify_orientation)
-}
-
-// bool acc_overlap = 5;
-inline void PlanParam::clear_acc_overlap() {
-  _impl_.acc_overlap_ = false;
-}
-inline bool PlanParam::_internal_acc_overlap() const {
-  return _impl_.acc_overlap_;
-}
-inline bool PlanParam::acc_overlap() const {
-  // @@protoc_insertion_point(field_get:haoxing.route.PlanParam.acc_overlap)
-  return _internal_acc_overlap();
-}
-inline void PlanParam::_internal_set_acc_overlap(bool value) {
-  
-  _impl_.acc_overlap_ = value;
-}
-inline void PlanParam::set_acc_overlap(bool value) {
-  _internal_set_acc_overlap(value);
-  // @@protoc_insertion_point(field_set:haoxing.route.PlanParam.acc_overlap)
-}
-
-// bool multi_vehicle = 6;
-inline void PlanParam::clear_multi_vehicle() {
-  _impl_.multi_vehicle_ = false;
-}
-inline bool PlanParam::_internal_multi_vehicle() const {
-  return _impl_.multi_vehicle_;
-}
-inline bool PlanParam::multi_vehicle() const {
-  // @@protoc_insertion_point(field_get:haoxing.route.PlanParam.multi_vehicle)
-  return _internal_multi_vehicle();
-}
-inline void PlanParam::_internal_set_multi_vehicle(bool value) {
-  
-  _impl_.multi_vehicle_ = value;
-}
-inline void PlanParam::set_multi_vehicle(bool value) {
-  _internal_set_multi_vehicle(value);
-  // @@protoc_insertion_point(field_set:haoxing.route.PlanParam.multi_vehicle)
-}
-
-// repeated int32 task_vehicle_num = 7;
-inline int PlanParam::_internal_task_vehicle_num_size() const {
-  return _impl_.task_vehicle_num_.size();
-}
-inline int PlanParam::task_vehicle_num_size() const {
-  return _internal_task_vehicle_num_size();
-}
-inline void PlanParam::clear_task_vehicle_num() {
-  _impl_.task_vehicle_num_.Clear();
-}
-inline int32_t PlanParam::_internal_task_vehicle_num(int index) const {
-  return _impl_.task_vehicle_num_.Get(index);
-}
-inline int32_t PlanParam::task_vehicle_num(int index) const {
-  // @@protoc_insertion_point(field_get:haoxing.route.PlanParam.task_vehicle_num)
-  return _internal_task_vehicle_num(index);
-}
-inline void PlanParam::set_task_vehicle_num(int index, int32_t value) {
-  _impl_.task_vehicle_num_.Set(index, value);
-  // @@protoc_insertion_point(field_set:haoxing.route.PlanParam.task_vehicle_num)
-}
-inline void PlanParam::_internal_add_task_vehicle_num(int32_t value) {
-  _impl_.task_vehicle_num_.Add(value);
-}
-inline void PlanParam::add_task_vehicle_num(int32_t value) {
-  _internal_add_task_vehicle_num(value);
-  // @@protoc_insertion_point(field_add:haoxing.route.PlanParam.task_vehicle_num)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
-PlanParam::_internal_task_vehicle_num() const {
-  return _impl_.task_vehicle_num_;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
-PlanParam::task_vehicle_num() const {
-  // @@protoc_insertion_point(field_list:haoxing.route.PlanParam.task_vehicle_num)
-  return _internal_task_vehicle_num();
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
-PlanParam::_internal_mutable_task_vehicle_num() {
-  return &_impl_.task_vehicle_num_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
-PlanParam::mutable_task_vehicle_num() {
-  // @@protoc_insertion_point(field_mutable_list:haoxing.route.PlanParam.task_vehicle_num)
-  return _internal_mutable_task_vehicle_num();
-}
-
-// repeated .haoxing.route.NodeXYZ service_nodes = 8;
-inline int PlanParam::_internal_service_nodes_size() const {
-  return _impl_.service_nodes_.size();
-}
-inline int PlanParam::service_nodes_size() const {
-  return _internal_service_nodes_size();
-}
-inline void PlanParam::clear_service_nodes() {
-  _impl_.service_nodes_.Clear();
-}
-inline ::haoxing::route::NodeXYZ* PlanParam::mutable_service_nodes(int index) {
-  // @@protoc_insertion_point(field_mutable:haoxing.route.PlanParam.service_nodes)
-  return _impl_.service_nodes_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::haoxing::route::NodeXYZ >*
-PlanParam::mutable_service_nodes() {
-  // @@protoc_insertion_point(field_mutable_list:haoxing.route.PlanParam.service_nodes)
-  return &_impl_.service_nodes_;
-}
-inline const ::haoxing::route::NodeXYZ& PlanParam::_internal_service_nodes(int index) const {
-  return _impl_.service_nodes_.Get(index);
-}
-inline const ::haoxing::route::NodeXYZ& PlanParam::service_nodes(int index) const {
-  // @@protoc_insertion_point(field_get:haoxing.route.PlanParam.service_nodes)
-  return _internal_service_nodes(index);
-}
-inline ::haoxing::route::NodeXYZ* PlanParam::_internal_add_service_nodes() {
-  return _impl_.service_nodes_.Add();
-}
-inline ::haoxing::route::NodeXYZ* PlanParam::add_service_nodes() {
-  ::haoxing::route::NodeXYZ* _add = _internal_add_service_nodes();
-  // @@protoc_insertion_point(field_add:haoxing.route.PlanParam.service_nodes)
-  return _add;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::haoxing::route::NodeXYZ >&
-PlanParam::service_nodes() const {
-  // @@protoc_insertion_point(field_list:haoxing.route.PlanParam.service_nodes)
-  return _impl_.service_nodes_;
+inline void FarmTools::set_rightoffset(double value) {
+  _internal_set_rightoffset(value);
+  // @@protoc_insertion_point(field_set:haoxing.route.FarmTools.rightOffset)
 }
 
 // -------------------------------------------------------------------
@@ -2683,295 +2595,395 @@ inline void Vehicle::set_radius(double value) {
 
 // -------------------------------------------------------------------
 
-// Implement
-
-// double width = 1;
-inline void Implement::clear_width() {
-  _impl_.width_ = 0;
-}
-inline double Implement::_internal_width() const {
-  return _impl_.width_;
-}
-inline double Implement::width() const {
-  // @@protoc_insertion_point(field_get:haoxing.route.Implement.width)
-  return _internal_width();
-}
-inline void Implement::_internal_set_width(double value) {
-  
-  _impl_.width_ = value;
-}
-inline void Implement::set_width(double value) {
-  _internal_set_width(value);
-  // @@protoc_insertion_point(field_set:haoxing.route.Implement.width)
-}
-
-// double length = 2;
-inline void Implement::clear_length() {
-  _impl_.length_ = 0;
-}
-inline double Implement::_internal_length() const {
-  return _impl_.length_;
-}
-inline double Implement::length() const {
-  // @@protoc_insertion_point(field_get:haoxing.route.Implement.length)
-  return _internal_length();
-}
-inline void Implement::_internal_set_length(double value) {
-  
-  _impl_.length_ = value;
-}
-inline void Implement::set_length(double value) {
-  _internal_set_length(value);
-  // @@protoc_insertion_point(field_set:haoxing.route.Implement.length)
-}
-
-// double right_offset = 3;
-inline void Implement::clear_right_offset() {
-  _impl_.right_offset_ = 0;
-}
-inline double Implement::_internal_right_offset() const {
-  return _impl_.right_offset_;
-}
-inline double Implement::right_offset() const {
-  // @@protoc_insertion_point(field_get:haoxing.route.Implement.right_offset)
-  return _internal_right_offset();
-}
-inline void Implement::_internal_set_right_offset(double value) {
-  
-  _impl_.right_offset_ = value;
-}
-inline void Implement::set_right_offset(double value) {
-  _internal_set_right_offset(value);
-  // @@protoc_insertion_point(field_set:haoxing.route.Implement.right_offset)
-}
-
-// double left_offset = 4;
-inline void Implement::clear_left_offset() {
-  _impl_.left_offset_ = 0;
-}
-inline double Implement::_internal_left_offset() const {
-  return _impl_.left_offset_;
-}
-inline double Implement::left_offset() const {
-  // @@protoc_insertion_point(field_get:haoxing.route.Implement.left_offset)
-  return _internal_left_offset();
-}
-inline void Implement::_internal_set_left_offset(double value) {
-  
-  _impl_.left_offset_ = value;
-}
-inline void Implement::set_left_offset(double value) {
-  _internal_set_left_offset(value);
-  // @@protoc_insertion_point(field_set:haoxing.route.Implement.left_offset)
-}
-
-// int32 linkage_mode = 5;
-inline void Implement::clear_linkage_mode() {
-  _impl_.linkage_mode_ = 0;
-}
-inline int32_t Implement::_internal_linkage_mode() const {
-  return _impl_.linkage_mode_;
-}
-inline int32_t Implement::linkage_mode() const {
-  // @@protoc_insertion_point(field_get:haoxing.route.Implement.linkage_mode)
-  return _internal_linkage_mode();
-}
-inline void Implement::_internal_set_linkage_mode(int32_t value) {
-  
-  _impl_.linkage_mode_ = value;
-}
-inline void Implement::set_linkage_mode(int32_t value) {
-  _internal_set_linkage_mode(value);
-  // @@protoc_insertion_point(field_set:haoxing.route.Implement.linkage_mode)
-}
-
-// -------------------------------------------------------------------
-
-// Obstacle
+// ObstacleReq
 
 // double x = 1;
-inline void Obstacle::clear_x() {
+inline void ObstacleReq::clear_x() {
   _impl_.x_ = 0;
 }
-inline double Obstacle::_internal_x() const {
+inline double ObstacleReq::_internal_x() const {
   return _impl_.x_;
 }
-inline double Obstacle::x() const {
-  // @@protoc_insertion_point(field_get:haoxing.route.Obstacle.x)
+inline double ObstacleReq::x() const {
+  // @@protoc_insertion_point(field_get:haoxing.route.ObstacleReq.x)
   return _internal_x();
 }
-inline void Obstacle::_internal_set_x(double value) {
+inline void ObstacleReq::_internal_set_x(double value) {
   
   _impl_.x_ = value;
 }
-inline void Obstacle::set_x(double value) {
+inline void ObstacleReq::set_x(double value) {
   _internal_set_x(value);
-  // @@protoc_insertion_point(field_set:haoxing.route.Obstacle.x)
+  // @@protoc_insertion_point(field_set:haoxing.route.ObstacleReq.x)
 }
 
 // double y = 2;
-inline void Obstacle::clear_y() {
+inline void ObstacleReq::clear_y() {
   _impl_.y_ = 0;
 }
-inline double Obstacle::_internal_y() const {
+inline double ObstacleReq::_internal_y() const {
   return _impl_.y_;
 }
-inline double Obstacle::y() const {
-  // @@protoc_insertion_point(field_get:haoxing.route.Obstacle.y)
+inline double ObstacleReq::y() const {
+  // @@protoc_insertion_point(field_get:haoxing.route.ObstacleReq.y)
   return _internal_y();
 }
-inline void Obstacle::_internal_set_y(double value) {
+inline void ObstacleReq::_internal_set_y(double value) {
   
   _impl_.y_ = value;
 }
-inline void Obstacle::set_y(double value) {
+inline void ObstacleReq::set_y(double value) {
   _internal_set_y(value);
-  // @@protoc_insertion_point(field_set:haoxing.route.Obstacle.y)
+  // @@protoc_insertion_point(field_set:haoxing.route.ObstacleReq.y)
 }
 
 // double z = 3;
-inline void Obstacle::clear_z() {
+inline void ObstacleReq::clear_z() {
   _impl_.z_ = 0;
 }
-inline double Obstacle::_internal_z() const {
+inline double ObstacleReq::_internal_z() const {
   return _impl_.z_;
 }
-inline double Obstacle::z() const {
-  // @@protoc_insertion_point(field_get:haoxing.route.Obstacle.z)
+inline double ObstacleReq::z() const {
+  // @@protoc_insertion_point(field_get:haoxing.route.ObstacleReq.z)
   return _internal_z();
 }
-inline void Obstacle::_internal_set_z(double value) {
+inline void ObstacleReq::_internal_set_z(double value) {
   
   _impl_.z_ = value;
 }
-inline void Obstacle::set_z(double value) {
+inline void ObstacleReq::set_z(double value) {
   _internal_set_z(value);
-  // @@protoc_insertion_point(field_set:haoxing.route.Obstacle.z)
+  // @@protoc_insertion_point(field_set:haoxing.route.ObstacleReq.z)
 }
 
 // double r = 4;
-inline void Obstacle::clear_r() {
+inline void ObstacleReq::clear_r() {
   _impl_.r_ = 0;
 }
-inline double Obstacle::_internal_r() const {
+inline double ObstacleReq::_internal_r() const {
   return _impl_.r_;
 }
-inline double Obstacle::r() const {
-  // @@protoc_insertion_point(field_get:haoxing.route.Obstacle.r)
+inline double ObstacleReq::r() const {
+  // @@protoc_insertion_point(field_get:haoxing.route.ObstacleReq.r)
   return _internal_r();
 }
-inline void Obstacle::_internal_set_r(double value) {
+inline void ObstacleReq::_internal_set_r(double value) {
   
   _impl_.r_ = value;
 }
-inline void Obstacle::set_r(double value) {
+inline void ObstacleReq::set_r(double value) {
   _internal_set_r(value);
-  // @@protoc_insertion_point(field_set:haoxing.route.Obstacle.r)
+  // @@protoc_insertion_point(field_set:haoxing.route.ObstacleReq.r)
 }
 
 // double r_w = 5;
-inline void Obstacle::clear_r_w() {
+inline void ObstacleReq::clear_r_w() {
   _impl_.r_w_ = 0;
 }
-inline double Obstacle::_internal_r_w() const {
+inline double ObstacleReq::_internal_r_w() const {
   return _impl_.r_w_;
 }
-inline double Obstacle::r_w() const {
-  // @@protoc_insertion_point(field_get:haoxing.route.Obstacle.r_w)
+inline double ObstacleReq::r_w() const {
+  // @@protoc_insertion_point(field_get:haoxing.route.ObstacleReq.r_w)
   return _internal_r_w();
 }
-inline void Obstacle::_internal_set_r_w(double value) {
+inline void ObstacleReq::_internal_set_r_w(double value) {
   
   _impl_.r_w_ = value;
 }
-inline void Obstacle::set_r_w(double value) {
+inline void ObstacleReq::set_r_w(double value) {
   _internal_set_r_w(value);
-  // @@protoc_insertion_point(field_set:haoxing.route.Obstacle.r_w)
+  // @@protoc_insertion_point(field_set:haoxing.route.ObstacleReq.r_w)
+}
+
+// int32 taskIndex = 6;
+inline void ObstacleReq::clear_taskindex() {
+  _impl_.taskindex_ = 0;
+}
+inline int32_t ObstacleReq::_internal_taskindex() const {
+  return _impl_.taskindex_;
+}
+inline int32_t ObstacleReq::taskindex() const {
+  // @@protoc_insertion_point(field_get:haoxing.route.ObstacleReq.taskIndex)
+  return _internal_taskindex();
+}
+inline void ObstacleReq::_internal_set_taskindex(int32_t value) {
+  
+  _impl_.taskindex_ = value;
+}
+inline void ObstacleReq::set_taskindex(int32_t value) {
+  _internal_set_taskindex(value);
+  // @@protoc_insertion_point(field_set:haoxing.route.ObstacleReq.taskIndex)
 }
 
 // -------------------------------------------------------------------
 
-// RequestParam
+// PlanParam
 
-// repeated .haoxing.route.FieldInfo field_infos = 1;
-inline int RequestParam::_internal_field_infos_size() const {
-  return _impl_.field_infos_.size();
+// double lineSpace = 1;
+inline void PlanParam::clear_linespace() {
+  _impl_.linespace_ = 0;
 }
-inline int RequestParam::field_infos_size() const {
-  return _internal_field_infos_size();
+inline double PlanParam::_internal_linespace() const {
+  return _impl_.linespace_;
 }
-inline void RequestParam::clear_field_infos() {
-  _impl_.field_infos_.Clear();
+inline double PlanParam::linespace() const {
+  // @@protoc_insertion_point(field_get:haoxing.route.PlanParam.lineSpace)
+  return _internal_linespace();
 }
-inline ::haoxing::route::FieldInfo* RequestParam::mutable_field_infos(int index) {
-  // @@protoc_insertion_point(field_mutable:haoxing.route.RequestParam.field_infos)
-  return _impl_.field_infos_.Mutable(index);
+inline void PlanParam::_internal_set_linespace(double value) {
+  
+  _impl_.linespace_ = value;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::haoxing::route::FieldInfo >*
-RequestParam::mutable_field_infos() {
-  // @@protoc_insertion_point(field_mutable_list:haoxing.route.RequestParam.field_infos)
-  return &_impl_.field_infos_;
+inline void PlanParam::set_linespace(double value) {
+  _internal_set_linespace(value);
+  // @@protoc_insertion_point(field_set:haoxing.route.PlanParam.lineSpace)
 }
-inline const ::haoxing::route::FieldInfo& RequestParam::_internal_field_infos(int index) const {
-  return _impl_.field_infos_.Get(index);
+
+// double interspace = 2;
+inline void PlanParam::clear_interspace() {
+  _impl_.interspace_ = 0;
 }
-inline const ::haoxing::route::FieldInfo& RequestParam::field_infos(int index) const {
-  // @@protoc_insertion_point(field_get:haoxing.route.RequestParam.field_infos)
-  return _internal_field_infos(index);
+inline double PlanParam::_internal_interspace() const {
+  return _impl_.interspace_;
 }
-inline ::haoxing::route::FieldInfo* RequestParam::_internal_add_field_infos() {
-  return _impl_.field_infos_.Add();
+inline double PlanParam::interspace() const {
+  // @@protoc_insertion_point(field_get:haoxing.route.PlanParam.interspace)
+  return _internal_interspace();
 }
-inline ::haoxing::route::FieldInfo* RequestParam::add_field_infos() {
-  ::haoxing::route::FieldInfo* _add = _internal_add_field_infos();
-  // @@protoc_insertion_point(field_add:haoxing.route.RequestParam.field_infos)
+inline void PlanParam::_internal_set_interspace(double value) {
+  
+  _impl_.interspace_ = value;
+}
+inline void PlanParam::set_interspace(double value) {
+  _internal_set_interspace(value);
+  // @@protoc_insertion_point(field_set:haoxing.route.PlanParam.interspace)
+}
+
+// double safe_distance = 3;
+inline void PlanParam::clear_safe_distance() {
+  _impl_.safe_distance_ = 0;
+}
+inline double PlanParam::_internal_safe_distance() const {
+  return _impl_.safe_distance_;
+}
+inline double PlanParam::safe_distance() const {
+  // @@protoc_insertion_point(field_get:haoxing.route.PlanParam.safe_distance)
+  return _internal_safe_distance();
+}
+inline void PlanParam::_internal_set_safe_distance(double value) {
+  
+  _impl_.safe_distance_ = value;
+}
+inline void PlanParam::set_safe_distance(double value) {
+  _internal_set_safe_distance(value);
+  // @@protoc_insertion_point(field_set:haoxing.route.PlanParam.safe_distance)
+}
+
+// double turn_round_type = 4;
+inline void PlanParam::clear_turn_round_type() {
+  _impl_.turn_round_type_ = 0;
+}
+inline double PlanParam::_internal_turn_round_type() const {
+  return _impl_.turn_round_type_;
+}
+inline double PlanParam::turn_round_type() const {
+  // @@protoc_insertion_point(field_get:haoxing.route.PlanParam.turn_round_type)
+  return _internal_turn_round_type();
+}
+inline void PlanParam::_internal_set_turn_round_type(double value) {
+  
+  _impl_.turn_round_type_ = value;
+}
+inline void PlanParam::set_turn_round_type(double value) {
+  _internal_set_turn_round_type(value);
+  // @@protoc_insertion_point(field_set:haoxing.route.PlanParam.turn_round_type)
+}
+
+// double task_type = 5;
+inline void PlanParam::clear_task_type() {
+  _impl_.task_type_ = 0;
+}
+inline double PlanParam::_internal_task_type() const {
+  return _impl_.task_type_;
+}
+inline double PlanParam::task_type() const {
+  // @@protoc_insertion_point(field_get:haoxing.route.PlanParam.task_type)
+  return _internal_task_type();
+}
+inline void PlanParam::_internal_set_task_type(double value) {
+  
+  _impl_.task_type_ = value;
+}
+inline void PlanParam::set_task_type(double value) {
+  _internal_set_task_type(value);
+  // @@protoc_insertion_point(field_set:haoxing.route.PlanParam.task_type)
+}
+
+// double type_seeding = 6;
+inline void PlanParam::clear_type_seeding() {
+  _impl_.type_seeding_ = 0;
+}
+inline double PlanParam::_internal_type_seeding() const {
+  return _impl_.type_seeding_;
+}
+inline double PlanParam::type_seeding() const {
+  // @@protoc_insertion_point(field_get:haoxing.route.PlanParam.type_seeding)
+  return _internal_type_seeding();
+}
+inline void PlanParam::_internal_set_type_seeding(double value) {
+  
+  _impl_.type_seeding_ = value;
+}
+inline void PlanParam::set_type_seeding(double value) {
+  _internal_set_type_seeding(value);
+  // @@protoc_insertion_point(field_set:haoxing.route.PlanParam.type_seeding)
+}
+
+// bool modify_orientation = 7;
+inline void PlanParam::clear_modify_orientation() {
+  _impl_.modify_orientation_ = false;
+}
+inline bool PlanParam::_internal_modify_orientation() const {
+  return _impl_.modify_orientation_;
+}
+inline bool PlanParam::modify_orientation() const {
+  // @@protoc_insertion_point(field_get:haoxing.route.PlanParam.modify_orientation)
+  return _internal_modify_orientation();
+}
+inline void PlanParam::_internal_set_modify_orientation(bool value) {
+  
+  _impl_.modify_orientation_ = value;
+}
+inline void PlanParam::set_modify_orientation(bool value) {
+  _internal_set_modify_orientation(value);
+  // @@protoc_insertion_point(field_set:haoxing.route.PlanParam.modify_orientation)
+}
+
+// bool acc_overlap = 8;
+inline void PlanParam::clear_acc_overlap() {
+  _impl_.acc_overlap_ = false;
+}
+inline bool PlanParam::_internal_acc_overlap() const {
+  return _impl_.acc_overlap_;
+}
+inline bool PlanParam::acc_overlap() const {
+  // @@protoc_insertion_point(field_get:haoxing.route.PlanParam.acc_overlap)
+  return _internal_acc_overlap();
+}
+inline void PlanParam::_internal_set_acc_overlap(bool value) {
+  
+  _impl_.acc_overlap_ = value;
+}
+inline void PlanParam::set_acc_overlap(bool value) {
+  _internal_set_acc_overlap(value);
+  // @@protoc_insertion_point(field_set:haoxing.route.PlanParam.acc_overlap)
+}
+
+// bool multi_vehicle = 9;
+inline void PlanParam::clear_multi_vehicle() {
+  _impl_.multi_vehicle_ = false;
+}
+inline bool PlanParam::_internal_multi_vehicle() const {
+  return _impl_.multi_vehicle_;
+}
+inline bool PlanParam::multi_vehicle() const {
+  // @@protoc_insertion_point(field_get:haoxing.route.PlanParam.multi_vehicle)
+  return _internal_multi_vehicle();
+}
+inline void PlanParam::_internal_set_multi_vehicle(bool value) {
+  
+  _impl_.multi_vehicle_ = value;
+}
+inline void PlanParam::set_multi_vehicle(bool value) {
+  _internal_set_multi_vehicle(value);
+  // @@protoc_insertion_point(field_set:haoxing.route.PlanParam.multi_vehicle)
+}
+
+// repeated .haoxing.route.NodeXYZ service_nodes = 10;
+inline int PlanParam::_internal_service_nodes_size() const {
+  return _impl_.service_nodes_.size();
+}
+inline int PlanParam::service_nodes_size() const {
+  return _internal_service_nodes_size();
+}
+inline void PlanParam::clear_service_nodes() {
+  _impl_.service_nodes_.Clear();
+}
+inline ::haoxing::route::NodeXYZ* PlanParam::mutable_service_nodes(int index) {
+  // @@protoc_insertion_point(field_mutable:haoxing.route.PlanParam.service_nodes)
+  return _impl_.service_nodes_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::haoxing::route::NodeXYZ >*
+PlanParam::mutable_service_nodes() {
+  // @@protoc_insertion_point(field_mutable_list:haoxing.route.PlanParam.service_nodes)
+  return &_impl_.service_nodes_;
+}
+inline const ::haoxing::route::NodeXYZ& PlanParam::_internal_service_nodes(int index) const {
+  return _impl_.service_nodes_.Get(index);
+}
+inline const ::haoxing::route::NodeXYZ& PlanParam::service_nodes(int index) const {
+  // @@protoc_insertion_point(field_get:haoxing.route.PlanParam.service_nodes)
+  return _internal_service_nodes(index);
+}
+inline ::haoxing::route::NodeXYZ* PlanParam::_internal_add_service_nodes() {
+  return _impl_.service_nodes_.Add();
+}
+inline ::haoxing::route::NodeXYZ* PlanParam::add_service_nodes() {
+  ::haoxing::route::NodeXYZ* _add = _internal_add_service_nodes();
+  // @@protoc_insertion_point(field_add:haoxing.route.PlanParam.service_nodes)
   return _add;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::haoxing::route::FieldInfo >&
-RequestParam::field_infos() const {
-  // @@protoc_insertion_point(field_list:haoxing.route.RequestParam.field_infos)
-  return _impl_.field_infos_;
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::haoxing::route::NodeXYZ >&
+PlanParam::service_nodes() const {
+  // @@protoc_insertion_point(field_list:haoxing.route.PlanParam.service_nodes)
+  return _impl_.service_nodes_;
 }
 
-// .haoxing.route.PlanParam plan_param = 2;
-inline bool RequestParam::_internal_has_plan_param() const {
-  return this != internal_default_instance() && _impl_.plan_param_ != nullptr;
+// -------------------------------------------------------------------
+
+// RoadPlanRequest
+
+// .haoxing.route.GisFieldInfo gisFieldInfo = 1;
+inline bool RoadPlanRequest::_internal_has_gisfieldinfo() const {
+  return this != internal_default_instance() && _impl_.gisfieldinfo_ != nullptr;
 }
-inline bool RequestParam::has_plan_param() const {
-  return _internal_has_plan_param();
+inline bool RoadPlanRequest::has_gisfieldinfo() const {
+  return _internal_has_gisfieldinfo();
 }
-inline void RequestParam::clear_plan_param() {
-  if (GetArenaForAllocation() == nullptr && _impl_.plan_param_ != nullptr) {
-    delete _impl_.plan_param_;
+inline void RoadPlanRequest::clear_gisfieldinfo() {
+  if (GetArenaForAllocation() == nullptr && _impl_.gisfieldinfo_ != nullptr) {
+    delete _impl_.gisfieldinfo_;
   }
-  _impl_.plan_param_ = nullptr;
+  _impl_.gisfieldinfo_ = nullptr;
 }
-inline const ::haoxing::route::PlanParam& RequestParam::_internal_plan_param() const {
-  const ::haoxing::route::PlanParam* p = _impl_.plan_param_;
-  return p != nullptr ? *p : reinterpret_cast<const ::haoxing::route::PlanParam&>(
-      ::haoxing::route::_PlanParam_default_instance_);
+inline const ::haoxing::route::GisFieldInfo& RoadPlanRequest::_internal_gisfieldinfo() const {
+  const ::haoxing::route::GisFieldInfo* p = _impl_.gisfieldinfo_;
+  return p != nullptr ? *p : reinterpret_cast<const ::haoxing::route::GisFieldInfo&>(
+      ::haoxing::route::_GisFieldInfo_default_instance_);
 }
-inline const ::haoxing::route::PlanParam& RequestParam::plan_param() const {
-  // @@protoc_insertion_point(field_get:haoxing.route.RequestParam.plan_param)
-  return _internal_plan_param();
+inline const ::haoxing::route::GisFieldInfo& RoadPlanRequest::gisfieldinfo() const {
+  // @@protoc_insertion_point(field_get:haoxing.route.RoadPlanRequest.gisFieldInfo)
+  return _internal_gisfieldinfo();
 }
-inline void RequestParam::unsafe_arena_set_allocated_plan_param(
-    ::haoxing::route::PlanParam* plan_param) {
+inline void RoadPlanRequest::unsafe_arena_set_allocated_gisfieldinfo(
+    ::haoxing::route::GisFieldInfo* gisfieldinfo) {
   if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.plan_param_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.gisfieldinfo_);
   }
-  _impl_.plan_param_ = plan_param;
-  if (plan_param) {
+  _impl_.gisfieldinfo_ = gisfieldinfo;
+  if (gisfieldinfo) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:haoxing.route.RequestParam.plan_param)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:haoxing.route.RoadPlanRequest.gisFieldInfo)
 }
-inline ::haoxing::route::PlanParam* RequestParam::release_plan_param() {
+inline ::haoxing::route::GisFieldInfo* RoadPlanRequest::release_gisfieldinfo() {
   
-  ::haoxing::route::PlanParam* temp = _impl_.plan_param_;
-  _impl_.plan_param_ = nullptr;
+  ::haoxing::route::GisFieldInfo* temp = _impl_.gisfieldinfo_;
+  _impl_.gisfieldinfo_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
   auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
   temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
@@ -2983,69 +2995,159 @@ inline ::haoxing::route::PlanParam* RequestParam::release_plan_param() {
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::haoxing::route::PlanParam* RequestParam::unsafe_arena_release_plan_param() {
-  // @@protoc_insertion_point(field_release:haoxing.route.RequestParam.plan_param)
+inline ::haoxing::route::GisFieldInfo* RoadPlanRequest::unsafe_arena_release_gisfieldinfo() {
+  // @@protoc_insertion_point(field_release:haoxing.route.RoadPlanRequest.gisFieldInfo)
   
-  ::haoxing::route::PlanParam* temp = _impl_.plan_param_;
-  _impl_.plan_param_ = nullptr;
+  ::haoxing::route::GisFieldInfo* temp = _impl_.gisfieldinfo_;
+  _impl_.gisfieldinfo_ = nullptr;
   return temp;
 }
-inline ::haoxing::route::PlanParam* RequestParam::_internal_mutable_plan_param() {
+inline ::haoxing::route::GisFieldInfo* RoadPlanRequest::_internal_mutable_gisfieldinfo() {
   
-  if (_impl_.plan_param_ == nullptr) {
-    auto* p = CreateMaybeMessage<::haoxing::route::PlanParam>(GetArenaForAllocation());
-    _impl_.plan_param_ = p;
+  if (_impl_.gisfieldinfo_ == nullptr) {
+    auto* p = CreateMaybeMessage<::haoxing::route::GisFieldInfo>(GetArenaForAllocation());
+    _impl_.gisfieldinfo_ = p;
   }
-  return _impl_.plan_param_;
+  return _impl_.gisfieldinfo_;
 }
-inline ::haoxing::route::PlanParam* RequestParam::mutable_plan_param() {
-  ::haoxing::route::PlanParam* _msg = _internal_mutable_plan_param();
-  // @@protoc_insertion_point(field_mutable:haoxing.route.RequestParam.plan_param)
+inline ::haoxing::route::GisFieldInfo* RoadPlanRequest::mutable_gisfieldinfo() {
+  ::haoxing::route::GisFieldInfo* _msg = _internal_mutable_gisfieldinfo();
+  // @@protoc_insertion_point(field_mutable:haoxing.route.RoadPlanRequest.gisFieldInfo)
   return _msg;
 }
-inline void RequestParam::set_allocated_plan_param(::haoxing::route::PlanParam* plan_param) {
+inline void RoadPlanRequest::set_allocated_gisfieldinfo(::haoxing::route::GisFieldInfo* gisfieldinfo) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
-    delete _impl_.plan_param_;
+    delete _impl_.gisfieldinfo_;
   }
-  if (plan_param) {
+  if (gisfieldinfo) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(plan_param);
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(gisfieldinfo);
     if (message_arena != submessage_arena) {
-      plan_param = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, plan_param, submessage_arena);
+      gisfieldinfo = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, gisfieldinfo, submessage_arena);
     }
     
   } else {
     
   }
-  _impl_.plan_param_ = plan_param;
-  // @@protoc_insertion_point(field_set_allocated:haoxing.route.RequestParam.plan_param)
+  _impl_.gisfieldinfo_ = gisfieldinfo;
+  // @@protoc_insertion_point(field_set_allocated:haoxing.route.RoadPlanRequest.gisFieldInfo)
+}
+
+// .haoxing.route.FarmTools farmTools = 2;
+inline bool RoadPlanRequest::_internal_has_farmtools() const {
+  return this != internal_default_instance() && _impl_.farmtools_ != nullptr;
+}
+inline bool RoadPlanRequest::has_farmtools() const {
+  return _internal_has_farmtools();
+}
+inline void RoadPlanRequest::clear_farmtools() {
+  if (GetArenaForAllocation() == nullptr && _impl_.farmtools_ != nullptr) {
+    delete _impl_.farmtools_;
+  }
+  _impl_.farmtools_ = nullptr;
+}
+inline const ::haoxing::route::FarmTools& RoadPlanRequest::_internal_farmtools() const {
+  const ::haoxing::route::FarmTools* p = _impl_.farmtools_;
+  return p != nullptr ? *p : reinterpret_cast<const ::haoxing::route::FarmTools&>(
+      ::haoxing::route::_FarmTools_default_instance_);
+}
+inline const ::haoxing::route::FarmTools& RoadPlanRequest::farmtools() const {
+  // @@protoc_insertion_point(field_get:haoxing.route.RoadPlanRequest.farmTools)
+  return _internal_farmtools();
+}
+inline void RoadPlanRequest::unsafe_arena_set_allocated_farmtools(
+    ::haoxing::route::FarmTools* farmtools) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.farmtools_);
+  }
+  _impl_.farmtools_ = farmtools;
+  if (farmtools) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:haoxing.route.RoadPlanRequest.farmTools)
+}
+inline ::haoxing::route::FarmTools* RoadPlanRequest::release_farmtools() {
+  
+  ::haoxing::route::FarmTools* temp = _impl_.farmtools_;
+  _impl_.farmtools_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::haoxing::route::FarmTools* RoadPlanRequest::unsafe_arena_release_farmtools() {
+  // @@protoc_insertion_point(field_release:haoxing.route.RoadPlanRequest.farmTools)
+  
+  ::haoxing::route::FarmTools* temp = _impl_.farmtools_;
+  _impl_.farmtools_ = nullptr;
+  return temp;
+}
+inline ::haoxing::route::FarmTools* RoadPlanRequest::_internal_mutable_farmtools() {
+  
+  if (_impl_.farmtools_ == nullptr) {
+    auto* p = CreateMaybeMessage<::haoxing::route::FarmTools>(GetArenaForAllocation());
+    _impl_.farmtools_ = p;
+  }
+  return _impl_.farmtools_;
+}
+inline ::haoxing::route::FarmTools* RoadPlanRequest::mutable_farmtools() {
+  ::haoxing::route::FarmTools* _msg = _internal_mutable_farmtools();
+  // @@protoc_insertion_point(field_mutable:haoxing.route.RoadPlanRequest.farmTools)
+  return _msg;
+}
+inline void RoadPlanRequest::set_allocated_farmtools(::haoxing::route::FarmTools* farmtools) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.farmtools_;
+  }
+  if (farmtools) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(farmtools);
+    if (message_arena != submessage_arena) {
+      farmtools = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, farmtools, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.farmtools_ = farmtools;
+  // @@protoc_insertion_point(field_set_allocated:haoxing.route.RoadPlanRequest.farmTools)
 }
 
 // .haoxing.route.Vehicle vehicle = 3;
-inline bool RequestParam::_internal_has_vehicle() const {
+inline bool RoadPlanRequest::_internal_has_vehicle() const {
   return this != internal_default_instance() && _impl_.vehicle_ != nullptr;
 }
-inline bool RequestParam::has_vehicle() const {
+inline bool RoadPlanRequest::has_vehicle() const {
   return _internal_has_vehicle();
 }
-inline void RequestParam::clear_vehicle() {
+inline void RoadPlanRequest::clear_vehicle() {
   if (GetArenaForAllocation() == nullptr && _impl_.vehicle_ != nullptr) {
     delete _impl_.vehicle_;
   }
   _impl_.vehicle_ = nullptr;
 }
-inline const ::haoxing::route::Vehicle& RequestParam::_internal_vehicle() const {
+inline const ::haoxing::route::Vehicle& RoadPlanRequest::_internal_vehicle() const {
   const ::haoxing::route::Vehicle* p = _impl_.vehicle_;
   return p != nullptr ? *p : reinterpret_cast<const ::haoxing::route::Vehicle&>(
       ::haoxing::route::_Vehicle_default_instance_);
 }
-inline const ::haoxing::route::Vehicle& RequestParam::vehicle() const {
-  // @@protoc_insertion_point(field_get:haoxing.route.RequestParam.vehicle)
+inline const ::haoxing::route::Vehicle& RoadPlanRequest::vehicle() const {
+  // @@protoc_insertion_point(field_get:haoxing.route.RoadPlanRequest.vehicle)
   return _internal_vehicle();
 }
-inline void RequestParam::unsafe_arena_set_allocated_vehicle(
+inline void RoadPlanRequest::unsafe_arena_set_allocated_vehicle(
     ::haoxing::route::Vehicle* vehicle) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.vehicle_);
@@ -3056,9 +3158,9 @@ inline void RequestParam::unsafe_arena_set_allocated_vehicle(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:haoxing.route.RequestParam.vehicle)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:haoxing.route.RoadPlanRequest.vehicle)
 }
-inline ::haoxing::route::Vehicle* RequestParam::release_vehicle() {
+inline ::haoxing::route::Vehicle* RoadPlanRequest::release_vehicle() {
   
   ::haoxing::route::Vehicle* temp = _impl_.vehicle_;
   _impl_.vehicle_ = nullptr;
@@ -3073,14 +3175,14 @@ inline ::haoxing::route::Vehicle* RequestParam::release_vehicle() {
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::haoxing::route::Vehicle* RequestParam::unsafe_arena_release_vehicle() {
-  // @@protoc_insertion_point(field_release:haoxing.route.RequestParam.vehicle)
+inline ::haoxing::route::Vehicle* RoadPlanRequest::unsafe_arena_release_vehicle() {
+  // @@protoc_insertion_point(field_release:haoxing.route.RoadPlanRequest.vehicle)
   
   ::haoxing::route::Vehicle* temp = _impl_.vehicle_;
   _impl_.vehicle_ = nullptr;
   return temp;
 }
-inline ::haoxing::route::Vehicle* RequestParam::_internal_mutable_vehicle() {
+inline ::haoxing::route::Vehicle* RoadPlanRequest::_internal_mutable_vehicle() {
   
   if (_impl_.vehicle_ == nullptr) {
     auto* p = CreateMaybeMessage<::haoxing::route::Vehicle>(GetArenaForAllocation());
@@ -3088,12 +3190,12 @@ inline ::haoxing::route::Vehicle* RequestParam::_internal_mutable_vehicle() {
   }
   return _impl_.vehicle_;
 }
-inline ::haoxing::route::Vehicle* RequestParam::mutable_vehicle() {
+inline ::haoxing::route::Vehicle* RoadPlanRequest::mutable_vehicle() {
   ::haoxing::route::Vehicle* _msg = _internal_mutable_vehicle();
-  // @@protoc_insertion_point(field_mutable:haoxing.route.RequestParam.vehicle)
+  // @@protoc_insertion_point(field_mutable:haoxing.route.RoadPlanRequest.vehicle)
   return _msg;
 }
-inline void RequestParam::set_allocated_vehicle(::haoxing::route::Vehicle* vehicle) {
+inline void RoadPlanRequest::set_allocated_vehicle(::haoxing::route::Vehicle* vehicle) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete _impl_.vehicle_;
@@ -3110,48 +3212,48 @@ inline void RequestParam::set_allocated_vehicle(::haoxing::route::Vehicle* vehic
     
   }
   _impl_.vehicle_ = vehicle;
-  // @@protoc_insertion_point(field_set_allocated:haoxing.route.RequestParam.vehicle)
+  // @@protoc_insertion_point(field_set_allocated:haoxing.route.RoadPlanRequest.vehicle)
 }
 
-// .haoxing.route.Implement implement = 4;
-inline bool RequestParam::_internal_has_implement() const {
-  return this != internal_default_instance() && _impl_.implement_ != nullptr;
+// .haoxing.route.PlanParam planParam = 4;
+inline bool RoadPlanRequest::_internal_has_planparam() const {
+  return this != internal_default_instance() && _impl_.planparam_ != nullptr;
 }
-inline bool RequestParam::has_implement() const {
-  return _internal_has_implement();
+inline bool RoadPlanRequest::has_planparam() const {
+  return _internal_has_planparam();
 }
-inline void RequestParam::clear_implement() {
-  if (GetArenaForAllocation() == nullptr && _impl_.implement_ != nullptr) {
-    delete _impl_.implement_;
+inline void RoadPlanRequest::clear_planparam() {
+  if (GetArenaForAllocation() == nullptr && _impl_.planparam_ != nullptr) {
+    delete _impl_.planparam_;
   }
-  _impl_.implement_ = nullptr;
+  _impl_.planparam_ = nullptr;
 }
-inline const ::haoxing::route::Implement& RequestParam::_internal_implement() const {
-  const ::haoxing::route::Implement* p = _impl_.implement_;
-  return p != nullptr ? *p : reinterpret_cast<const ::haoxing::route::Implement&>(
-      ::haoxing::route::_Implement_default_instance_);
+inline const ::haoxing::route::PlanParam& RoadPlanRequest::_internal_planparam() const {
+  const ::haoxing::route::PlanParam* p = _impl_.planparam_;
+  return p != nullptr ? *p : reinterpret_cast<const ::haoxing::route::PlanParam&>(
+      ::haoxing::route::_PlanParam_default_instance_);
 }
-inline const ::haoxing::route::Implement& RequestParam::implement() const {
-  // @@protoc_insertion_point(field_get:haoxing.route.RequestParam.implement)
-  return _internal_implement();
+inline const ::haoxing::route::PlanParam& RoadPlanRequest::planparam() const {
+  // @@protoc_insertion_point(field_get:haoxing.route.RoadPlanRequest.planParam)
+  return _internal_planparam();
 }
-inline void RequestParam::unsafe_arena_set_allocated_implement(
-    ::haoxing::route::Implement* implement) {
+inline void RoadPlanRequest::unsafe_arena_set_allocated_planparam(
+    ::haoxing::route::PlanParam* planparam) {
   if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.implement_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.planparam_);
   }
-  _impl_.implement_ = implement;
-  if (implement) {
+  _impl_.planparam_ = planparam;
+  if (planparam) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:haoxing.route.RequestParam.implement)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:haoxing.route.RoadPlanRequest.planParam)
 }
-inline ::haoxing::route::Implement* RequestParam::release_implement() {
+inline ::haoxing::route::PlanParam* RoadPlanRequest::release_planparam() {
   
-  ::haoxing::route::Implement* temp = _impl_.implement_;
-  _impl_.implement_ = nullptr;
+  ::haoxing::route::PlanParam* temp = _impl_.planparam_;
+  _impl_.planparam_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
   auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
   temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
@@ -3163,108 +3265,108 @@ inline ::haoxing::route::Implement* RequestParam::release_implement() {
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::haoxing::route::Implement* RequestParam::unsafe_arena_release_implement() {
-  // @@protoc_insertion_point(field_release:haoxing.route.RequestParam.implement)
+inline ::haoxing::route::PlanParam* RoadPlanRequest::unsafe_arena_release_planparam() {
+  // @@protoc_insertion_point(field_release:haoxing.route.RoadPlanRequest.planParam)
   
-  ::haoxing::route::Implement* temp = _impl_.implement_;
-  _impl_.implement_ = nullptr;
+  ::haoxing::route::PlanParam* temp = _impl_.planparam_;
+  _impl_.planparam_ = nullptr;
   return temp;
 }
-inline ::haoxing::route::Implement* RequestParam::_internal_mutable_implement() {
+inline ::haoxing::route::PlanParam* RoadPlanRequest::_internal_mutable_planparam() {
   
-  if (_impl_.implement_ == nullptr) {
-    auto* p = CreateMaybeMessage<::haoxing::route::Implement>(GetArenaForAllocation());
-    _impl_.implement_ = p;
+  if (_impl_.planparam_ == nullptr) {
+    auto* p = CreateMaybeMessage<::haoxing::route::PlanParam>(GetArenaForAllocation());
+    _impl_.planparam_ = p;
   }
-  return _impl_.implement_;
+  return _impl_.planparam_;
 }
-inline ::haoxing::route::Implement* RequestParam::mutable_implement() {
-  ::haoxing::route::Implement* _msg = _internal_mutable_implement();
-  // @@protoc_insertion_point(field_mutable:haoxing.route.RequestParam.implement)
+inline ::haoxing::route::PlanParam* RoadPlanRequest::mutable_planparam() {
+  ::haoxing::route::PlanParam* _msg = _internal_mutable_planparam();
+  // @@protoc_insertion_point(field_mutable:haoxing.route.RoadPlanRequest.planParam)
   return _msg;
 }
-inline void RequestParam::set_allocated_implement(::haoxing::route::Implement* implement) {
+inline void RoadPlanRequest::set_allocated_planparam(::haoxing::route::PlanParam* planparam) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
-    delete _impl_.implement_;
+    delete _impl_.planparam_;
   }
-  if (implement) {
+  if (planparam) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(implement);
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(planparam);
     if (message_arena != submessage_arena) {
-      implement = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, implement, submessage_arena);
+      planparam = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, planparam, submessage_arena);
     }
     
   } else {
     
   }
-  _impl_.implement_ = implement;
-  // @@protoc_insertion_point(field_set_allocated:haoxing.route.RequestParam.implement)
+  _impl_.planparam_ = planparam;
+  // @@protoc_insertion_point(field_set_allocated:haoxing.route.RoadPlanRequest.planParam)
 }
 
 // -------------------------------------------------------------------
 
-// ResponseParam
+// RoadPlanRespond
 
 // repeated .haoxing.route.NodeXYZ nodes = 1;
-inline int ResponseParam::_internal_nodes_size() const {
+inline int RoadPlanRespond::_internal_nodes_size() const {
   return _impl_.nodes_.size();
 }
-inline int ResponseParam::nodes_size() const {
+inline int RoadPlanRespond::nodes_size() const {
   return _internal_nodes_size();
 }
-inline void ResponseParam::clear_nodes() {
+inline void RoadPlanRespond::clear_nodes() {
   _impl_.nodes_.Clear();
 }
-inline ::haoxing::route::NodeXYZ* ResponseParam::mutable_nodes(int index) {
-  // @@protoc_insertion_point(field_mutable:haoxing.route.ResponseParam.nodes)
+inline ::haoxing::route::NodeXYZ* RoadPlanRespond::mutable_nodes(int index) {
+  // @@protoc_insertion_point(field_mutable:haoxing.route.RoadPlanRespond.nodes)
   return _impl_.nodes_.Mutable(index);
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::haoxing::route::NodeXYZ >*
-ResponseParam::mutable_nodes() {
-  // @@protoc_insertion_point(field_mutable_list:haoxing.route.ResponseParam.nodes)
+RoadPlanRespond::mutable_nodes() {
+  // @@protoc_insertion_point(field_mutable_list:haoxing.route.RoadPlanRespond.nodes)
   return &_impl_.nodes_;
 }
-inline const ::haoxing::route::NodeXYZ& ResponseParam::_internal_nodes(int index) const {
+inline const ::haoxing::route::NodeXYZ& RoadPlanRespond::_internal_nodes(int index) const {
   return _impl_.nodes_.Get(index);
 }
-inline const ::haoxing::route::NodeXYZ& ResponseParam::nodes(int index) const {
-  // @@protoc_insertion_point(field_get:haoxing.route.ResponseParam.nodes)
+inline const ::haoxing::route::NodeXYZ& RoadPlanRespond::nodes(int index) const {
+  // @@protoc_insertion_point(field_get:haoxing.route.RoadPlanRespond.nodes)
   return _internal_nodes(index);
 }
-inline ::haoxing::route::NodeXYZ* ResponseParam::_internal_add_nodes() {
+inline ::haoxing::route::NodeXYZ* RoadPlanRespond::_internal_add_nodes() {
   return _impl_.nodes_.Add();
 }
-inline ::haoxing::route::NodeXYZ* ResponseParam::add_nodes() {
+inline ::haoxing::route::NodeXYZ* RoadPlanRespond::add_nodes() {
   ::haoxing::route::NodeXYZ* _add = _internal_add_nodes();
-  // @@protoc_insertion_point(field_add:haoxing.route.ResponseParam.nodes)
+  // @@protoc_insertion_point(field_add:haoxing.route.RoadPlanRespond.nodes)
   return _add;
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::haoxing::route::NodeXYZ >&
-ResponseParam::nodes() const {
-  // @@protoc_insertion_point(field_list:haoxing.route.ResponseParam.nodes)
+RoadPlanRespond::nodes() const {
+  // @@protoc_insertion_point(field_list:haoxing.route.RoadPlanRespond.nodes)
   return _impl_.nodes_;
 }
 
 // double mileage = 2;
-inline void ResponseParam::clear_mileage() {
+inline void RoadPlanRespond::clear_mileage() {
   _impl_.mileage_ = 0;
 }
-inline double ResponseParam::_internal_mileage() const {
+inline double RoadPlanRespond::_internal_mileage() const {
   return _impl_.mileage_;
 }
-inline double ResponseParam::mileage() const {
-  // @@protoc_insertion_point(field_get:haoxing.route.ResponseParam.mileage)
+inline double RoadPlanRespond::mileage() const {
+  // @@protoc_insertion_point(field_get:haoxing.route.RoadPlanRespond.mileage)
   return _internal_mileage();
 }
-inline void ResponseParam::_internal_set_mileage(double value) {
+inline void RoadPlanRespond::_internal_set_mileage(double value) {
   
   _impl_.mileage_ = value;
 }
-inline void ResponseParam::set_mileage(double value) {
+inline void RoadPlanRespond::set_mileage(double value) {
   _internal_set_mileage(value);
-  // @@protoc_insertion_point(field_set:haoxing.route.ResponseParam.mileage)
+  // @@protoc_insertion_point(field_set:haoxing.route.RoadPlanRespond.mileage)
 }
 
 #ifdef __GNUC__

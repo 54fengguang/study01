@@ -22,60 +22,60 @@
 namespace haoxing {
 namespace route {
 
-static const char* RoutingService_method_names[] = {
-  "/haoxing.route.RoutingService/GetNodeXYZList",
+static const char* RoadPlanService_method_names[] = {
+  "/haoxing.route.RoadPlanService/GetNodeXYZList",
 };
 
-std::unique_ptr< RoutingService::Stub> RoutingService::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
+std::unique_ptr< RoadPlanService::Stub> RoadPlanService::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
   (void)options;
-  std::unique_ptr< RoutingService::Stub> stub(new RoutingService::Stub(channel, options));
+  std::unique_ptr< RoadPlanService::Stub> stub(new RoadPlanService::Stub(channel, options));
   return stub;
 }
 
-RoutingService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
-  : channel_(channel), rpcmethod_GetNodeXYZList_(RoutingService_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+RoadPlanService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
+  : channel_(channel), rpcmethod_GetNodeXYZList_(RoadPlanService_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::Status RoutingService::Stub::GetNodeXYZList(::grpc::ClientContext* context, const ::haoxing::route::RequestParam& request, ::haoxing::route::ResponseParam* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::haoxing::route::RequestParam, ::haoxing::route::ResponseParam, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetNodeXYZList_, context, request, response);
+::grpc::Status RoadPlanService::Stub::GetNodeXYZList(::grpc::ClientContext* context, const ::haoxing::route::RoadPlanRequest& request, ::haoxing::route::RoadPlanRespond* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::haoxing::route::RoadPlanRequest, ::haoxing::route::RoadPlanRespond, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetNodeXYZList_, context, request, response);
 }
 
-void RoutingService::Stub::async::GetNodeXYZList(::grpc::ClientContext* context, const ::haoxing::route::RequestParam* request, ::haoxing::route::ResponseParam* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::haoxing::route::RequestParam, ::haoxing::route::ResponseParam, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetNodeXYZList_, context, request, response, std::move(f));
+void RoadPlanService::Stub::async::GetNodeXYZList(::grpc::ClientContext* context, const ::haoxing::route::RoadPlanRequest* request, ::haoxing::route::RoadPlanRespond* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::haoxing::route::RoadPlanRequest, ::haoxing::route::RoadPlanRespond, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetNodeXYZList_, context, request, response, std::move(f));
 }
 
-void RoutingService::Stub::async::GetNodeXYZList(::grpc::ClientContext* context, const ::haoxing::route::RequestParam* request, ::haoxing::route::ResponseParam* response, ::grpc::ClientUnaryReactor* reactor) {
+void RoadPlanService::Stub::async::GetNodeXYZList(::grpc::ClientContext* context, const ::haoxing::route::RoadPlanRequest* request, ::haoxing::route::RoadPlanRespond* response, ::grpc::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetNodeXYZList_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::haoxing::route::ResponseParam>* RoutingService::Stub::PrepareAsyncGetNodeXYZListRaw(::grpc::ClientContext* context, const ::haoxing::route::RequestParam& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::haoxing::route::ResponseParam, ::haoxing::route::RequestParam, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetNodeXYZList_, context, request);
+::grpc::ClientAsyncResponseReader< ::haoxing::route::RoadPlanRespond>* RoadPlanService::Stub::PrepareAsyncGetNodeXYZListRaw(::grpc::ClientContext* context, const ::haoxing::route::RoadPlanRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::haoxing::route::RoadPlanRespond, ::haoxing::route::RoadPlanRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetNodeXYZList_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::haoxing::route::ResponseParam>* RoutingService::Stub::AsyncGetNodeXYZListRaw(::grpc::ClientContext* context, const ::haoxing::route::RequestParam& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::haoxing::route::RoadPlanRespond>* RoadPlanService::Stub::AsyncGetNodeXYZListRaw(::grpc::ClientContext* context, const ::haoxing::route::RoadPlanRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncGetNodeXYZListRaw(context, request, cq);
   result->StartCall();
   return result;
 }
 
-RoutingService::Service::Service() {
+RoadPlanService::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      RoutingService_method_names[0],
+      RoadPlanService_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< RoutingService::Service, ::haoxing::route::RequestParam, ::haoxing::route::ResponseParam, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
-          [](RoutingService::Service* service,
+      new ::grpc::internal::RpcMethodHandler< RoadPlanService::Service, ::haoxing::route::RoadPlanRequest, ::haoxing::route::RoadPlanRespond, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](RoadPlanService::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::haoxing::route::RequestParam* req,
-             ::haoxing::route::ResponseParam* resp) {
+             const ::haoxing::route::RoadPlanRequest* req,
+             ::haoxing::route::RoadPlanRespond* resp) {
                return service->GetNodeXYZList(ctx, req, resp);
              }, this)));
 }
 
-RoutingService::Service::~Service() {
+RoadPlanService::Service::~Service() {
 }
 
-::grpc::Status RoutingService::Service::GetNodeXYZList(::grpc::ServerContext* context, const ::haoxing::route::RequestParam* request, ::haoxing::route::ResponseParam* response) {
+::grpc::Status RoadPlanService::Service::GetNodeXYZList(::grpc::ServerContext* context, const ::haoxing::route::RoadPlanRequest* request, ::haoxing::route::RoadPlanRespond* response) {
   (void) context;
   (void) request;
   (void) response;

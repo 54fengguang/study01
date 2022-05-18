@@ -28,49 +28,49 @@
 namespace haoxing {
 namespace route {
 
-class RoutingService final {
+class RoadPlanService final {
  public:
   static constexpr char const* service_full_name() {
-    return "haoxing.route.RoutingService";
+    return "haoxing.route.RoadPlanService";
   }
   class StubInterface {
    public:
     virtual ~StubInterface() {}
-    virtual ::grpc::Status GetNodeXYZList(::grpc::ClientContext* context, const ::haoxing::route::RequestParam& request, ::haoxing::route::ResponseParam* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::haoxing::route::ResponseParam>> AsyncGetNodeXYZList(::grpc::ClientContext* context, const ::haoxing::route::RequestParam& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::haoxing::route::ResponseParam>>(AsyncGetNodeXYZListRaw(context, request, cq));
+    virtual ::grpc::Status GetNodeXYZList(::grpc::ClientContext* context, const ::haoxing::route::RoadPlanRequest& request, ::haoxing::route::RoadPlanRespond* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::haoxing::route::RoadPlanRespond>> AsyncGetNodeXYZList(::grpc::ClientContext* context, const ::haoxing::route::RoadPlanRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::haoxing::route::RoadPlanRespond>>(AsyncGetNodeXYZListRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::haoxing::route::ResponseParam>> PrepareAsyncGetNodeXYZList(::grpc::ClientContext* context, const ::haoxing::route::RequestParam& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::haoxing::route::ResponseParam>>(PrepareAsyncGetNodeXYZListRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::haoxing::route::RoadPlanRespond>> PrepareAsyncGetNodeXYZList(::grpc::ClientContext* context, const ::haoxing::route::RoadPlanRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::haoxing::route::RoadPlanRespond>>(PrepareAsyncGetNodeXYZListRaw(context, request, cq));
     }
     class async_interface {
      public:
       virtual ~async_interface() {}
-      virtual void GetNodeXYZList(::grpc::ClientContext* context, const ::haoxing::route::RequestParam* request, ::haoxing::route::ResponseParam* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void GetNodeXYZList(::grpc::ClientContext* context, const ::haoxing::route::RequestParam* request, ::haoxing::route::ResponseParam* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void GetNodeXYZList(::grpc::ClientContext* context, const ::haoxing::route::RoadPlanRequest* request, ::haoxing::route::RoadPlanRespond* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void GetNodeXYZList(::grpc::ClientContext* context, const ::haoxing::route::RoadPlanRequest* request, ::haoxing::route::RoadPlanRespond* response, ::grpc::ClientUnaryReactor* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
     class async_interface* experimental_async() { return async(); }
    private:
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::haoxing::route::ResponseParam>* AsyncGetNodeXYZListRaw(::grpc::ClientContext* context, const ::haoxing::route::RequestParam& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::haoxing::route::ResponseParam>* PrepareAsyncGetNodeXYZListRaw(::grpc::ClientContext* context, const ::haoxing::route::RequestParam& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::haoxing::route::RoadPlanRespond>* AsyncGetNodeXYZListRaw(::grpc::ClientContext* context, const ::haoxing::route::RoadPlanRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::haoxing::route::RoadPlanRespond>* PrepareAsyncGetNodeXYZListRaw(::grpc::ClientContext* context, const ::haoxing::route::RoadPlanRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
-    ::grpc::Status GetNodeXYZList(::grpc::ClientContext* context, const ::haoxing::route::RequestParam& request, ::haoxing::route::ResponseParam* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::haoxing::route::ResponseParam>> AsyncGetNodeXYZList(::grpc::ClientContext* context, const ::haoxing::route::RequestParam& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::haoxing::route::ResponseParam>>(AsyncGetNodeXYZListRaw(context, request, cq));
+    ::grpc::Status GetNodeXYZList(::grpc::ClientContext* context, const ::haoxing::route::RoadPlanRequest& request, ::haoxing::route::RoadPlanRespond* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::haoxing::route::RoadPlanRespond>> AsyncGetNodeXYZList(::grpc::ClientContext* context, const ::haoxing::route::RoadPlanRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::haoxing::route::RoadPlanRespond>>(AsyncGetNodeXYZListRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::haoxing::route::ResponseParam>> PrepareAsyncGetNodeXYZList(::grpc::ClientContext* context, const ::haoxing::route::RequestParam& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::haoxing::route::ResponseParam>>(PrepareAsyncGetNodeXYZListRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::haoxing::route::RoadPlanRespond>> PrepareAsyncGetNodeXYZList(::grpc::ClientContext* context, const ::haoxing::route::RoadPlanRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::haoxing::route::RoadPlanRespond>>(PrepareAsyncGetNodeXYZListRaw(context, request, cq));
     }
     class async final :
       public StubInterface::async_interface {
      public:
-      void GetNodeXYZList(::grpc::ClientContext* context, const ::haoxing::route::RequestParam* request, ::haoxing::route::ResponseParam* response, std::function<void(::grpc::Status)>) override;
-      void GetNodeXYZList(::grpc::ClientContext* context, const ::haoxing::route::RequestParam* request, ::haoxing::route::ResponseParam* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void GetNodeXYZList(::grpc::ClientContext* context, const ::haoxing::route::RoadPlanRequest* request, ::haoxing::route::RoadPlanRespond* response, std::function<void(::grpc::Status)>) override;
+      void GetNodeXYZList(::grpc::ClientContext* context, const ::haoxing::route::RoadPlanRequest* request, ::haoxing::route::RoadPlanRespond* response, ::grpc::ClientUnaryReactor* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -82,8 +82,8 @@ class RoutingService final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class async async_stub_{this};
-    ::grpc::ClientAsyncResponseReader< ::haoxing::route::ResponseParam>* AsyncGetNodeXYZListRaw(::grpc::ClientContext* context, const ::haoxing::route::RequestParam& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::haoxing::route::ResponseParam>* PrepareAsyncGetNodeXYZListRaw(::grpc::ClientContext* context, const ::haoxing::route::RequestParam& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::haoxing::route::RoadPlanRespond>* AsyncGetNodeXYZListRaw(::grpc::ClientContext* context, const ::haoxing::route::RoadPlanRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::haoxing::route::RoadPlanRespond>* PrepareAsyncGetNodeXYZListRaw(::grpc::ClientContext* context, const ::haoxing::route::RoadPlanRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_GetNodeXYZList_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
@@ -92,7 +92,7 @@ class RoutingService final {
    public:
     Service();
     virtual ~Service();
-    virtual ::grpc::Status GetNodeXYZList(::grpc::ServerContext* context, const ::haoxing::route::RequestParam* request, ::haoxing::route::ResponseParam* response);
+    virtual ::grpc::Status GetNodeXYZList(::grpc::ServerContext* context, const ::haoxing::route::RoadPlanRequest* request, ::haoxing::route::RoadPlanRespond* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_GetNodeXYZList : public BaseClass {
@@ -106,11 +106,11 @@ class RoutingService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetNodeXYZList(::grpc::ServerContext* /*context*/, const ::haoxing::route::RequestParam* /*request*/, ::haoxing::route::ResponseParam* /*response*/) override {
+    ::grpc::Status GetNodeXYZList(::grpc::ServerContext* /*context*/, const ::haoxing::route::RoadPlanRequest* /*request*/, ::haoxing::route::RoadPlanRespond* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetNodeXYZList(::grpc::ServerContext* context, ::haoxing::route::RequestParam* request, ::grpc::ServerAsyncResponseWriter< ::haoxing::route::ResponseParam>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestGetNodeXYZList(::grpc::ServerContext* context, ::haoxing::route::RoadPlanRequest* request, ::grpc::ServerAsyncResponseWriter< ::haoxing::route::RoadPlanRespond>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -122,25 +122,25 @@ class RoutingService final {
    public:
     WithCallbackMethod_GetNodeXYZList() {
       ::grpc::Service::MarkMethodCallback(0,
-          new ::grpc::internal::CallbackUnaryHandler< ::haoxing::route::RequestParam, ::haoxing::route::ResponseParam>(
+          new ::grpc::internal::CallbackUnaryHandler< ::haoxing::route::RoadPlanRequest, ::haoxing::route::RoadPlanRespond>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::haoxing::route::RequestParam* request, ::haoxing::route::ResponseParam* response) { return this->GetNodeXYZList(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::haoxing::route::RoadPlanRequest* request, ::haoxing::route::RoadPlanRespond* response) { return this->GetNodeXYZList(context, request, response); }));}
     void SetMessageAllocatorFor_GetNodeXYZList(
-        ::grpc::MessageAllocator< ::haoxing::route::RequestParam, ::haoxing::route::ResponseParam>* allocator) {
+        ::grpc::MessageAllocator< ::haoxing::route::RoadPlanRequest, ::haoxing::route::RoadPlanRespond>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::haoxing::route::RequestParam, ::haoxing::route::ResponseParam>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::haoxing::route::RoadPlanRequest, ::haoxing::route::RoadPlanRespond>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~WithCallbackMethod_GetNodeXYZList() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetNodeXYZList(::grpc::ServerContext* /*context*/, const ::haoxing::route::RequestParam* /*request*/, ::haoxing::route::ResponseParam* /*response*/) override {
+    ::grpc::Status GetNodeXYZList(::grpc::ServerContext* /*context*/, const ::haoxing::route::RoadPlanRequest* /*request*/, ::haoxing::route::RoadPlanRespond* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* GetNodeXYZList(
-      ::grpc::CallbackServerContext* /*context*/, const ::haoxing::route::RequestParam* /*request*/, ::haoxing::route::ResponseParam* /*response*/)  { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::haoxing::route::RoadPlanRequest* /*request*/, ::haoxing::route::RoadPlanRespond* /*response*/)  { return nullptr; }
   };
   typedef WithCallbackMethod_GetNodeXYZList<Service > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
@@ -156,7 +156,7 @@ class RoutingService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetNodeXYZList(::grpc::ServerContext* /*context*/, const ::haoxing::route::RequestParam* /*request*/, ::haoxing::route::ResponseParam* /*response*/) override {
+    ::grpc::Status GetNodeXYZList(::grpc::ServerContext* /*context*/, const ::haoxing::route::RoadPlanRequest* /*request*/, ::haoxing::route::RoadPlanRespond* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -173,7 +173,7 @@ class RoutingService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetNodeXYZList(::grpc::ServerContext* /*context*/, const ::haoxing::route::RequestParam* /*request*/, ::haoxing::route::ResponseParam* /*response*/) override {
+    ::grpc::Status GetNodeXYZList(::grpc::ServerContext* /*context*/, const ::haoxing::route::RoadPlanRequest* /*request*/, ::haoxing::route::RoadPlanRespond* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -196,7 +196,7 @@ class RoutingService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetNodeXYZList(::grpc::ServerContext* /*context*/, const ::haoxing::route::RequestParam* /*request*/, ::haoxing::route::ResponseParam* /*response*/) override {
+    ::grpc::Status GetNodeXYZList(::grpc::ServerContext* /*context*/, const ::haoxing::route::RoadPlanRequest* /*request*/, ::haoxing::route::RoadPlanRespond* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -211,10 +211,10 @@ class RoutingService final {
     WithStreamedUnaryMethod_GetNodeXYZList() {
       ::grpc::Service::MarkMethodStreamed(0,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::haoxing::route::RequestParam, ::haoxing::route::ResponseParam>(
+          ::haoxing::route::RoadPlanRequest, ::haoxing::route::RoadPlanRespond>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::haoxing::route::RequestParam, ::haoxing::route::ResponseParam>* streamer) {
+                     ::haoxing::route::RoadPlanRequest, ::haoxing::route::RoadPlanRespond>* streamer) {
                        return this->StreamedGetNodeXYZList(context,
                          streamer);
                   }));
@@ -223,12 +223,12 @@ class RoutingService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status GetNodeXYZList(::grpc::ServerContext* /*context*/, const ::haoxing::route::RequestParam* /*request*/, ::haoxing::route::ResponseParam* /*response*/) override {
+    ::grpc::Status GetNodeXYZList(::grpc::ServerContext* /*context*/, const ::haoxing::route::RoadPlanRequest* /*request*/, ::haoxing::route::RoadPlanRespond* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedGetNodeXYZList(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::haoxing::route::RequestParam,::haoxing::route::ResponseParam>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedGetNodeXYZList(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::haoxing::route::RoadPlanRequest,::haoxing::route::RoadPlanRespond>* server_unary_streamer) = 0;
   };
   typedef WithStreamedUnaryMethod_GetNodeXYZList<Service > StreamedUnaryService;
   typedef Service SplitStreamedService;

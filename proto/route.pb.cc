@@ -28,12 +28,13 @@ PROTOBUF_CONSTEXPR NodeXYZ::NodeXYZ(
   , /*decltype(_impl_.y_)*/0
   , /*decltype(_impl_.z_)*/0
   , /*decltype(_impl_.yaw_)*/0
+  , /*decltype(_impl_.v_)*/0
+  , /*decltype(_impl_.s_)*/0
   , /*decltype(_impl_.curvature_)*/0
-  , /*decltype(_impl_.segment_)*/0
+  , /*decltype(_impl_.back_)*/0
+  , /*decltype(_impl_.str_cur_)*/0
   , /*decltype(_impl_.reverse_)*/false
-  , /*decltype(_impl_.node_type_)*/0
-  , /*decltype(_impl_.impl_state_)*/0
-  , /*decltype(_impl_.impl_plough_ori_)*/0
+  , /*decltype(_impl_.type_)*/0
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct NodeXYZDefaultTypeInternal {
   PROTOBUF_CONSTEXPR NodeXYZDefaultTypeInternal()
@@ -44,44 +45,39 @@ struct NodeXYZDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 NodeXYZDefaultTypeInternal _NodeXYZ_default_instance_;
-PROTOBUF_CONSTEXPR FieldInfo::FieldInfo(
+PROTOBUF_CONSTEXPR GisFieldInfo::GisFieldInfo(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.fieldnodes_)*/{}
-  , /*decltype(_impl_.obstacles_)*/{}
+  , /*decltype(_impl_.obstaclereq_)*/{}
   , /*decltype(_impl_.preset_spaces_)*/{}
   , /*decltype(_impl_.entrance_node_)*/nullptr
   , /*decltype(_impl_.exit_node_)*/nullptr
   , /*decltype(_impl_._cached_size_)*/{}} {}
-struct FieldInfoDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR FieldInfoDefaultTypeInternal()
+struct GisFieldInfoDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR GisFieldInfoDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
-  ~FieldInfoDefaultTypeInternal() {}
+  ~GisFieldInfoDefaultTypeInternal() {}
   union {
-    FieldInfo _instance;
+    GisFieldInfo _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 FieldInfoDefaultTypeInternal _FieldInfo_default_instance_;
-PROTOBUF_CONSTEXPR PlanParam::PlanParam(
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GisFieldInfoDefaultTypeInternal _GisFieldInfo_default_instance_;
+PROTOBUF_CONSTEXPR FarmTools::FarmTools(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.task_vehicle_num_)*/{}
-  , /*decltype(_impl_._task_vehicle_num_cached_byte_size_)*/{0}
-  , /*decltype(_impl_.service_nodes_)*/{}
-  , /*decltype(_impl_.inter_sp_)*/0
-  , /*decltype(_impl_.route_type_)*/0
-  , /*decltype(_impl_.task_type_)*/0
-  , /*decltype(_impl_.modify_orientation_)*/false
-  , /*decltype(_impl_.acc_overlap_)*/false
-  , /*decltype(_impl_.multi_vehicle_)*/false
+    /*decltype(_impl_.width_)*/0
+  , /*decltype(_impl_.length_)*/0
+  , /*decltype(_impl_.leftoffset_)*/0
+  , /*decltype(_impl_.rightoffset_)*/0
   , /*decltype(_impl_._cached_size_)*/{}} {}
-struct PlanParamDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR PlanParamDefaultTypeInternal()
+struct FarmToolsDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR FarmToolsDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
-  ~PlanParamDefaultTypeInternal() {}
+  ~FarmToolsDefaultTypeInternal() {}
   union {
-    PlanParam _instance;
+    FarmTools _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlanParamDefaultTypeInternal _PlanParam_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 FarmToolsDefaultTypeInternal _FarmTools_default_instance_;
 PROTOBUF_CONSTEXPR Vehicle::Vehicle(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.length_)*/0
@@ -101,70 +97,76 @@ struct VehicleDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 VehicleDefaultTypeInternal _Vehicle_default_instance_;
-PROTOBUF_CONSTEXPR Implement::Implement(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.width_)*/0
-  , /*decltype(_impl_.length_)*/0
-  , /*decltype(_impl_.right_offset_)*/0
-  , /*decltype(_impl_.left_offset_)*/0
-  , /*decltype(_impl_.linkage_mode_)*/0
-  , /*decltype(_impl_._cached_size_)*/{}} {}
-struct ImplementDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR ImplementDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
-  ~ImplementDefaultTypeInternal() {}
-  union {
-    Implement _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ImplementDefaultTypeInternal _Implement_default_instance_;
-PROTOBUF_CONSTEXPR Obstacle::Obstacle(
+PROTOBUF_CONSTEXPR ObstacleReq::ObstacleReq(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.x_)*/0
   , /*decltype(_impl_.y_)*/0
   , /*decltype(_impl_.z_)*/0
   , /*decltype(_impl_.r_)*/0
   , /*decltype(_impl_.r_w_)*/0
+  , /*decltype(_impl_.taskindex_)*/0
   , /*decltype(_impl_._cached_size_)*/{}} {}
-struct ObstacleDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR ObstacleDefaultTypeInternal()
+struct ObstacleReqDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ObstacleReqDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
-  ~ObstacleDefaultTypeInternal() {}
+  ~ObstacleReqDefaultTypeInternal() {}
   union {
-    Obstacle _instance;
+    ObstacleReq _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ObstacleDefaultTypeInternal _Obstacle_default_instance_;
-PROTOBUF_CONSTEXPR RequestParam::RequestParam(
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ObstacleReqDefaultTypeInternal _ObstacleReq_default_instance_;
+PROTOBUF_CONSTEXPR PlanParam::PlanParam(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.field_infos_)*/{}
-  , /*decltype(_impl_.plan_param_)*/nullptr
-  , /*decltype(_impl_.vehicle_)*/nullptr
-  , /*decltype(_impl_.implement_)*/nullptr
+    /*decltype(_impl_.service_nodes_)*/{}
+  , /*decltype(_impl_.linespace_)*/0
+  , /*decltype(_impl_.interspace_)*/0
+  , /*decltype(_impl_.safe_distance_)*/0
+  , /*decltype(_impl_.turn_round_type_)*/0
+  , /*decltype(_impl_.task_type_)*/0
+  , /*decltype(_impl_.type_seeding_)*/0
+  , /*decltype(_impl_.modify_orientation_)*/false
+  , /*decltype(_impl_.acc_overlap_)*/false
+  , /*decltype(_impl_.multi_vehicle_)*/false
   , /*decltype(_impl_._cached_size_)*/{}} {}
-struct RequestParamDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR RequestParamDefaultTypeInternal()
+struct PlanParamDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR PlanParamDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
-  ~RequestParamDefaultTypeInternal() {}
+  ~PlanParamDefaultTypeInternal() {}
   union {
-    RequestParam _instance;
+    PlanParam _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RequestParamDefaultTypeInternal _RequestParam_default_instance_;
-PROTOBUF_CONSTEXPR ResponseParam::ResponseParam(
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlanParamDefaultTypeInternal _PlanParam_default_instance_;
+PROTOBUF_CONSTEXPR RoadPlanRequest::RoadPlanRequest(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.gisfieldinfo_)*/nullptr
+  , /*decltype(_impl_.farmtools_)*/nullptr
+  , /*decltype(_impl_.vehicle_)*/nullptr
+  , /*decltype(_impl_.planparam_)*/nullptr
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct RoadPlanRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR RoadPlanRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~RoadPlanRequestDefaultTypeInternal() {}
+  union {
+    RoadPlanRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RoadPlanRequestDefaultTypeInternal _RoadPlanRequest_default_instance_;
+PROTOBUF_CONSTEXPR RoadPlanRespond::RoadPlanRespond(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.nodes_)*/{}
   , /*decltype(_impl_.mileage_)*/0
   , /*decltype(_impl_._cached_size_)*/{}} {}
-struct ResponseParamDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR ResponseParamDefaultTypeInternal()
+struct RoadPlanRespondDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR RoadPlanRespondDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
-  ~ResponseParamDefaultTypeInternal() {}
+  ~RoadPlanRespondDefaultTypeInternal() {}
   union {
-    ResponseParam _instance;
+    RoadPlanRespond _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ResponseParamDefaultTypeInternal _ResponseParam_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RoadPlanRespondDefaultTypeInternal _RoadPlanRespond_default_instance_;
 }  // namespace route
 }  // namespace haoxing
 static ::_pb::Metadata file_level_metadata_route_2eproto[8];
@@ -182,37 +184,34 @@ const uint32_t TableStruct_route_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(pr
   PROTOBUF_FIELD_OFFSET(::haoxing::route::NodeXYZ, _impl_.y_),
   PROTOBUF_FIELD_OFFSET(::haoxing::route::NodeXYZ, _impl_.z_),
   PROTOBUF_FIELD_OFFSET(::haoxing::route::NodeXYZ, _impl_.yaw_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::NodeXYZ, _impl_.v_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::NodeXYZ, _impl_.s_),
   PROTOBUF_FIELD_OFFSET(::haoxing::route::NodeXYZ, _impl_.curvature_),
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::NodeXYZ, _impl_.segment_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::NodeXYZ, _impl_.back_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::NodeXYZ, _impl_.str_cur_),
   PROTOBUF_FIELD_OFFSET(::haoxing::route::NodeXYZ, _impl_.reverse_),
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::NodeXYZ, _impl_.node_type_),
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::NodeXYZ, _impl_.impl_state_),
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::NodeXYZ, _impl_.impl_plough_ori_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::NodeXYZ, _impl_.type_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::FieldInfo, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::GisFieldInfo, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::FieldInfo, _impl_.entrance_node_),
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::FieldInfo, _impl_.exit_node_),
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::FieldInfo, _impl_.fieldnodes_),
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::FieldInfo, _impl_.obstacles_),
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::FieldInfo, _impl_.preset_spaces_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::GisFieldInfo, _impl_.entrance_node_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::GisFieldInfo, _impl_.exit_node_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::GisFieldInfo, _impl_.fieldnodes_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::GisFieldInfo, _impl_.obstaclereq_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::GisFieldInfo, _impl_.preset_spaces_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::PlanParam, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::FarmTools, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::PlanParam, _impl_.inter_sp_),
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::PlanParam, _impl_.route_type_),
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::PlanParam, _impl_.task_type_),
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::PlanParam, _impl_.modify_orientation_),
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::PlanParam, _impl_.acc_overlap_),
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::PlanParam, _impl_.multi_vehicle_),
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::PlanParam, _impl_.task_vehicle_num_),
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::PlanParam, _impl_.service_nodes_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::FarmTools, _impl_.width_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::FarmTools, _impl_.length_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::FarmTools, _impl_.leftoffset_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::FarmTools, _impl_.rightoffset_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::haoxing::route::Vehicle, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -227,109 +226,116 @@ const uint32_t TableStruct_route_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(pr
   PROTOBUF_FIELD_OFFSET(::haoxing::route::Vehicle, _impl_.wheel_base_),
   PROTOBUF_FIELD_OFFSET(::haoxing::route::Vehicle, _impl_.radius_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::Implement, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::ObstacleReq, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::Implement, _impl_.width_),
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::Implement, _impl_.length_),
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::Implement, _impl_.right_offset_),
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::Implement, _impl_.left_offset_),
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::Implement, _impl_.linkage_mode_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::ObstacleReq, _impl_.x_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::ObstacleReq, _impl_.y_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::ObstacleReq, _impl_.z_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::ObstacleReq, _impl_.r_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::ObstacleReq, _impl_.r_w_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::ObstacleReq, _impl_.taskindex_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::Obstacle, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::PlanParam, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::Obstacle, _impl_.x_),
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::Obstacle, _impl_.y_),
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::Obstacle, _impl_.z_),
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::Obstacle, _impl_.r_),
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::Obstacle, _impl_.r_w_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::PlanParam, _impl_.linespace_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::PlanParam, _impl_.interspace_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::PlanParam, _impl_.safe_distance_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::PlanParam, _impl_.turn_round_type_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::PlanParam, _impl_.task_type_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::PlanParam, _impl_.type_seeding_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::PlanParam, _impl_.modify_orientation_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::PlanParam, _impl_.acc_overlap_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::PlanParam, _impl_.multi_vehicle_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::PlanParam, _impl_.service_nodes_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::RequestParam, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::RoadPlanRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::RequestParam, _impl_.field_infos_),
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::RequestParam, _impl_.plan_param_),
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::RequestParam, _impl_.vehicle_),
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::RequestParam, _impl_.implement_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::RoadPlanRequest, _impl_.gisfieldinfo_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::RoadPlanRequest, _impl_.farmtools_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::RoadPlanRequest, _impl_.vehicle_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::RoadPlanRequest, _impl_.planparam_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::ResponseParam, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::RoadPlanRespond, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::ResponseParam, _impl_.nodes_),
-  PROTOBUF_FIELD_OFFSET(::haoxing::route::ResponseParam, _impl_.mileage_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::RoadPlanRespond, _impl_.nodes_),
+  PROTOBUF_FIELD_OFFSET(::haoxing::route::RoadPlanRespond, _impl_.mileage_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::haoxing::route::NodeXYZ)},
-  { 16, -1, -1, sizeof(::haoxing::route::FieldInfo)},
-  { 27, -1, -1, sizeof(::haoxing::route::PlanParam)},
-  { 41, -1, -1, sizeof(::haoxing::route::Vehicle)},
-  { 54, -1, -1, sizeof(::haoxing::route::Implement)},
-  { 65, -1, -1, sizeof(::haoxing::route::Obstacle)},
-  { 76, -1, -1, sizeof(::haoxing::route::RequestParam)},
-  { 86, -1, -1, sizeof(::haoxing::route::ResponseParam)},
+  { 17, -1, -1, sizeof(::haoxing::route::GisFieldInfo)},
+  { 28, -1, -1, sizeof(::haoxing::route::FarmTools)},
+  { 38, -1, -1, sizeof(::haoxing::route::Vehicle)},
+  { 51, -1, -1, sizeof(::haoxing::route::ObstacleReq)},
+  { 63, -1, -1, sizeof(::haoxing::route::PlanParam)},
+  { 79, -1, -1, sizeof(::haoxing::route::RoadPlanRequest)},
+  { 89, -1, -1, sizeof(::haoxing::route::RoadPlanRespond)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
   &::haoxing::route::_NodeXYZ_default_instance_._instance,
-  &::haoxing::route::_FieldInfo_default_instance_._instance,
-  &::haoxing::route::_PlanParam_default_instance_._instance,
+  &::haoxing::route::_GisFieldInfo_default_instance_._instance,
+  &::haoxing::route::_FarmTools_default_instance_._instance,
   &::haoxing::route::_Vehicle_default_instance_._instance,
-  &::haoxing::route::_Implement_default_instance_._instance,
-  &::haoxing::route::_Obstacle_default_instance_._instance,
-  &::haoxing::route::_RequestParam_default_instance_._instance,
-  &::haoxing::route::_ResponseParam_default_instance_._instance,
+  &::haoxing::route::_ObstacleReq_default_instance_._instance,
+  &::haoxing::route::_PlanParam_default_instance_._instance,
+  &::haoxing::route::_RoadPlanRequest_default_instance_._instance,
+  &::haoxing::route::_RoadPlanRespond_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_route_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\013route.proto\022\rhaoxing.route\"\254\001\n\007NodeXYZ"
+  "\n\013route.proto\022\rhaoxing.route\"\236\001\n\007NodeXYZ"
   "\022\t\n\001x\030\001 \001(\001\022\t\n\001y\030\002 \001(\001\022\t\n\001z\030\003 \001(\001\022\013\n\003yaw"
-  "\030\004 \001(\001\022\021\n\tcurvature\030\005 \001(\001\022\017\n\007segment\030\006 \001"
-  "(\005\022\017\n\007reverse\030\007 \001(\010\022\021\n\tnode_type\030\010 \001(\005\022\022"
-  "\n\nimpl_state\030\t \001(\005\022\027\n\017impl_plough_ori\030\n "
-  "\001(\005\"\324\001\n\tFieldInfo\022-\n\rentrance_node\030\001 \001(\013"
-  "2\026.haoxing.route.NodeXYZ\022)\n\texit_node\030\002 "
-  "\001(\0132\026.haoxing.route.NodeXYZ\022*\n\nfieldNode"
-  "s\030\003 \003(\0132\026.haoxing.route.NodeXYZ\022*\n\tobsta"
-  "cles\030\004 \003(\0132\027.haoxing.route.Obstacle\022\025\n\rp"
-  "reset_spaces\030\005 \003(\001\"\325\001\n\tPlanParam\022\020\n\010inte"
-  "r_sp\030\001 \001(\001\022\022\n\nroute_type\030\002 \001(\001\022\021\n\ttask_t"
-  "ype\030\003 \001(\001\022\032\n\022modify_orientation\030\004 \001(\010\022\023\n"
-  "\013acc_overlap\030\005 \001(\010\022\025\n\rmulti_vehicle\030\006 \001("
-  "\010\022\030\n\020task_vehicle_num\030\007 \003(\005\022-\n\rservice_n"
-  "odes\030\010 \003(\0132\026.haoxing.route.NodeXYZ\"\243\001\n\007V"
-  "ehicle\022\016\n\006length\030\001 \001(\001\022\017\n\007reverse\030\002 \001(\010\022"
-  "\026\n\016over_all_width\030\003 \001(\001\022\035\n\025front_end_to_"
-  "location\030\004 \001(\001\022\034\n\024rear_end_to_location\030\005"
-  " \001(\001\022\022\n\nwheel_base\030\006 \001(\001\022\016\n\006radius\030\007 \001(\001"
-  "\"k\n\tImplement\022\r\n\005width\030\001 \001(\001\022\016\n\006length\030\002"
-  " \001(\001\022\024\n\014right_offset\030\003 \001(\001\022\023\n\013left_offse"
-  "t\030\004 \001(\001\022\024\n\014linkage_mode\030\005 \001(\005\"C\n\010Obstacl"
-  "e\022\t\n\001x\030\001 \001(\001\022\t\n\001y\030\002 \001(\001\022\t\n\001z\030\003 \001(\001\022\t\n\001r\030"
-  "\004 \001(\001\022\013\n\003r_w\030\005 \001(\001\"\301\001\n\014RequestParam\022-\n\013f"
-  "ield_infos\030\001 \003(\0132\030.haoxing.route.FieldIn"
-  "fo\022,\n\nplan_param\030\002 \001(\0132\030.haoxing.route.P"
-  "lanParam\022\'\n\007vehicle\030\003 \001(\0132\026.haoxing.rout"
-  "e.Vehicle\022+\n\timplement\030\004 \001(\0132\030.haoxing.r"
-  "oute.Implement\"G\n\rResponseParam\022%\n\005nodes"
-  "\030\001 \003(\0132\026.haoxing.route.NodeXYZ\022\017\n\007mileag"
-  "e\030\002 \001(\0012_\n\016RoutingService\022M\n\016GetNodeXYZL"
-  "ist\022\033.haoxing.route.RequestParam\032\034.haoxi"
-  "ng.route.ResponseParam\"\000B7\n\036com.hx.sched"
-  "ule.algorithm.grpcB\014RoutingProtoP\001\242\002\004hxk"
-  "jb\006proto3"
+  "\030\004 \001(\001\022\t\n\001v\030\005 \001(\001\022\t\n\001s\030\006 \001(\001\022\021\n\tcurvatur"
+  "e\030\007 \001(\001\022\014\n\004back\030\010 \001(\005\022\017\n\007str_cur\030\t \001(\005\022\017"
+  "\n\007reverse\030\n \001(\010\022\014\n\004type\030\013 \001(\005\"\334\001\n\014GisFie"
+  "ldInfo\022-\n\rentrance_node\030\001 \001(\0132\026.haoxing."
+  "route.NodeXYZ\022)\n\texit_node\030\002 \001(\0132\026.haoxi"
+  "ng.route.NodeXYZ\022*\n\nfieldNodes\030\003 \003(\0132\026.h"
+  "aoxing.route.NodeXYZ\022/\n\013obstacleReq\030\004 \003("
+  "\0132\032.haoxing.route.ObstacleReq\022\025\n\rpreset_"
+  "spaces\030\005 \003(\001\"S\n\tFarmTools\022\r\n\005width\030\001 \001(\001"
+  "\022\016\n\006length\030\002 \001(\001\022\022\n\nleftOffset\030\003 \001(\001\022\023\n\013"
+  "rightOffset\030\004 \001(\001\"\243\001\n\007Vehicle\022\016\n\006length\030"
+  "\001 \001(\001\022\017\n\007reverse\030\002 \001(\010\022\026\n\016over_all_width"
+  "\030\003 \001(\001\022\035\n\025front_end_to_location\030\004 \001(\001\022\034\n"
+  "\024rear_end_to_location\030\005 \001(\001\022\022\n\nwheel_bas"
+  "e\030\006 \001(\001\022\016\n\006radius\030\007 \001(\001\"Y\n\013ObstacleReq\022\t"
+  "\n\001x\030\001 \001(\001\022\t\n\001y\030\002 \001(\001\022\t\n\001z\030\003 \001(\001\022\t\n\001r\030\004 \001"
+  "(\001\022\013\n\003r_w\030\005 \001(\001\022\021\n\ttaskIndex\030\006 \001(\005\"\202\002\n\tP"
+  "lanParam\022\021\n\tlineSpace\030\001 \001(\001\022\022\n\ninterspac"
+  "e\030\002 \001(\001\022\025\n\rsafe_distance\030\003 \001(\001\022\027\n\017turn_r"
+  "ound_type\030\004 \001(\001\022\021\n\ttask_type\030\005 \001(\001\022\024\n\014ty"
+  "pe_seeding\030\006 \001(\001\022\032\n\022modify_orientation\030\007"
+  " \001(\010\022\023\n\013acc_overlap\030\010 \001(\010\022\025\n\rmulti_vehic"
+  "le\030\t \001(\010\022-\n\rservice_nodes\030\n \003(\0132\026.haoxin"
+  "g.route.NodeXYZ\"\307\001\n\017RoadPlanRequest\0221\n\014g"
+  "isFieldInfo\030\001 \001(\0132\033.haoxing.route.GisFie"
+  "ldInfo\022+\n\tfarmTools\030\002 \001(\0132\030.haoxing.rout"
+  "e.FarmTools\022\'\n\007vehicle\030\003 \001(\0132\026.haoxing.r"
+  "oute.Vehicle\022+\n\tplanParam\030\004 \001(\0132\030.haoxin"
+  "g.route.PlanParam\"I\n\017RoadPlanRespond\022%\n\005"
+  "nodes\030\001 \003(\0132\026.haoxing.route.NodeXYZ\022\017\n\007m"
+  "ileage\030\002 \001(\0012c\n\017RoadPlanService\022P\n\016GetNo"
+  "deXYZList\022\036.haoxing.route.RoadPlanReques"
+  "t\032\036.haoxing.route.RoadPlanRespondB7\n\036com"
+  ".hx.schedule.algorithm.grpcB\014RoutingProt"
+  "oP\001\242\002\004hxkjb\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_route_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_route_2eproto = {
-    false, false, 1409, descriptor_table_protodef_route_2eproto,
+    false, false, 1458, descriptor_table_protodef_route_2eproto,
     "route.proto",
     &descriptor_table_route_2eproto_once, nullptr, 0, 8,
     schemas, file_default_instances, TableStruct_route_2eproto::offsets,
@@ -365,18 +371,19 @@ NodeXYZ::NodeXYZ(const NodeXYZ& from)
     , decltype(_impl_.y_){}
     , decltype(_impl_.z_){}
     , decltype(_impl_.yaw_){}
+    , decltype(_impl_.v_){}
+    , decltype(_impl_.s_){}
     , decltype(_impl_.curvature_){}
-    , decltype(_impl_.segment_){}
+    , decltype(_impl_.back_){}
+    , decltype(_impl_.str_cur_){}
     , decltype(_impl_.reverse_){}
-    , decltype(_impl_.node_type_){}
-    , decltype(_impl_.impl_state_){}
-    , decltype(_impl_.impl_plough_ori_){}
+    , decltype(_impl_.type_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&_impl_.x_, &from._impl_.x_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.impl_plough_ori_) -
-    reinterpret_cast<char*>(&_impl_.x_)) + sizeof(_impl_.impl_plough_ori_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.type_) -
+    reinterpret_cast<char*>(&_impl_.x_)) + sizeof(_impl_.type_));
   // @@protoc_insertion_point(copy_constructor:haoxing.route.NodeXYZ)
 }
 
@@ -389,12 +396,13 @@ inline void NodeXYZ::SharedCtor(
     , decltype(_impl_.y_){0}
     , decltype(_impl_.z_){0}
     , decltype(_impl_.yaw_){0}
+    , decltype(_impl_.v_){0}
+    , decltype(_impl_.s_){0}
     , decltype(_impl_.curvature_){0}
-    , decltype(_impl_.segment_){0}
+    , decltype(_impl_.back_){0}
+    , decltype(_impl_.str_cur_){0}
     , decltype(_impl_.reverse_){false}
-    , decltype(_impl_.node_type_){0}
-    , decltype(_impl_.impl_state_){0}
-    , decltype(_impl_.impl_plough_ori_){0}
+    , decltype(_impl_.type_){0}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
@@ -423,8 +431,8 @@ void NodeXYZ::Clear() {
   (void) cached_has_bits;
 
   ::memset(&_impl_.x_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.impl_plough_ori_) -
-      reinterpret_cast<char*>(&_impl_.x_)) + sizeof(_impl_.impl_plough_ori_));
+      reinterpret_cast<char*>(&_impl_.type_) -
+      reinterpret_cast<char*>(&_impl_.x_)) + sizeof(_impl_.type_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -466,50 +474,58 @@ const char* NodeXYZ::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) 
         } else
           goto handle_unusual;
         continue;
-      // double curvature = 5;
+      // double v = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 41)) {
+          _impl_.v_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else
+          goto handle_unusual;
+        continue;
+      // double s = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 49)) {
+          _impl_.s_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else
+          goto handle_unusual;
+        continue;
+      // double curvature = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 57)) {
           _impl_.curvature_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
           ptr += sizeof(double);
         } else
           goto handle_unusual;
         continue;
-      // int32 segment = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
-          _impl_.segment_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+      // int32 back = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 64)) {
+          _impl_.back_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // bool reverse = 7;
-      case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 56)) {
+      // int32 str_cur = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 72)) {
+          _impl_.str_cur_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // bool reverse = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 80)) {
           _impl_.reverse_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // int32 node_type = 8;
-      case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 64)) {
-          _impl_.node_type_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // int32 impl_state = 9;
-      case 9:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 72)) {
-          _impl_.impl_state_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // int32 impl_plough_ori = 10;
-      case 10:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 80)) {
-          _impl_.impl_plough_ori_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+      // int32 type = 11;
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 88)) {
+          _impl_.type_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -583,44 +599,58 @@ uint8_t* NodeXYZ::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteDoubleToArray(4, this->_internal_yaw(), target);
   }
 
-  // double curvature = 5;
+  // double v = 5;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_v = this->_internal_v();
+  uint64_t raw_v;
+  memcpy(&raw_v, &tmp_v, sizeof(tmp_v));
+  if (raw_v != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(5, this->_internal_v(), target);
+  }
+
+  // double s = 6;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_s = this->_internal_s();
+  uint64_t raw_s;
+  memcpy(&raw_s, &tmp_s, sizeof(tmp_s));
+  if (raw_s != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(6, this->_internal_s(), target);
+  }
+
+  // double curvature = 7;
   static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
   double tmp_curvature = this->_internal_curvature();
   uint64_t raw_curvature;
   memcpy(&raw_curvature, &tmp_curvature, sizeof(tmp_curvature));
   if (raw_curvature != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteDoubleToArray(5, this->_internal_curvature(), target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(7, this->_internal_curvature(), target);
   }
 
-  // int32 segment = 6;
-  if (this->_internal_segment() != 0) {
+  // int32 back = 8;
+  if (this->_internal_back() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt32ToArray(6, this->_internal_segment(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(8, this->_internal_back(), target);
   }
 
-  // bool reverse = 7;
+  // int32 str_cur = 9;
+  if (this->_internal_str_cur() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(9, this->_internal_str_cur(), target);
+  }
+
+  // bool reverse = 10;
   if (this->_internal_reverse() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteBoolToArray(7, this->_internal_reverse(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(10, this->_internal_reverse(), target);
   }
 
-  // int32 node_type = 8;
-  if (this->_internal_node_type() != 0) {
+  // int32 type = 11;
+  if (this->_internal_type() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt32ToArray(8, this->_internal_node_type(), target);
-  }
-
-  // int32 impl_state = 9;
-  if (this->_internal_impl_state() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt32ToArray(9, this->_internal_impl_state(), target);
-  }
-
-  // int32 impl_plough_ori = 10;
-  if (this->_internal_impl_plough_ori() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt32ToArray(10, this->_internal_impl_plough_ori(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(11, this->_internal_type(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -675,7 +705,25 @@ size_t NodeXYZ::ByteSizeLong() const {
     total_size += 1 + 8;
   }
 
-  // double curvature = 5;
+  // double v = 5;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_v = this->_internal_v();
+  uint64_t raw_v;
+  memcpy(&raw_v, &tmp_v, sizeof(tmp_v));
+  if (raw_v != 0) {
+    total_size += 1 + 8;
+  }
+
+  // double s = 6;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_s = this->_internal_s();
+  uint64_t raw_s;
+  memcpy(&raw_s, &tmp_s, sizeof(tmp_s));
+  if (raw_s != 0) {
+    total_size += 1 + 8;
+  }
+
+  // double curvature = 7;
   static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
   double tmp_curvature = this->_internal_curvature();
   uint64_t raw_curvature;
@@ -684,29 +732,24 @@ size_t NodeXYZ::ByteSizeLong() const {
     total_size += 1 + 8;
   }
 
-  // int32 segment = 6;
-  if (this->_internal_segment() != 0) {
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_segment());
+  // int32 back = 8;
+  if (this->_internal_back() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_back());
   }
 
-  // bool reverse = 7;
+  // int32 str_cur = 9;
+  if (this->_internal_str_cur() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_str_cur());
+  }
+
+  // bool reverse = 10;
   if (this->_internal_reverse() != 0) {
     total_size += 1 + 1;
   }
 
-  // int32 node_type = 8;
-  if (this->_internal_node_type() != 0) {
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_node_type());
-  }
-
-  // int32 impl_state = 9;
-  if (this->_internal_impl_state() != 0) {
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_impl_state());
-  }
-
-  // int32 impl_plough_ori = 10;
-  if (this->_internal_impl_plough_ori() != 0) {
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_impl_plough_ori());
+  // int32 type = 11;
+  if (this->_internal_type() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_type());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
@@ -756,26 +799,37 @@ void NodeXYZ::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOB
     _this->_internal_set_yaw(from._internal_yaw());
   }
   static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_v = from._internal_v();
+  uint64_t raw_v;
+  memcpy(&raw_v, &tmp_v, sizeof(tmp_v));
+  if (raw_v != 0) {
+    _this->_internal_set_v(from._internal_v());
+  }
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_s = from._internal_s();
+  uint64_t raw_s;
+  memcpy(&raw_s, &tmp_s, sizeof(tmp_s));
+  if (raw_s != 0) {
+    _this->_internal_set_s(from._internal_s());
+  }
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
   double tmp_curvature = from._internal_curvature();
   uint64_t raw_curvature;
   memcpy(&raw_curvature, &tmp_curvature, sizeof(tmp_curvature));
   if (raw_curvature != 0) {
     _this->_internal_set_curvature(from._internal_curvature());
   }
-  if (from._internal_segment() != 0) {
-    _this->_internal_set_segment(from._internal_segment());
+  if (from._internal_back() != 0) {
+    _this->_internal_set_back(from._internal_back());
+  }
+  if (from._internal_str_cur() != 0) {
+    _this->_internal_set_str_cur(from._internal_str_cur());
   }
   if (from._internal_reverse() != 0) {
     _this->_internal_set_reverse(from._internal_reverse());
   }
-  if (from._internal_node_type() != 0) {
-    _this->_internal_set_node_type(from._internal_node_type());
-  }
-  if (from._internal_impl_state() != 0) {
-    _this->_internal_set_impl_state(from._internal_impl_state());
-  }
-  if (from._internal_impl_plough_ori() != 0) {
-    _this->_internal_set_impl_plough_ori(from._internal_impl_plough_ori());
+  if (from._internal_type() != 0) {
+    _this->_internal_set_type(from._internal_type());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -795,8 +849,8 @@ void NodeXYZ::InternalSwap(NodeXYZ* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(NodeXYZ, _impl_.impl_plough_ori_)
-      + sizeof(NodeXYZ::_impl_.impl_plough_ori_)
+      PROTOBUF_FIELD_OFFSET(NodeXYZ, _impl_.type_)
+      + sizeof(NodeXYZ::_impl_.type_)
       - PROTOBUF_FIELD_OFFSET(NodeXYZ, _impl_.x_)>(
           reinterpret_cast<char*>(&_impl_.x_),
           reinterpret_cast<char*>(&other->_impl_.x_));
@@ -810,32 +864,32 @@ void NodeXYZ::InternalSwap(NodeXYZ* other) {
 
 // ===================================================================
 
-class FieldInfo::_Internal {
+class GisFieldInfo::_Internal {
  public:
-  static const ::haoxing::route::NodeXYZ& entrance_node(const FieldInfo* msg);
-  static const ::haoxing::route::NodeXYZ& exit_node(const FieldInfo* msg);
+  static const ::haoxing::route::NodeXYZ& entrance_node(const GisFieldInfo* msg);
+  static const ::haoxing::route::NodeXYZ& exit_node(const GisFieldInfo* msg);
 };
 
 const ::haoxing::route::NodeXYZ&
-FieldInfo::_Internal::entrance_node(const FieldInfo* msg) {
+GisFieldInfo::_Internal::entrance_node(const GisFieldInfo* msg) {
   return *msg->_impl_.entrance_node_;
 }
 const ::haoxing::route::NodeXYZ&
-FieldInfo::_Internal::exit_node(const FieldInfo* msg) {
+GisFieldInfo::_Internal::exit_node(const GisFieldInfo* msg) {
   return *msg->_impl_.exit_node_;
 }
-FieldInfo::FieldInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+GisFieldInfo::GisFieldInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:haoxing.route.FieldInfo)
+  // @@protoc_insertion_point(arena_constructor:haoxing.route.GisFieldInfo)
 }
-FieldInfo::FieldInfo(const FieldInfo& from)
+GisFieldInfo::GisFieldInfo(const GisFieldInfo& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
-  FieldInfo* const _this = this; (void)_this;
+  GisFieldInfo* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.fieldnodes_){from._impl_.fieldnodes_}
-    , decltype(_impl_.obstacles_){from._impl_.obstacles_}
+    , decltype(_impl_.obstaclereq_){from._impl_.obstaclereq_}
     , decltype(_impl_.preset_spaces_){from._impl_.preset_spaces_}
     , decltype(_impl_.entrance_node_){nullptr}
     , decltype(_impl_.exit_node_){nullptr}
@@ -848,16 +902,16 @@ FieldInfo::FieldInfo(const FieldInfo& from)
   if (from._internal_has_exit_node()) {
     _this->_impl_.exit_node_ = new ::haoxing::route::NodeXYZ(*from._impl_.exit_node_);
   }
-  // @@protoc_insertion_point(copy_constructor:haoxing.route.FieldInfo)
+  // @@protoc_insertion_point(copy_constructor:haoxing.route.GisFieldInfo)
 }
 
-inline void FieldInfo::SharedCtor(
+inline void GisFieldInfo::SharedCtor(
     ::_pb::Arena* arena, bool is_message_owned) {
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
       decltype(_impl_.fieldnodes_){arena}
-    , decltype(_impl_.obstacles_){arena}
+    , decltype(_impl_.obstaclereq_){arena}
     , decltype(_impl_.preset_spaces_){arena}
     , decltype(_impl_.entrance_node_){nullptr}
     , decltype(_impl_.exit_node_){nullptr}
@@ -865,8 +919,8 @@ inline void FieldInfo::SharedCtor(
   };
 }
 
-FieldInfo::~FieldInfo() {
-  // @@protoc_insertion_point(destructor:haoxing.route.FieldInfo)
+GisFieldInfo::~GisFieldInfo() {
+  // @@protoc_insertion_point(destructor:haoxing.route.GisFieldInfo)
   if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
   (void)arena;
     return;
@@ -874,27 +928,27 @@ FieldInfo::~FieldInfo() {
   SharedDtor();
 }
 
-inline void FieldInfo::SharedDtor() {
+inline void GisFieldInfo::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.fieldnodes_.~RepeatedPtrField();
-  _impl_.obstacles_.~RepeatedPtrField();
+  _impl_.obstaclereq_.~RepeatedPtrField();
   _impl_.preset_spaces_.~RepeatedField();
   if (this != internal_default_instance()) delete _impl_.entrance_node_;
   if (this != internal_default_instance()) delete _impl_.exit_node_;
 }
 
-void FieldInfo::SetCachedSize(int size) const {
+void GisFieldInfo::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
 }
 
-void FieldInfo::Clear() {
-// @@protoc_insertion_point(message_clear_start:haoxing.route.FieldInfo)
+void GisFieldInfo::Clear() {
+// @@protoc_insertion_point(message_clear_start:haoxing.route.GisFieldInfo)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   _impl_.fieldnodes_.Clear();
-  _impl_.obstacles_.Clear();
+  _impl_.obstaclereq_.Clear();
   _impl_.preset_spaces_.Clear();
   if (GetArenaForAllocation() == nullptr && _impl_.entrance_node_ != nullptr) {
     delete _impl_.entrance_node_;
@@ -907,7 +961,7 @@ void FieldInfo::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* FieldInfo::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* GisFieldInfo::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
@@ -942,13 +996,13 @@ const char* FieldInfo::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx
         } else
           goto handle_unusual;
         continue;
-      // repeated .haoxing.route.Obstacle obstacles = 4;
+      // repeated .haoxing.route.ObstacleReq obstacleReq = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           ptr -= 1;
           do {
             ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_obstacles(), ptr);
+            ptr = ctx->ParseMessage(_internal_add_obstaclereq(), ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
@@ -989,9 +1043,9 @@ failure:
 #undef CHK_
 }
 
-uint8_t* FieldInfo::_InternalSerialize(
+uint8_t* GisFieldInfo::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:haoxing.route.FieldInfo)
+  // @@protoc_insertion_point(serialize_to_array_start:haoxing.route.GisFieldInfo)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -1017,10 +1071,10 @@ uint8_t* FieldInfo::_InternalSerialize(
         InternalWriteMessage(3, repfield, repfield.GetCachedSize(), target, stream);
   }
 
-  // repeated .haoxing.route.Obstacle obstacles = 4;
+  // repeated .haoxing.route.ObstacleReq obstacleReq = 4;
   for (unsigned i = 0,
-      n = static_cast<unsigned>(this->_internal_obstacles_size()); i < n; i++) {
-    const auto& repfield = this->_internal_obstacles(i);
+      n = static_cast<unsigned>(this->_internal_obstaclereq_size()); i < n; i++) {
+    const auto& repfield = this->_internal_obstaclereq(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
         InternalWriteMessage(4, repfield, repfield.GetCachedSize(), target, stream);
   }
@@ -1034,12 +1088,12 @@ uint8_t* FieldInfo::_InternalSerialize(
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:haoxing.route.FieldInfo)
+  // @@protoc_insertion_point(serialize_to_array_end:haoxing.route.GisFieldInfo)
   return target;
 }
 
-size_t FieldInfo::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:haoxing.route.FieldInfo)
+size_t GisFieldInfo::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:haoxing.route.GisFieldInfo)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
@@ -1053,9 +1107,9 @@ size_t FieldInfo::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // repeated .haoxing.route.Obstacle obstacles = 4;
-  total_size += 1UL * this->_internal_obstacles_size();
-  for (const auto& msg : this->_impl_.obstacles_) {
+  // repeated .haoxing.route.ObstacleReq obstacleReq = 4;
+  total_size += 1UL * this->_internal_obstaclereq_size();
+  for (const auto& msg : this->_impl_.obstaclereq_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
@@ -1088,23 +1142,23 @@ size_t FieldInfo::ByteSizeLong() const {
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData FieldInfo::_class_data_ = {
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData GisFieldInfo::_class_data_ = {
     ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    FieldInfo::MergeImpl
+    GisFieldInfo::MergeImpl
 };
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*FieldInfo::GetClassData() const { return &_class_data_; }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GisFieldInfo::GetClassData() const { return &_class_data_; }
 
 
-void FieldInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<FieldInfo*>(&to_msg);
-  auto& from = static_cast<const FieldInfo&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:haoxing.route.FieldInfo)
+void GisFieldInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<GisFieldInfo*>(&to_msg);
+  auto& from = static_cast<const GisFieldInfo&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:haoxing.route.GisFieldInfo)
   GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   _this->_impl_.fieldnodes_.MergeFrom(from._impl_.fieldnodes_);
-  _this->_impl_.obstacles_.MergeFrom(from._impl_.obstacles_);
+  _this->_impl_.obstaclereq_.MergeFrom(from._impl_.obstaclereq_);
   _this->_impl_.preset_spaces_.MergeFrom(from._impl_.preset_spaces_);
   if (from._internal_has_entrance_node()) {
     _this->_internal_mutable_entrance_node()->::haoxing::route::NodeXYZ::MergeFrom(
@@ -1117,32 +1171,32 @@ void FieldInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROT
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void FieldInfo::CopyFrom(const FieldInfo& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:haoxing.route.FieldInfo)
+void GisFieldInfo::CopyFrom(const GisFieldInfo& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:haoxing.route.GisFieldInfo)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool FieldInfo::IsInitialized() const {
+bool GisFieldInfo::IsInitialized() const {
   return true;
 }
 
-void FieldInfo::InternalSwap(FieldInfo* other) {
+void GisFieldInfo::InternalSwap(GisFieldInfo* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   _impl_.fieldnodes_.InternalSwap(&other->_impl_.fieldnodes_);
-  _impl_.obstacles_.InternalSwap(&other->_impl_.obstacles_);
+  _impl_.obstaclereq_.InternalSwap(&other->_impl_.obstaclereq_);
   _impl_.preset_spaces_.InternalSwap(&other->_impl_.preset_spaces_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(FieldInfo, _impl_.exit_node_)
-      + sizeof(FieldInfo::_impl_.exit_node_)
-      - PROTOBUF_FIELD_OFFSET(FieldInfo, _impl_.entrance_node_)>(
+      PROTOBUF_FIELD_OFFSET(GisFieldInfo, _impl_.exit_node_)
+      + sizeof(GisFieldInfo::_impl_.exit_node_)
+      - PROTOBUF_FIELD_OFFSET(GisFieldInfo, _impl_.entrance_node_)>(
           reinterpret_cast<char*>(&_impl_.entrance_node_),
           reinterpret_cast<char*>(&other->_impl_.entrance_node_));
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata FieldInfo::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata GisFieldInfo::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_route_2eproto_getter, &descriptor_table_route_2eproto_once,
       file_level_metadata_route_2eproto[1]);
@@ -1150,58 +1204,48 @@ void FieldInfo::InternalSwap(FieldInfo* other) {
 
 // ===================================================================
 
-class PlanParam::_Internal {
+class FarmTools::_Internal {
  public:
 };
 
-PlanParam::PlanParam(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+FarmTools::FarmTools(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:haoxing.route.PlanParam)
+  // @@protoc_insertion_point(arena_constructor:haoxing.route.FarmTools)
 }
-PlanParam::PlanParam(const PlanParam& from)
+FarmTools::FarmTools(const FarmTools& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
-  PlanParam* const _this = this; (void)_this;
+  FarmTools* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.task_vehicle_num_){from._impl_.task_vehicle_num_}
-    , /*decltype(_impl_._task_vehicle_num_cached_byte_size_)*/{0}
-    , decltype(_impl_.service_nodes_){from._impl_.service_nodes_}
-    , decltype(_impl_.inter_sp_){}
-    , decltype(_impl_.route_type_){}
-    , decltype(_impl_.task_type_){}
-    , decltype(_impl_.modify_orientation_){}
-    , decltype(_impl_.acc_overlap_){}
-    , decltype(_impl_.multi_vehicle_){}
+      decltype(_impl_.width_){}
+    , decltype(_impl_.length_){}
+    , decltype(_impl_.leftoffset_){}
+    , decltype(_impl_.rightoffset_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.inter_sp_, &from._impl_.inter_sp_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.multi_vehicle_) -
-    reinterpret_cast<char*>(&_impl_.inter_sp_)) + sizeof(_impl_.multi_vehicle_));
-  // @@protoc_insertion_point(copy_constructor:haoxing.route.PlanParam)
+  ::memcpy(&_impl_.width_, &from._impl_.width_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.rightoffset_) -
+    reinterpret_cast<char*>(&_impl_.width_)) + sizeof(_impl_.rightoffset_));
+  // @@protoc_insertion_point(copy_constructor:haoxing.route.FarmTools)
 }
 
-inline void PlanParam::SharedCtor(
+inline void FarmTools::SharedCtor(
     ::_pb::Arena* arena, bool is_message_owned) {
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.task_vehicle_num_){arena}
-    , /*decltype(_impl_._task_vehicle_num_cached_byte_size_)*/{0}
-    , decltype(_impl_.service_nodes_){arena}
-    , decltype(_impl_.inter_sp_){0}
-    , decltype(_impl_.route_type_){0}
-    , decltype(_impl_.task_type_){0}
-    , decltype(_impl_.modify_orientation_){false}
-    , decltype(_impl_.acc_overlap_){false}
-    , decltype(_impl_.multi_vehicle_){false}
+      decltype(_impl_.width_){0}
+    , decltype(_impl_.length_){0}
+    , decltype(_impl_.leftoffset_){0}
+    , decltype(_impl_.rightoffset_){0}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
 
-PlanParam::~PlanParam() {
-  // @@protoc_insertion_point(destructor:haoxing.route.PlanParam)
+FarmTools::~FarmTools() {
+  // @@protoc_insertion_point(destructor:haoxing.route.FarmTools)
   if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
   (void)arena;
     return;
@@ -1209,105 +1253,61 @@ PlanParam::~PlanParam() {
   SharedDtor();
 }
 
-inline void PlanParam::SharedDtor() {
+inline void FarmTools::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.task_vehicle_num_.~RepeatedField();
-  _impl_.service_nodes_.~RepeatedPtrField();
 }
 
-void PlanParam::SetCachedSize(int size) const {
+void FarmTools::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
 }
 
-void PlanParam::Clear() {
-// @@protoc_insertion_point(message_clear_start:haoxing.route.PlanParam)
+void FarmTools::Clear() {
+// @@protoc_insertion_point(message_clear_start:haoxing.route.FarmTools)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.task_vehicle_num_.Clear();
-  _impl_.service_nodes_.Clear();
-  ::memset(&_impl_.inter_sp_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.multi_vehicle_) -
-      reinterpret_cast<char*>(&_impl_.inter_sp_)) + sizeof(_impl_.multi_vehicle_));
+  ::memset(&_impl_.width_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.rightoffset_) -
+      reinterpret_cast<char*>(&_impl_.width_)) + sizeof(_impl_.rightoffset_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* PlanParam::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* FarmTools::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // double inter_sp = 1;
+      // double width = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 9)) {
-          _impl_.inter_sp_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          _impl_.width_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
           ptr += sizeof(double);
         } else
           goto handle_unusual;
         continue;
-      // double route_type = 2;
+      // double length = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 17)) {
-          _impl_.route_type_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          _impl_.length_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
           ptr += sizeof(double);
         } else
           goto handle_unusual;
         continue;
-      // double task_type = 3;
+      // double leftOffset = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 25)) {
-          _impl_.task_type_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          _impl_.leftoffset_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
           ptr += sizeof(double);
         } else
           goto handle_unusual;
         continue;
-      // bool modify_orientation = 4;
+      // double rightOffset = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
-          _impl_.modify_orientation_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // bool acc_overlap = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
-          _impl_.acc_overlap_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // bool multi_vehicle = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
-          _impl_.multi_vehicle_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // repeated int32 task_vehicle_num = 7;
-      case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt32Parser(_internal_mutable_task_vehicle_num(), ptr, ctx);
-          CHK_(ptr);
-        } else if (static_cast<uint8_t>(tag) == 56) {
-          _internal_add_task_vehicle_num(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // repeated .haoxing.route.NodeXYZ service_nodes = 8;
-      case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_service_nodes(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<66>(ptr));
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 33)) {
+          _impl_.rightoffset_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
         } else
           goto handle_unusual;
         continue;
@@ -1334,234 +1334,176 @@ failure:
 #undef CHK_
 }
 
-uint8_t* PlanParam::_InternalSerialize(
+uint8_t* FarmTools::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:haoxing.route.PlanParam)
+  // @@protoc_insertion_point(serialize_to_array_start:haoxing.route.FarmTools)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // double inter_sp = 1;
+  // double width = 1;
   static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
-  double tmp_inter_sp = this->_internal_inter_sp();
-  uint64_t raw_inter_sp;
-  memcpy(&raw_inter_sp, &tmp_inter_sp, sizeof(tmp_inter_sp));
-  if (raw_inter_sp != 0) {
+  double tmp_width = this->_internal_width();
+  uint64_t raw_width;
+  memcpy(&raw_width, &tmp_width, sizeof(tmp_width));
+  if (raw_width != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteDoubleToArray(1, this->_internal_inter_sp(), target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(1, this->_internal_width(), target);
   }
 
-  // double route_type = 2;
+  // double length = 2;
   static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
-  double tmp_route_type = this->_internal_route_type();
-  uint64_t raw_route_type;
-  memcpy(&raw_route_type, &tmp_route_type, sizeof(tmp_route_type));
-  if (raw_route_type != 0) {
+  double tmp_length = this->_internal_length();
+  uint64_t raw_length;
+  memcpy(&raw_length, &tmp_length, sizeof(tmp_length));
+  if (raw_length != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteDoubleToArray(2, this->_internal_route_type(), target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(2, this->_internal_length(), target);
   }
 
-  // double task_type = 3;
+  // double leftOffset = 3;
   static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
-  double tmp_task_type = this->_internal_task_type();
-  uint64_t raw_task_type;
-  memcpy(&raw_task_type, &tmp_task_type, sizeof(tmp_task_type));
-  if (raw_task_type != 0) {
+  double tmp_leftoffset = this->_internal_leftoffset();
+  uint64_t raw_leftoffset;
+  memcpy(&raw_leftoffset, &tmp_leftoffset, sizeof(tmp_leftoffset));
+  if (raw_leftoffset != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteDoubleToArray(3, this->_internal_task_type(), target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(3, this->_internal_leftoffset(), target);
   }
 
-  // bool modify_orientation = 4;
-  if (this->_internal_modify_orientation() != 0) {
+  // double rightOffset = 4;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_rightoffset = this->_internal_rightoffset();
+  uint64_t raw_rightoffset;
+  memcpy(&raw_rightoffset, &tmp_rightoffset, sizeof(tmp_rightoffset));
+  if (raw_rightoffset != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteBoolToArray(4, this->_internal_modify_orientation(), target);
-  }
-
-  // bool acc_overlap = 5;
-  if (this->_internal_acc_overlap() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteBoolToArray(5, this->_internal_acc_overlap(), target);
-  }
-
-  // bool multi_vehicle = 6;
-  if (this->_internal_multi_vehicle() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteBoolToArray(6, this->_internal_multi_vehicle(), target);
-  }
-
-  // repeated int32 task_vehicle_num = 7;
-  {
-    int byte_size = _impl_._task_vehicle_num_cached_byte_size_.load(std::memory_order_relaxed);
-    if (byte_size > 0) {
-      target = stream->WriteInt32Packed(
-          7, _internal_task_vehicle_num(), byte_size, target);
-    }
-  }
-
-  // repeated .haoxing.route.NodeXYZ service_nodes = 8;
-  for (unsigned i = 0,
-      n = static_cast<unsigned>(this->_internal_service_nodes_size()); i < n; i++) {
-    const auto& repfield = this->_internal_service_nodes(i);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-        InternalWriteMessage(8, repfield, repfield.GetCachedSize(), target, stream);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(4, this->_internal_rightoffset(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:haoxing.route.PlanParam)
+  // @@protoc_insertion_point(serialize_to_array_end:haoxing.route.FarmTools)
   return target;
 }
 
-size_t PlanParam::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:haoxing.route.PlanParam)
+size_t FarmTools::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:haoxing.route.FarmTools)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated int32 task_vehicle_num = 7;
-  {
-    size_t data_size = ::_pbi::WireFormatLite::
-      Int32Size(this->_impl_.task_vehicle_num_);
-    if (data_size > 0) {
-      total_size += 1 +
-        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
-    }
-    int cached_size = ::_pbi::ToCachedSize(data_size);
-    _impl_._task_vehicle_num_cached_byte_size_.store(cached_size,
-                                    std::memory_order_relaxed);
-    total_size += data_size;
-  }
-
-  // repeated .haoxing.route.NodeXYZ service_nodes = 8;
-  total_size += 1UL * this->_internal_service_nodes_size();
-  for (const auto& msg : this->_impl_.service_nodes_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
-
-  // double inter_sp = 1;
+  // double width = 1;
   static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
-  double tmp_inter_sp = this->_internal_inter_sp();
-  uint64_t raw_inter_sp;
-  memcpy(&raw_inter_sp, &tmp_inter_sp, sizeof(tmp_inter_sp));
-  if (raw_inter_sp != 0) {
+  double tmp_width = this->_internal_width();
+  uint64_t raw_width;
+  memcpy(&raw_width, &tmp_width, sizeof(tmp_width));
+  if (raw_width != 0) {
     total_size += 1 + 8;
   }
 
-  // double route_type = 2;
+  // double length = 2;
   static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
-  double tmp_route_type = this->_internal_route_type();
-  uint64_t raw_route_type;
-  memcpy(&raw_route_type, &tmp_route_type, sizeof(tmp_route_type));
-  if (raw_route_type != 0) {
+  double tmp_length = this->_internal_length();
+  uint64_t raw_length;
+  memcpy(&raw_length, &tmp_length, sizeof(tmp_length));
+  if (raw_length != 0) {
     total_size += 1 + 8;
   }
 
-  // double task_type = 3;
+  // double leftOffset = 3;
   static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
-  double tmp_task_type = this->_internal_task_type();
-  uint64_t raw_task_type;
-  memcpy(&raw_task_type, &tmp_task_type, sizeof(tmp_task_type));
-  if (raw_task_type != 0) {
+  double tmp_leftoffset = this->_internal_leftoffset();
+  uint64_t raw_leftoffset;
+  memcpy(&raw_leftoffset, &tmp_leftoffset, sizeof(tmp_leftoffset));
+  if (raw_leftoffset != 0) {
     total_size += 1 + 8;
   }
 
-  // bool modify_orientation = 4;
-  if (this->_internal_modify_orientation() != 0) {
-    total_size += 1 + 1;
-  }
-
-  // bool acc_overlap = 5;
-  if (this->_internal_acc_overlap() != 0) {
-    total_size += 1 + 1;
-  }
-
-  // bool multi_vehicle = 6;
-  if (this->_internal_multi_vehicle() != 0) {
-    total_size += 1 + 1;
+  // double rightOffset = 4;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_rightoffset = this->_internal_rightoffset();
+  uint64_t raw_rightoffset;
+  memcpy(&raw_rightoffset, &tmp_rightoffset, sizeof(tmp_rightoffset));
+  if (raw_rightoffset != 0) {
+    total_size += 1 + 8;
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData PlanParam::_class_data_ = {
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData FarmTools::_class_data_ = {
     ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    PlanParam::MergeImpl
+    FarmTools::MergeImpl
 };
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*PlanParam::GetClassData() const { return &_class_data_; }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*FarmTools::GetClassData() const { return &_class_data_; }
 
 
-void PlanParam::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<PlanParam*>(&to_msg);
-  auto& from = static_cast<const PlanParam&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:haoxing.route.PlanParam)
+void FarmTools::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<FarmTools*>(&to_msg);
+  auto& from = static_cast<const FarmTools&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:haoxing.route.FarmTools)
   GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  _this->_impl_.task_vehicle_num_.MergeFrom(from._impl_.task_vehicle_num_);
-  _this->_impl_.service_nodes_.MergeFrom(from._impl_.service_nodes_);
   static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
-  double tmp_inter_sp = from._internal_inter_sp();
-  uint64_t raw_inter_sp;
-  memcpy(&raw_inter_sp, &tmp_inter_sp, sizeof(tmp_inter_sp));
-  if (raw_inter_sp != 0) {
-    _this->_internal_set_inter_sp(from._internal_inter_sp());
+  double tmp_width = from._internal_width();
+  uint64_t raw_width;
+  memcpy(&raw_width, &tmp_width, sizeof(tmp_width));
+  if (raw_width != 0) {
+    _this->_internal_set_width(from._internal_width());
   }
   static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
-  double tmp_route_type = from._internal_route_type();
-  uint64_t raw_route_type;
-  memcpy(&raw_route_type, &tmp_route_type, sizeof(tmp_route_type));
-  if (raw_route_type != 0) {
-    _this->_internal_set_route_type(from._internal_route_type());
+  double tmp_length = from._internal_length();
+  uint64_t raw_length;
+  memcpy(&raw_length, &tmp_length, sizeof(tmp_length));
+  if (raw_length != 0) {
+    _this->_internal_set_length(from._internal_length());
   }
   static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
-  double tmp_task_type = from._internal_task_type();
-  uint64_t raw_task_type;
-  memcpy(&raw_task_type, &tmp_task_type, sizeof(tmp_task_type));
-  if (raw_task_type != 0) {
-    _this->_internal_set_task_type(from._internal_task_type());
+  double tmp_leftoffset = from._internal_leftoffset();
+  uint64_t raw_leftoffset;
+  memcpy(&raw_leftoffset, &tmp_leftoffset, sizeof(tmp_leftoffset));
+  if (raw_leftoffset != 0) {
+    _this->_internal_set_leftoffset(from._internal_leftoffset());
   }
-  if (from._internal_modify_orientation() != 0) {
-    _this->_internal_set_modify_orientation(from._internal_modify_orientation());
-  }
-  if (from._internal_acc_overlap() != 0) {
-    _this->_internal_set_acc_overlap(from._internal_acc_overlap());
-  }
-  if (from._internal_multi_vehicle() != 0) {
-    _this->_internal_set_multi_vehicle(from._internal_multi_vehicle());
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_rightoffset = from._internal_rightoffset();
+  uint64_t raw_rightoffset;
+  memcpy(&raw_rightoffset, &tmp_rightoffset, sizeof(tmp_rightoffset));
+  if (raw_rightoffset != 0) {
+    _this->_internal_set_rightoffset(from._internal_rightoffset());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void PlanParam::CopyFrom(const PlanParam& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:haoxing.route.PlanParam)
+void FarmTools::CopyFrom(const FarmTools& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:haoxing.route.FarmTools)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool PlanParam::IsInitialized() const {
+bool FarmTools::IsInitialized() const {
   return true;
 }
 
-void PlanParam::InternalSwap(PlanParam* other) {
+void FarmTools::InternalSwap(FarmTools* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  _impl_.task_vehicle_num_.InternalSwap(&other->_impl_.task_vehicle_num_);
-  _impl_.service_nodes_.InternalSwap(&other->_impl_.service_nodes_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(PlanParam, _impl_.multi_vehicle_)
-      + sizeof(PlanParam::_impl_.multi_vehicle_)
-      - PROTOBUF_FIELD_OFFSET(PlanParam, _impl_.inter_sp_)>(
-          reinterpret_cast<char*>(&_impl_.inter_sp_),
-          reinterpret_cast<char*>(&other->_impl_.inter_sp_));
+      PROTOBUF_FIELD_OFFSET(FarmTools, _impl_.rightoffset_)
+      + sizeof(FarmTools::_impl_.rightoffset_)
+      - PROTOBUF_FIELD_OFFSET(FarmTools, _impl_.width_)>(
+          reinterpret_cast<char*>(&_impl_.width_),
+          reinterpret_cast<char*>(&other->_impl_.width_));
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata PlanParam::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata FarmTools::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_route_2eproto_getter, &descriptor_table_route_2eproto_once,
       file_level_metadata_route_2eproto[2]);
@@ -1972,366 +1914,36 @@ void Vehicle::InternalSwap(Vehicle* other) {
 
 // ===================================================================
 
-class Implement::_Internal {
+class ObstacleReq::_Internal {
  public:
 };
 
-Implement::Implement(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+ObstacleReq::ObstacleReq(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:haoxing.route.Implement)
+  // @@protoc_insertion_point(arena_constructor:haoxing.route.ObstacleReq)
 }
-Implement::Implement(const Implement& from)
+ObstacleReq::ObstacleReq(const ObstacleReq& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
-  Implement* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_.width_){}
-    , decltype(_impl_.length_){}
-    , decltype(_impl_.right_offset_){}
-    , decltype(_impl_.left_offset_){}
-    , decltype(_impl_.linkage_mode_){}
-    , /*decltype(_impl_._cached_size_)*/{}};
-
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.width_, &from._impl_.width_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.linkage_mode_) -
-    reinterpret_cast<char*>(&_impl_.width_)) + sizeof(_impl_.linkage_mode_));
-  // @@protoc_insertion_point(copy_constructor:haoxing.route.Implement)
-}
-
-inline void Implement::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_.width_){0}
-    , decltype(_impl_.length_){0}
-    , decltype(_impl_.right_offset_){0}
-    , decltype(_impl_.left_offset_){0}
-    , decltype(_impl_.linkage_mode_){0}
-    , /*decltype(_impl_._cached_size_)*/{}
-  };
-}
-
-Implement::~Implement() {
-  // @@protoc_insertion_point(destructor:haoxing.route.Implement)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
-  SharedDtor();
-}
-
-inline void Implement::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-}
-
-void Implement::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
-}
-
-void Implement::Clear() {
-// @@protoc_insertion_point(message_clear_start:haoxing.route.Implement)
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  ::memset(&_impl_.width_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.linkage_mode_) -
-      reinterpret_cast<char*>(&_impl_.width_)) + sizeof(_impl_.linkage_mode_));
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* Implement::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
-      // double width = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 9)) {
-          _impl_.width_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
-          ptr += sizeof(double);
-        } else
-          goto handle_unusual;
-        continue;
-      // double length = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 17)) {
-          _impl_.length_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
-          ptr += sizeof(double);
-        } else
-          goto handle_unusual;
-        continue;
-      // double right_offset = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 25)) {
-          _impl_.right_offset_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
-          ptr += sizeof(double);
-        } else
-          goto handle_unusual;
-        continue;
-      // double left_offset = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 33)) {
-          _impl_.left_offset_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
-          ptr += sizeof(double);
-        } else
-          goto handle_unusual;
-        continue;
-      // int32 linkage_mode = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
-          _impl_.linkage_mode_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
-}
-
-uint8_t* Implement::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:haoxing.route.Implement)
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // double width = 1;
-  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
-  double tmp_width = this->_internal_width();
-  uint64_t raw_width;
-  memcpy(&raw_width, &tmp_width, sizeof(tmp_width));
-  if (raw_width != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteDoubleToArray(1, this->_internal_width(), target);
-  }
-
-  // double length = 2;
-  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
-  double tmp_length = this->_internal_length();
-  uint64_t raw_length;
-  memcpy(&raw_length, &tmp_length, sizeof(tmp_length));
-  if (raw_length != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteDoubleToArray(2, this->_internal_length(), target);
-  }
-
-  // double right_offset = 3;
-  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
-  double tmp_right_offset = this->_internal_right_offset();
-  uint64_t raw_right_offset;
-  memcpy(&raw_right_offset, &tmp_right_offset, sizeof(tmp_right_offset));
-  if (raw_right_offset != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteDoubleToArray(3, this->_internal_right_offset(), target);
-  }
-
-  // double left_offset = 4;
-  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
-  double tmp_left_offset = this->_internal_left_offset();
-  uint64_t raw_left_offset;
-  memcpy(&raw_left_offset, &tmp_left_offset, sizeof(tmp_left_offset));
-  if (raw_left_offset != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteDoubleToArray(4, this->_internal_left_offset(), target);
-  }
-
-  // int32 linkage_mode = 5;
-  if (this->_internal_linkage_mode() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt32ToArray(5, this->_internal_linkage_mode(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:haoxing.route.Implement)
-  return target;
-}
-
-size_t Implement::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:haoxing.route.Implement)
-  size_t total_size = 0;
-
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // double width = 1;
-  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
-  double tmp_width = this->_internal_width();
-  uint64_t raw_width;
-  memcpy(&raw_width, &tmp_width, sizeof(tmp_width));
-  if (raw_width != 0) {
-    total_size += 1 + 8;
-  }
-
-  // double length = 2;
-  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
-  double tmp_length = this->_internal_length();
-  uint64_t raw_length;
-  memcpy(&raw_length, &tmp_length, sizeof(tmp_length));
-  if (raw_length != 0) {
-    total_size += 1 + 8;
-  }
-
-  // double right_offset = 3;
-  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
-  double tmp_right_offset = this->_internal_right_offset();
-  uint64_t raw_right_offset;
-  memcpy(&raw_right_offset, &tmp_right_offset, sizeof(tmp_right_offset));
-  if (raw_right_offset != 0) {
-    total_size += 1 + 8;
-  }
-
-  // double left_offset = 4;
-  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
-  double tmp_left_offset = this->_internal_left_offset();
-  uint64_t raw_left_offset;
-  memcpy(&raw_left_offset, &tmp_left_offset, sizeof(tmp_left_offset));
-  if (raw_left_offset != 0) {
-    total_size += 1 + 8;
-  }
-
-  // int32 linkage_mode = 5;
-  if (this->_internal_linkage_mode() != 0) {
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_linkage_mode());
-  }
-
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
-}
-
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Implement::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    Implement::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Implement::GetClassData() const { return &_class_data_; }
-
-
-void Implement::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<Implement*>(&to_msg);
-  auto& from = static_cast<const Implement&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:haoxing.route.Implement)
-  GOOGLE_DCHECK_NE(&from, _this);
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
-  double tmp_width = from._internal_width();
-  uint64_t raw_width;
-  memcpy(&raw_width, &tmp_width, sizeof(tmp_width));
-  if (raw_width != 0) {
-    _this->_internal_set_width(from._internal_width());
-  }
-  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
-  double tmp_length = from._internal_length();
-  uint64_t raw_length;
-  memcpy(&raw_length, &tmp_length, sizeof(tmp_length));
-  if (raw_length != 0) {
-    _this->_internal_set_length(from._internal_length());
-  }
-  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
-  double tmp_right_offset = from._internal_right_offset();
-  uint64_t raw_right_offset;
-  memcpy(&raw_right_offset, &tmp_right_offset, sizeof(tmp_right_offset));
-  if (raw_right_offset != 0) {
-    _this->_internal_set_right_offset(from._internal_right_offset());
-  }
-  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
-  double tmp_left_offset = from._internal_left_offset();
-  uint64_t raw_left_offset;
-  memcpy(&raw_left_offset, &tmp_left_offset, sizeof(tmp_left_offset));
-  if (raw_left_offset != 0) {
-    _this->_internal_set_left_offset(from._internal_left_offset());
-  }
-  if (from._internal_linkage_mode() != 0) {
-    _this->_internal_set_linkage_mode(from._internal_linkage_mode());
-  }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void Implement::CopyFrom(const Implement& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:haoxing.route.Implement)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Implement::IsInitialized() const {
-  return true;
-}
-
-void Implement::InternalSwap(Implement* other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Implement, _impl_.linkage_mode_)
-      + sizeof(Implement::_impl_.linkage_mode_)
-      - PROTOBUF_FIELD_OFFSET(Implement, _impl_.width_)>(
-          reinterpret_cast<char*>(&_impl_.width_),
-          reinterpret_cast<char*>(&other->_impl_.width_));
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata Implement::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
-      &descriptor_table_route_2eproto_getter, &descriptor_table_route_2eproto_once,
-      file_level_metadata_route_2eproto[4]);
-}
-
-// ===================================================================
-
-class Obstacle::_Internal {
- public:
-};
-
-Obstacle::Obstacle(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:haoxing.route.Obstacle)
-}
-Obstacle::Obstacle(const Obstacle& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  Obstacle* const _this = this; (void)_this;
+  ObstacleReq* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.x_){}
     , decltype(_impl_.y_){}
     , decltype(_impl_.z_){}
     , decltype(_impl_.r_){}
     , decltype(_impl_.r_w_){}
+    , decltype(_impl_.taskindex_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&_impl_.x_, &from._impl_.x_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.r_w_) -
-    reinterpret_cast<char*>(&_impl_.x_)) + sizeof(_impl_.r_w_));
-  // @@protoc_insertion_point(copy_constructor:haoxing.route.Obstacle)
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.taskindex_) -
+    reinterpret_cast<char*>(&_impl_.x_)) + sizeof(_impl_.taskindex_));
+  // @@protoc_insertion_point(copy_constructor:haoxing.route.ObstacleReq)
 }
 
-inline void Obstacle::SharedCtor(
+inline void ObstacleReq::SharedCtor(
     ::_pb::Arena* arena, bool is_message_owned) {
   (void)arena;
   (void)is_message_owned;
@@ -2341,12 +1953,13 @@ inline void Obstacle::SharedCtor(
     , decltype(_impl_.z_){0}
     , decltype(_impl_.r_){0}
     , decltype(_impl_.r_w_){0}
+    , decltype(_impl_.taskindex_){0}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
 
-Obstacle::~Obstacle() {
-  // @@protoc_insertion_point(destructor:haoxing.route.Obstacle)
+ObstacleReq::~ObstacleReq() {
+  // @@protoc_insertion_point(destructor:haoxing.route.ObstacleReq)
   if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
   (void)arena;
     return;
@@ -2354,27 +1967,27 @@ Obstacle::~Obstacle() {
   SharedDtor();
 }
 
-inline void Obstacle::SharedDtor() {
+inline void ObstacleReq::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void Obstacle::SetCachedSize(int size) const {
+void ObstacleReq::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
 }
 
-void Obstacle::Clear() {
-// @@protoc_insertion_point(message_clear_start:haoxing.route.Obstacle)
+void ObstacleReq::Clear() {
+// @@protoc_insertion_point(message_clear_start:haoxing.route.ObstacleReq)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   ::memset(&_impl_.x_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.r_w_) -
-      reinterpret_cast<char*>(&_impl_.x_)) + sizeof(_impl_.r_w_));
+      reinterpret_cast<char*>(&_impl_.taskindex_) -
+      reinterpret_cast<char*>(&_impl_.x_)) + sizeof(_impl_.taskindex_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Obstacle::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* ObstacleReq::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
@@ -2420,6 +2033,14 @@ const char* Obstacle::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx)
         } else
           goto handle_unusual;
         continue;
+      // int32 taskIndex = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
+          _impl_.taskindex_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -2443,9 +2064,9 @@ failure:
 #undef CHK_
 }
 
-uint8_t* Obstacle::_InternalSerialize(
+uint8_t* ObstacleReq::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:haoxing.route.Obstacle)
+  // @@protoc_insertion_point(serialize_to_array_start:haoxing.route.ObstacleReq)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -2499,16 +2120,22 @@ uint8_t* Obstacle::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteDoubleToArray(5, this->_internal_r_w(), target);
   }
 
+  // int32 taskIndex = 6;
+  if (this->_internal_taskindex() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(6, this->_internal_taskindex(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:haoxing.route.Obstacle)
+  // @@protoc_insertion_point(serialize_to_array_end:haoxing.route.ObstacleReq)
   return target;
 }
 
-size_t Obstacle::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:haoxing.route.Obstacle)
+size_t ObstacleReq::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:haoxing.route.ObstacleReq)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
@@ -2560,20 +2187,25 @@ size_t Obstacle::ByteSizeLong() const {
     total_size += 1 + 8;
   }
 
+  // int32 taskIndex = 6;
+  if (this->_internal_taskindex() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_taskindex());
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Obstacle::_class_data_ = {
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ObstacleReq::_class_data_ = {
     ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    Obstacle::MergeImpl
+    ObstacleReq::MergeImpl
 };
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Obstacle::GetClassData() const { return &_class_data_; }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ObstacleReq::GetClassData() const { return &_class_data_; }
 
 
-void Obstacle::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<Obstacle*>(&to_msg);
-  auto& from = static_cast<const Obstacle&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:haoxing.route.Obstacle)
+void ObstacleReq::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ObstacleReq*>(&to_msg);
+  auto& from = static_cast<const ObstacleReq&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:haoxing.route.ObstacleReq)
   GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -2613,102 +2245,96 @@ void Obstacle::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTO
   if (raw_r_w != 0) {
     _this->_internal_set_r_w(from._internal_r_w());
   }
+  if (from._internal_taskindex() != 0) {
+    _this->_internal_set_taskindex(from._internal_taskindex());
+  }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void Obstacle::CopyFrom(const Obstacle& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:haoxing.route.Obstacle)
+void ObstacleReq::CopyFrom(const ObstacleReq& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:haoxing.route.ObstacleReq)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Obstacle::IsInitialized() const {
+bool ObstacleReq::IsInitialized() const {
   return true;
 }
 
-void Obstacle::InternalSwap(Obstacle* other) {
+void ObstacleReq::InternalSwap(ObstacleReq* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Obstacle, _impl_.r_w_)
-      + sizeof(Obstacle::_impl_.r_w_)
-      - PROTOBUF_FIELD_OFFSET(Obstacle, _impl_.x_)>(
+      PROTOBUF_FIELD_OFFSET(ObstacleReq, _impl_.taskindex_)
+      + sizeof(ObstacleReq::_impl_.taskindex_)
+      - PROTOBUF_FIELD_OFFSET(ObstacleReq, _impl_.x_)>(
           reinterpret_cast<char*>(&_impl_.x_),
           reinterpret_cast<char*>(&other->_impl_.x_));
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata Obstacle::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata ObstacleReq::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_route_2eproto_getter, &descriptor_table_route_2eproto_once,
-      file_level_metadata_route_2eproto[5]);
+      file_level_metadata_route_2eproto[4]);
 }
 
 // ===================================================================
 
-class RequestParam::_Internal {
+class PlanParam::_Internal {
  public:
-  static const ::haoxing::route::PlanParam& plan_param(const RequestParam* msg);
-  static const ::haoxing::route::Vehicle& vehicle(const RequestParam* msg);
-  static const ::haoxing::route::Implement& implement(const RequestParam* msg);
 };
 
-const ::haoxing::route::PlanParam&
-RequestParam::_Internal::plan_param(const RequestParam* msg) {
-  return *msg->_impl_.plan_param_;
-}
-const ::haoxing::route::Vehicle&
-RequestParam::_Internal::vehicle(const RequestParam* msg) {
-  return *msg->_impl_.vehicle_;
-}
-const ::haoxing::route::Implement&
-RequestParam::_Internal::implement(const RequestParam* msg) {
-  return *msg->_impl_.implement_;
-}
-RequestParam::RequestParam(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+PlanParam::PlanParam(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:haoxing.route.RequestParam)
+  // @@protoc_insertion_point(arena_constructor:haoxing.route.PlanParam)
 }
-RequestParam::RequestParam(const RequestParam& from)
+PlanParam::PlanParam(const PlanParam& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
-  RequestParam* const _this = this; (void)_this;
+  PlanParam* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.field_infos_){from._impl_.field_infos_}
-    , decltype(_impl_.plan_param_){nullptr}
-    , decltype(_impl_.vehicle_){nullptr}
-    , decltype(_impl_.implement_){nullptr}
+      decltype(_impl_.service_nodes_){from._impl_.service_nodes_}
+    , decltype(_impl_.linespace_){}
+    , decltype(_impl_.interspace_){}
+    , decltype(_impl_.safe_distance_){}
+    , decltype(_impl_.turn_round_type_){}
+    , decltype(_impl_.task_type_){}
+    , decltype(_impl_.type_seeding_){}
+    , decltype(_impl_.modify_orientation_){}
+    , decltype(_impl_.acc_overlap_){}
+    , decltype(_impl_.multi_vehicle_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  if (from._internal_has_plan_param()) {
-    _this->_impl_.plan_param_ = new ::haoxing::route::PlanParam(*from._impl_.plan_param_);
-  }
-  if (from._internal_has_vehicle()) {
-    _this->_impl_.vehicle_ = new ::haoxing::route::Vehicle(*from._impl_.vehicle_);
-  }
-  if (from._internal_has_implement()) {
-    _this->_impl_.implement_ = new ::haoxing::route::Implement(*from._impl_.implement_);
-  }
-  // @@protoc_insertion_point(copy_constructor:haoxing.route.RequestParam)
+  ::memcpy(&_impl_.linespace_, &from._impl_.linespace_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.multi_vehicle_) -
+    reinterpret_cast<char*>(&_impl_.linespace_)) + sizeof(_impl_.multi_vehicle_));
+  // @@protoc_insertion_point(copy_constructor:haoxing.route.PlanParam)
 }
 
-inline void RequestParam::SharedCtor(
+inline void PlanParam::SharedCtor(
     ::_pb::Arena* arena, bool is_message_owned) {
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.field_infos_){arena}
-    , decltype(_impl_.plan_param_){nullptr}
-    , decltype(_impl_.vehicle_){nullptr}
-    , decltype(_impl_.implement_){nullptr}
+      decltype(_impl_.service_nodes_){arena}
+    , decltype(_impl_.linespace_){0}
+    , decltype(_impl_.interspace_){0}
+    , decltype(_impl_.safe_distance_){0}
+    , decltype(_impl_.turn_round_type_){0}
+    , decltype(_impl_.task_type_){0}
+    , decltype(_impl_.type_seeding_){0}
+    , decltype(_impl_.modify_orientation_){false}
+    , decltype(_impl_.acc_overlap_){false}
+    , decltype(_impl_.multi_vehicle_){false}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
 
-RequestParam::~RequestParam() {
-  // @@protoc_insertion_point(destructor:haoxing.route.RequestParam)
+PlanParam::~PlanParam() {
+  // @@protoc_insertion_point(destructor:haoxing.route.PlanParam)
   if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
   (void)arena;
     return;
@@ -2716,63 +2342,563 @@ RequestParam::~RequestParam() {
   SharedDtor();
 }
 
-inline void RequestParam::SharedDtor() {
+inline void PlanParam::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.field_infos_.~RepeatedPtrField();
-  if (this != internal_default_instance()) delete _impl_.plan_param_;
-  if (this != internal_default_instance()) delete _impl_.vehicle_;
-  if (this != internal_default_instance()) delete _impl_.implement_;
+  _impl_.service_nodes_.~RepeatedPtrField();
 }
 
-void RequestParam::SetCachedSize(int size) const {
+void PlanParam::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
 }
 
-void RequestParam::Clear() {
-// @@protoc_insertion_point(message_clear_start:haoxing.route.RequestParam)
+void PlanParam::Clear() {
+// @@protoc_insertion_point(message_clear_start:haoxing.route.PlanParam)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.field_infos_.Clear();
-  if (GetArenaForAllocation() == nullptr && _impl_.plan_param_ != nullptr) {
-    delete _impl_.plan_param_;
-  }
-  _impl_.plan_param_ = nullptr;
-  if (GetArenaForAllocation() == nullptr && _impl_.vehicle_ != nullptr) {
-    delete _impl_.vehicle_;
-  }
-  _impl_.vehicle_ = nullptr;
-  if (GetArenaForAllocation() == nullptr && _impl_.implement_ != nullptr) {
-    delete _impl_.implement_;
-  }
-  _impl_.implement_ = nullptr;
+  _impl_.service_nodes_.Clear();
+  ::memset(&_impl_.linespace_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.multi_vehicle_) -
+      reinterpret_cast<char*>(&_impl_.linespace_)) + sizeof(_impl_.multi_vehicle_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* RequestParam::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* PlanParam::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // repeated .haoxing.route.FieldInfo field_infos = 1;
+      // double lineSpace = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_field_infos(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 9)) {
+          _impl_.linespace_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
         } else
           goto handle_unusual;
         continue;
-      // .haoxing.route.PlanParam plan_param = 2;
+      // double interspace = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 17)) {
+          _impl_.interspace_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else
+          goto handle_unusual;
+        continue;
+      // double safe_distance = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 25)) {
+          _impl_.safe_distance_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else
+          goto handle_unusual;
+        continue;
+      // double turn_round_type = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 33)) {
+          _impl_.turn_round_type_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else
+          goto handle_unusual;
+        continue;
+      // double task_type = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 41)) {
+          _impl_.task_type_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else
+          goto handle_unusual;
+        continue;
+      // double type_seeding = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 49)) {
+          _impl_.type_seeding_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else
+          goto handle_unusual;
+        continue;
+      // bool modify_orientation = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 56)) {
+          _impl_.modify_orientation_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // bool acc_overlap = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 64)) {
+          _impl_.acc_overlap_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // bool multi_vehicle = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 72)) {
+          _impl_.multi_vehicle_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .haoxing.route.NodeXYZ service_nodes = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 82)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_service_nodes(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<82>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* PlanParam::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:haoxing.route.PlanParam)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // double lineSpace = 1;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_linespace = this->_internal_linespace();
+  uint64_t raw_linespace;
+  memcpy(&raw_linespace, &tmp_linespace, sizeof(tmp_linespace));
+  if (raw_linespace != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(1, this->_internal_linespace(), target);
+  }
+
+  // double interspace = 2;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_interspace = this->_internal_interspace();
+  uint64_t raw_interspace;
+  memcpy(&raw_interspace, &tmp_interspace, sizeof(tmp_interspace));
+  if (raw_interspace != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(2, this->_internal_interspace(), target);
+  }
+
+  // double safe_distance = 3;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_safe_distance = this->_internal_safe_distance();
+  uint64_t raw_safe_distance;
+  memcpy(&raw_safe_distance, &tmp_safe_distance, sizeof(tmp_safe_distance));
+  if (raw_safe_distance != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(3, this->_internal_safe_distance(), target);
+  }
+
+  // double turn_round_type = 4;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_turn_round_type = this->_internal_turn_round_type();
+  uint64_t raw_turn_round_type;
+  memcpy(&raw_turn_round_type, &tmp_turn_round_type, sizeof(tmp_turn_round_type));
+  if (raw_turn_round_type != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(4, this->_internal_turn_round_type(), target);
+  }
+
+  // double task_type = 5;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_task_type = this->_internal_task_type();
+  uint64_t raw_task_type;
+  memcpy(&raw_task_type, &tmp_task_type, sizeof(tmp_task_type));
+  if (raw_task_type != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(5, this->_internal_task_type(), target);
+  }
+
+  // double type_seeding = 6;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_type_seeding = this->_internal_type_seeding();
+  uint64_t raw_type_seeding;
+  memcpy(&raw_type_seeding, &tmp_type_seeding, sizeof(tmp_type_seeding));
+  if (raw_type_seeding != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(6, this->_internal_type_seeding(), target);
+  }
+
+  // bool modify_orientation = 7;
+  if (this->_internal_modify_orientation() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(7, this->_internal_modify_orientation(), target);
+  }
+
+  // bool acc_overlap = 8;
+  if (this->_internal_acc_overlap() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(8, this->_internal_acc_overlap(), target);
+  }
+
+  // bool multi_vehicle = 9;
+  if (this->_internal_multi_vehicle() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(9, this->_internal_multi_vehicle(), target);
+  }
+
+  // repeated .haoxing.route.NodeXYZ service_nodes = 10;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_service_nodes_size()); i < n; i++) {
+    const auto& repfield = this->_internal_service_nodes(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(10, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:haoxing.route.PlanParam)
+  return target;
+}
+
+size_t PlanParam::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:haoxing.route.PlanParam)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .haoxing.route.NodeXYZ service_nodes = 10;
+  total_size += 1UL * this->_internal_service_nodes_size();
+  for (const auto& msg : this->_impl_.service_nodes_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // double lineSpace = 1;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_linespace = this->_internal_linespace();
+  uint64_t raw_linespace;
+  memcpy(&raw_linespace, &tmp_linespace, sizeof(tmp_linespace));
+  if (raw_linespace != 0) {
+    total_size += 1 + 8;
+  }
+
+  // double interspace = 2;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_interspace = this->_internal_interspace();
+  uint64_t raw_interspace;
+  memcpy(&raw_interspace, &tmp_interspace, sizeof(tmp_interspace));
+  if (raw_interspace != 0) {
+    total_size += 1 + 8;
+  }
+
+  // double safe_distance = 3;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_safe_distance = this->_internal_safe_distance();
+  uint64_t raw_safe_distance;
+  memcpy(&raw_safe_distance, &tmp_safe_distance, sizeof(tmp_safe_distance));
+  if (raw_safe_distance != 0) {
+    total_size += 1 + 8;
+  }
+
+  // double turn_round_type = 4;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_turn_round_type = this->_internal_turn_round_type();
+  uint64_t raw_turn_round_type;
+  memcpy(&raw_turn_round_type, &tmp_turn_round_type, sizeof(tmp_turn_round_type));
+  if (raw_turn_round_type != 0) {
+    total_size += 1 + 8;
+  }
+
+  // double task_type = 5;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_task_type = this->_internal_task_type();
+  uint64_t raw_task_type;
+  memcpy(&raw_task_type, &tmp_task_type, sizeof(tmp_task_type));
+  if (raw_task_type != 0) {
+    total_size += 1 + 8;
+  }
+
+  // double type_seeding = 6;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_type_seeding = this->_internal_type_seeding();
+  uint64_t raw_type_seeding;
+  memcpy(&raw_type_seeding, &tmp_type_seeding, sizeof(tmp_type_seeding));
+  if (raw_type_seeding != 0) {
+    total_size += 1 + 8;
+  }
+
+  // bool modify_orientation = 7;
+  if (this->_internal_modify_orientation() != 0) {
+    total_size += 1 + 1;
+  }
+
+  // bool acc_overlap = 8;
+  if (this->_internal_acc_overlap() != 0) {
+    total_size += 1 + 1;
+  }
+
+  // bool multi_vehicle = 9;
+  if (this->_internal_multi_vehicle() != 0) {
+    total_size += 1 + 1;
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData PlanParam::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    PlanParam::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*PlanParam::GetClassData() const { return &_class_data_; }
+
+
+void PlanParam::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<PlanParam*>(&to_msg);
+  auto& from = static_cast<const PlanParam&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:haoxing.route.PlanParam)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.service_nodes_.MergeFrom(from._impl_.service_nodes_);
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_linespace = from._internal_linespace();
+  uint64_t raw_linespace;
+  memcpy(&raw_linespace, &tmp_linespace, sizeof(tmp_linespace));
+  if (raw_linespace != 0) {
+    _this->_internal_set_linespace(from._internal_linespace());
+  }
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_interspace = from._internal_interspace();
+  uint64_t raw_interspace;
+  memcpy(&raw_interspace, &tmp_interspace, sizeof(tmp_interspace));
+  if (raw_interspace != 0) {
+    _this->_internal_set_interspace(from._internal_interspace());
+  }
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_safe_distance = from._internal_safe_distance();
+  uint64_t raw_safe_distance;
+  memcpy(&raw_safe_distance, &tmp_safe_distance, sizeof(tmp_safe_distance));
+  if (raw_safe_distance != 0) {
+    _this->_internal_set_safe_distance(from._internal_safe_distance());
+  }
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_turn_round_type = from._internal_turn_round_type();
+  uint64_t raw_turn_round_type;
+  memcpy(&raw_turn_round_type, &tmp_turn_round_type, sizeof(tmp_turn_round_type));
+  if (raw_turn_round_type != 0) {
+    _this->_internal_set_turn_round_type(from._internal_turn_round_type());
+  }
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_task_type = from._internal_task_type();
+  uint64_t raw_task_type;
+  memcpy(&raw_task_type, &tmp_task_type, sizeof(tmp_task_type));
+  if (raw_task_type != 0) {
+    _this->_internal_set_task_type(from._internal_task_type());
+  }
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_type_seeding = from._internal_type_seeding();
+  uint64_t raw_type_seeding;
+  memcpy(&raw_type_seeding, &tmp_type_seeding, sizeof(tmp_type_seeding));
+  if (raw_type_seeding != 0) {
+    _this->_internal_set_type_seeding(from._internal_type_seeding());
+  }
+  if (from._internal_modify_orientation() != 0) {
+    _this->_internal_set_modify_orientation(from._internal_modify_orientation());
+  }
+  if (from._internal_acc_overlap() != 0) {
+    _this->_internal_set_acc_overlap(from._internal_acc_overlap());
+  }
+  if (from._internal_multi_vehicle() != 0) {
+    _this->_internal_set_multi_vehicle(from._internal_multi_vehicle());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void PlanParam::CopyFrom(const PlanParam& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:haoxing.route.PlanParam)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PlanParam::IsInitialized() const {
+  return true;
+}
+
+void PlanParam::InternalSwap(PlanParam* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.service_nodes_.InternalSwap(&other->_impl_.service_nodes_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(PlanParam, _impl_.multi_vehicle_)
+      + sizeof(PlanParam::_impl_.multi_vehicle_)
+      - PROTOBUF_FIELD_OFFSET(PlanParam, _impl_.linespace_)>(
+          reinterpret_cast<char*>(&_impl_.linespace_),
+          reinterpret_cast<char*>(&other->_impl_.linespace_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata PlanParam::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_route_2eproto_getter, &descriptor_table_route_2eproto_once,
+      file_level_metadata_route_2eproto[5]);
+}
+
+// ===================================================================
+
+class RoadPlanRequest::_Internal {
+ public:
+  static const ::haoxing::route::GisFieldInfo& gisfieldinfo(const RoadPlanRequest* msg);
+  static const ::haoxing::route::FarmTools& farmtools(const RoadPlanRequest* msg);
+  static const ::haoxing::route::Vehicle& vehicle(const RoadPlanRequest* msg);
+  static const ::haoxing::route::PlanParam& planparam(const RoadPlanRequest* msg);
+};
+
+const ::haoxing::route::GisFieldInfo&
+RoadPlanRequest::_Internal::gisfieldinfo(const RoadPlanRequest* msg) {
+  return *msg->_impl_.gisfieldinfo_;
+}
+const ::haoxing::route::FarmTools&
+RoadPlanRequest::_Internal::farmtools(const RoadPlanRequest* msg) {
+  return *msg->_impl_.farmtools_;
+}
+const ::haoxing::route::Vehicle&
+RoadPlanRequest::_Internal::vehicle(const RoadPlanRequest* msg) {
+  return *msg->_impl_.vehicle_;
+}
+const ::haoxing::route::PlanParam&
+RoadPlanRequest::_Internal::planparam(const RoadPlanRequest* msg) {
+  return *msg->_impl_.planparam_;
+}
+RoadPlanRequest::RoadPlanRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:haoxing.route.RoadPlanRequest)
+}
+RoadPlanRequest::RoadPlanRequest(const RoadPlanRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  RoadPlanRequest* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.gisfieldinfo_){nullptr}
+    , decltype(_impl_.farmtools_){nullptr}
+    , decltype(_impl_.vehicle_){nullptr}
+    , decltype(_impl_.planparam_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_gisfieldinfo()) {
+    _this->_impl_.gisfieldinfo_ = new ::haoxing::route::GisFieldInfo(*from._impl_.gisfieldinfo_);
+  }
+  if (from._internal_has_farmtools()) {
+    _this->_impl_.farmtools_ = new ::haoxing::route::FarmTools(*from._impl_.farmtools_);
+  }
+  if (from._internal_has_vehicle()) {
+    _this->_impl_.vehicle_ = new ::haoxing::route::Vehicle(*from._impl_.vehicle_);
+  }
+  if (from._internal_has_planparam()) {
+    _this->_impl_.planparam_ = new ::haoxing::route::PlanParam(*from._impl_.planparam_);
+  }
+  // @@protoc_insertion_point(copy_constructor:haoxing.route.RoadPlanRequest)
+}
+
+inline void RoadPlanRequest::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.gisfieldinfo_){nullptr}
+    , decltype(_impl_.farmtools_){nullptr}
+    , decltype(_impl_.vehicle_){nullptr}
+    , decltype(_impl_.planparam_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+RoadPlanRequest::~RoadPlanRequest() {
+  // @@protoc_insertion_point(destructor:haoxing.route.RoadPlanRequest)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void RoadPlanRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete _impl_.gisfieldinfo_;
+  if (this != internal_default_instance()) delete _impl_.farmtools_;
+  if (this != internal_default_instance()) delete _impl_.vehicle_;
+  if (this != internal_default_instance()) delete _impl_.planparam_;
+}
+
+void RoadPlanRequest::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void RoadPlanRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:haoxing.route.RoadPlanRequest)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArenaForAllocation() == nullptr && _impl_.gisfieldinfo_ != nullptr) {
+    delete _impl_.gisfieldinfo_;
+  }
+  _impl_.gisfieldinfo_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.farmtools_ != nullptr) {
+    delete _impl_.farmtools_;
+  }
+  _impl_.farmtools_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.vehicle_ != nullptr) {
+    delete _impl_.vehicle_;
+  }
+  _impl_.vehicle_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.planparam_ != nullptr) {
+    delete _impl_.planparam_;
+  }
+  _impl_.planparam_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* RoadPlanRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .haoxing.route.GisFieldInfo gisFieldInfo = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_gisfieldinfo(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .haoxing.route.FarmTools farmTools = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          ptr = ctx->ParseMessage(_internal_mutable_plan_param(), ptr);
+          ptr = ctx->ParseMessage(_internal_mutable_farmtools(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -2785,10 +2911,10 @@ const char* RequestParam::_InternalParse(const char* ptr, ::_pbi::ParseContext* 
         } else
           goto handle_unusual;
         continue;
-      // .haoxing.route.Implement implement = 4;
+      // .haoxing.route.PlanParam planParam = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
-          ptr = ctx->ParseMessage(_internal_mutable_implement(), ptr);
+          ptr = ctx->ParseMessage(_internal_mutable_planparam(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -2816,25 +2942,24 @@ failure:
 #undef CHK_
 }
 
-uint8_t* RequestParam::_InternalSerialize(
+uint8_t* RoadPlanRequest::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:haoxing.route.RequestParam)
+  // @@protoc_insertion_point(serialize_to_array_start:haoxing.route.RoadPlanRequest)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .haoxing.route.FieldInfo field_infos = 1;
-  for (unsigned i = 0,
-      n = static_cast<unsigned>(this->_internal_field_infos_size()); i < n; i++) {
-    const auto& repfield = this->_internal_field_infos(i);
+  // .haoxing.route.GisFieldInfo gisFieldInfo = 1;
+  if (this->_internal_has_gisfieldinfo()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
+      InternalWriteMessage(1, _Internal::gisfieldinfo(this),
+        _Internal::gisfieldinfo(this).GetCachedSize(), target, stream);
   }
 
-  // .haoxing.route.PlanParam plan_param = 2;
-  if (this->_internal_has_plan_param()) {
+  // .haoxing.route.FarmTools farmTools = 2;
+  if (this->_internal_has_farmtools()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(2, _Internal::plan_param(this),
-        _Internal::plan_param(this).GetCachedSize(), target, stream);
+      InternalWriteMessage(2, _Internal::farmtools(this),
+        _Internal::farmtools(this).GetCachedSize(), target, stream);
   }
 
   // .haoxing.route.Vehicle vehicle = 3;
@@ -2844,41 +2969,41 @@ uint8_t* RequestParam::_InternalSerialize(
         _Internal::vehicle(this).GetCachedSize(), target, stream);
   }
 
-  // .haoxing.route.Implement implement = 4;
-  if (this->_internal_has_implement()) {
+  // .haoxing.route.PlanParam planParam = 4;
+  if (this->_internal_has_planparam()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(4, _Internal::implement(this),
-        _Internal::implement(this).GetCachedSize(), target, stream);
+      InternalWriteMessage(4, _Internal::planparam(this),
+        _Internal::planparam(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:haoxing.route.RequestParam)
+  // @@protoc_insertion_point(serialize_to_array_end:haoxing.route.RoadPlanRequest)
   return target;
 }
 
-size_t RequestParam::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:haoxing.route.RequestParam)
+size_t RoadPlanRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:haoxing.route.RoadPlanRequest)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .haoxing.route.FieldInfo field_infos = 1;
-  total_size += 1UL * this->_internal_field_infos_size();
-  for (const auto& msg : this->_impl_.field_infos_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
-
-  // .haoxing.route.PlanParam plan_param = 2;
-  if (this->_internal_has_plan_param()) {
+  // .haoxing.route.GisFieldInfo gisFieldInfo = 1;
+  if (this->_internal_has_gisfieldinfo()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.plan_param_);
+        *_impl_.gisfieldinfo_);
+  }
+
+  // .haoxing.route.FarmTools farmTools = 2;
+  if (this->_internal_has_farmtools()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.farmtools_);
   }
 
   // .haoxing.route.Vehicle vehicle = 3;
@@ -2888,71 +3013,73 @@ size_t RequestParam::ByteSizeLong() const {
         *_impl_.vehicle_);
   }
 
-  // .haoxing.route.Implement implement = 4;
-  if (this->_internal_has_implement()) {
+  // .haoxing.route.PlanParam planParam = 4;
+  if (this->_internal_has_planparam()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.implement_);
+        *_impl_.planparam_);
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData RequestParam::_class_data_ = {
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData RoadPlanRequest::_class_data_ = {
     ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    RequestParam::MergeImpl
+    RoadPlanRequest::MergeImpl
 };
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*RequestParam::GetClassData() const { return &_class_data_; }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*RoadPlanRequest::GetClassData() const { return &_class_data_; }
 
 
-void RequestParam::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<RequestParam*>(&to_msg);
-  auto& from = static_cast<const RequestParam&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:haoxing.route.RequestParam)
+void RoadPlanRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<RoadPlanRequest*>(&to_msg);
+  auto& from = static_cast<const RoadPlanRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:haoxing.route.RoadPlanRequest)
   GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  _this->_impl_.field_infos_.MergeFrom(from._impl_.field_infos_);
-  if (from._internal_has_plan_param()) {
-    _this->_internal_mutable_plan_param()->::haoxing::route::PlanParam::MergeFrom(
-        from._internal_plan_param());
+  if (from._internal_has_gisfieldinfo()) {
+    _this->_internal_mutable_gisfieldinfo()->::haoxing::route::GisFieldInfo::MergeFrom(
+        from._internal_gisfieldinfo());
+  }
+  if (from._internal_has_farmtools()) {
+    _this->_internal_mutable_farmtools()->::haoxing::route::FarmTools::MergeFrom(
+        from._internal_farmtools());
   }
   if (from._internal_has_vehicle()) {
     _this->_internal_mutable_vehicle()->::haoxing::route::Vehicle::MergeFrom(
         from._internal_vehicle());
   }
-  if (from._internal_has_implement()) {
-    _this->_internal_mutable_implement()->::haoxing::route::Implement::MergeFrom(
-        from._internal_implement());
+  if (from._internal_has_planparam()) {
+    _this->_internal_mutable_planparam()->::haoxing::route::PlanParam::MergeFrom(
+        from._internal_planparam());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void RequestParam::CopyFrom(const RequestParam& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:haoxing.route.RequestParam)
+void RoadPlanRequest::CopyFrom(const RoadPlanRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:haoxing.route.RoadPlanRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool RequestParam::IsInitialized() const {
+bool RoadPlanRequest::IsInitialized() const {
   return true;
 }
 
-void RequestParam::InternalSwap(RequestParam* other) {
+void RoadPlanRequest::InternalSwap(RoadPlanRequest* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  _impl_.field_infos_.InternalSwap(&other->_impl_.field_infos_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(RequestParam, _impl_.implement_)
-      + sizeof(RequestParam::_impl_.implement_)
-      - PROTOBUF_FIELD_OFFSET(RequestParam, _impl_.plan_param_)>(
-          reinterpret_cast<char*>(&_impl_.plan_param_),
-          reinterpret_cast<char*>(&other->_impl_.plan_param_));
+      PROTOBUF_FIELD_OFFSET(RoadPlanRequest, _impl_.planparam_)
+      + sizeof(RoadPlanRequest::_impl_.planparam_)
+      - PROTOBUF_FIELD_OFFSET(RoadPlanRequest, _impl_.gisfieldinfo_)>(
+          reinterpret_cast<char*>(&_impl_.gisfieldinfo_),
+          reinterpret_cast<char*>(&other->_impl_.gisfieldinfo_));
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata RequestParam::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata RoadPlanRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_route_2eproto_getter, &descriptor_table_route_2eproto_once,
       file_level_metadata_route_2eproto[6]);
@@ -2960,19 +3087,19 @@ void RequestParam::InternalSwap(RequestParam* other) {
 
 // ===================================================================
 
-class ResponseParam::_Internal {
+class RoadPlanRespond::_Internal {
  public:
 };
 
-ResponseParam::ResponseParam(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+RoadPlanRespond::RoadPlanRespond(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:haoxing.route.ResponseParam)
+  // @@protoc_insertion_point(arena_constructor:haoxing.route.RoadPlanRespond)
 }
-ResponseParam::ResponseParam(const ResponseParam& from)
+RoadPlanRespond::RoadPlanRespond(const RoadPlanRespond& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
-  ResponseParam* const _this = this; (void)_this;
+  RoadPlanRespond* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.nodes_){from._impl_.nodes_}
     , decltype(_impl_.mileage_){}
@@ -2980,10 +3107,10 @@ ResponseParam::ResponseParam(const ResponseParam& from)
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   _this->_impl_.mileage_ = from._impl_.mileage_;
-  // @@protoc_insertion_point(copy_constructor:haoxing.route.ResponseParam)
+  // @@protoc_insertion_point(copy_constructor:haoxing.route.RoadPlanRespond)
 }
 
-inline void ResponseParam::SharedCtor(
+inline void RoadPlanRespond::SharedCtor(
     ::_pb::Arena* arena, bool is_message_owned) {
   (void)arena;
   (void)is_message_owned;
@@ -2994,8 +3121,8 @@ inline void ResponseParam::SharedCtor(
   };
 }
 
-ResponseParam::~ResponseParam() {
-  // @@protoc_insertion_point(destructor:haoxing.route.ResponseParam)
+RoadPlanRespond::~RoadPlanRespond() {
+  // @@protoc_insertion_point(destructor:haoxing.route.RoadPlanRespond)
   if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
   (void)arena;
     return;
@@ -3003,17 +3130,17 @@ ResponseParam::~ResponseParam() {
   SharedDtor();
 }
 
-inline void ResponseParam::SharedDtor() {
+inline void RoadPlanRespond::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.nodes_.~RepeatedPtrField();
 }
 
-void ResponseParam::SetCachedSize(int size) const {
+void RoadPlanRespond::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
 }
 
-void ResponseParam::Clear() {
-// @@protoc_insertion_point(message_clear_start:haoxing.route.ResponseParam)
+void RoadPlanRespond::Clear() {
+// @@protoc_insertion_point(message_clear_start:haoxing.route.RoadPlanRespond)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -3023,7 +3150,7 @@ void ResponseParam::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ResponseParam::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* RoadPlanRespond::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
@@ -3073,9 +3200,9 @@ failure:
 #undef CHK_
 }
 
-uint8_t* ResponseParam::_InternalSerialize(
+uint8_t* RoadPlanRespond::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:haoxing.route.ResponseParam)
+  // @@protoc_insertion_point(serialize_to_array_start:haoxing.route.RoadPlanRespond)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -3101,12 +3228,12 @@ uint8_t* ResponseParam::_InternalSerialize(
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:haoxing.route.ResponseParam)
+  // @@protoc_insertion_point(serialize_to_array_end:haoxing.route.RoadPlanRespond)
   return target;
 }
 
-size_t ResponseParam::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:haoxing.route.ResponseParam)
+size_t RoadPlanRespond::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:haoxing.route.RoadPlanRespond)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
@@ -3132,17 +3259,17 @@ size_t ResponseParam::ByteSizeLong() const {
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ResponseParam::_class_data_ = {
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData RoadPlanRespond::_class_data_ = {
     ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    ResponseParam::MergeImpl
+    RoadPlanRespond::MergeImpl
 };
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ResponseParam::GetClassData() const { return &_class_data_; }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*RoadPlanRespond::GetClassData() const { return &_class_data_; }
 
 
-void ResponseParam::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<ResponseParam*>(&to_msg);
-  auto& from = static_cast<const ResponseParam&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:haoxing.route.ResponseParam)
+void RoadPlanRespond::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<RoadPlanRespond*>(&to_msg);
+  auto& from = static_cast<const RoadPlanRespond&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:haoxing.route.RoadPlanRespond)
   GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -3158,25 +3285,25 @@ void ResponseParam::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void ResponseParam::CopyFrom(const ResponseParam& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:haoxing.route.ResponseParam)
+void RoadPlanRespond::CopyFrom(const RoadPlanRespond& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:haoxing.route.RoadPlanRespond)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool ResponseParam::IsInitialized() const {
+bool RoadPlanRespond::IsInitialized() const {
   return true;
 }
 
-void ResponseParam::InternalSwap(ResponseParam* other) {
+void RoadPlanRespond::InternalSwap(RoadPlanRespond* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   _impl_.nodes_.InternalSwap(&other->_impl_.nodes_);
   swap(_impl_.mileage_, other->_impl_.mileage_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata ResponseParam::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata RoadPlanRespond::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_route_2eproto_getter, &descriptor_table_route_2eproto_once,
       file_level_metadata_route_2eproto[7]);
@@ -3190,33 +3317,33 @@ template<> PROTOBUF_NOINLINE ::haoxing::route::NodeXYZ*
 Arena::CreateMaybeMessage< ::haoxing::route::NodeXYZ >(Arena* arena) {
   return Arena::CreateMessageInternal< ::haoxing::route::NodeXYZ >(arena);
 }
-template<> PROTOBUF_NOINLINE ::haoxing::route::FieldInfo*
-Arena::CreateMaybeMessage< ::haoxing::route::FieldInfo >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::haoxing::route::FieldInfo >(arena);
+template<> PROTOBUF_NOINLINE ::haoxing::route::GisFieldInfo*
+Arena::CreateMaybeMessage< ::haoxing::route::GisFieldInfo >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::haoxing::route::GisFieldInfo >(arena);
 }
-template<> PROTOBUF_NOINLINE ::haoxing::route::PlanParam*
-Arena::CreateMaybeMessage< ::haoxing::route::PlanParam >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::haoxing::route::PlanParam >(arena);
+template<> PROTOBUF_NOINLINE ::haoxing::route::FarmTools*
+Arena::CreateMaybeMessage< ::haoxing::route::FarmTools >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::haoxing::route::FarmTools >(arena);
 }
 template<> PROTOBUF_NOINLINE ::haoxing::route::Vehicle*
 Arena::CreateMaybeMessage< ::haoxing::route::Vehicle >(Arena* arena) {
   return Arena::CreateMessageInternal< ::haoxing::route::Vehicle >(arena);
 }
-template<> PROTOBUF_NOINLINE ::haoxing::route::Implement*
-Arena::CreateMaybeMessage< ::haoxing::route::Implement >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::haoxing::route::Implement >(arena);
+template<> PROTOBUF_NOINLINE ::haoxing::route::ObstacleReq*
+Arena::CreateMaybeMessage< ::haoxing::route::ObstacleReq >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::haoxing::route::ObstacleReq >(arena);
 }
-template<> PROTOBUF_NOINLINE ::haoxing::route::Obstacle*
-Arena::CreateMaybeMessage< ::haoxing::route::Obstacle >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::haoxing::route::Obstacle >(arena);
+template<> PROTOBUF_NOINLINE ::haoxing::route::PlanParam*
+Arena::CreateMaybeMessage< ::haoxing::route::PlanParam >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::haoxing::route::PlanParam >(arena);
 }
-template<> PROTOBUF_NOINLINE ::haoxing::route::RequestParam*
-Arena::CreateMaybeMessage< ::haoxing::route::RequestParam >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::haoxing::route::RequestParam >(arena);
+template<> PROTOBUF_NOINLINE ::haoxing::route::RoadPlanRequest*
+Arena::CreateMaybeMessage< ::haoxing::route::RoadPlanRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::haoxing::route::RoadPlanRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::haoxing::route::ResponseParam*
-Arena::CreateMaybeMessage< ::haoxing::route::ResponseParam >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::haoxing::route::ResponseParam >(arena);
+template<> PROTOBUF_NOINLINE ::haoxing::route::RoadPlanRespond*
+Arena::CreateMaybeMessage< ::haoxing::route::RoadPlanRespond >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::haoxing::route::RoadPlanRespond >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

@@ -8,38 +8,24 @@
 #include <grpc++/server_builder.h>
 #include <grpc++/server_context.h>
  
-#include "example.grpc.pb.h"
-#include "routeServer.h"
+#include "route_server.h"
  
 using grpc::Server;
 using grpc::ServerBuilder;
 using grpc::ServerContext;
 using grpc::Status;
-using  haoxing::route1::RoutingServiceImpl;
+using  haoxing::road::RoadPlanServiceImpl;
 
 using namespace std;
-
- 
-class SearchRequestImpl final : public SearchService::Service {
-  Status Search(ServerContext* context, const SearchRequest* request,
-                  SearchResponse* reply) override {
-    string prefix("Hello ");
-    cout <<  "请求内容： " <<  request->request() << endl;
-    reply->set_response(prefix + request->request());
-    return Status::OK;
-  }
-};
  
 void RunServer() {
   std::string server_address("0.0.0.0:50051");
-  SearchRequestImpl  searchService;
-  RoutingServiceImpl  routeingService;
+  RoadPlanServiceImpl  roadPlanService;
 
  
   ServerBuilder builder;
   builder.AddListeningPort(server_address, grpc::InsecureServerCredentials());
-  builder.RegisterService(&searchService);
-  builder.RegisterService(&routeingService);
+  builder.RegisterService(&roadPlanService);
 
   std::unique_ptr<Server> server(builder.BuildAndStart());
   std::cout << "Server listening on " << server_address << std::endl;

@@ -1,0 +1,59 @@
+{
+    "version": "2.0.0",
+    "options": {
+        "cwd": "${workspaceRoot}/build"
+    },
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "clean",
+            "command": "rm",
+            "args": [
+                "-rf",
+                "${workspaceRoot}/build/*"
+            ],
+            "options": {
+                "cwd": "${workspaceRoot}/build"
+            },
+            "group": "build",
+            "detail": "旧文件清除"
+        },
+        {
+            "type": "shell",
+            "label": "cmake",
+            "command": "cmake",
+            "args": [
+                ".."
+            ],
+            "options": {
+                "cwd": "${workspaceRoot}/build"
+            },
+            "group": "build",
+            "detail": "cmake生产编译脚本"
+        },
+        {
+            "type": "shell",
+            "label": "make",
+            "command": "make",
+            "args": [],
+            "options": {
+                "cwd": "${workspaceRoot}/build"
+            },
+            "group": "build",
+            "detail": "make编译项目目标文件"
+        },
+        {
+            "label": "Build",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "clean",
+                "cmake",
+                "make"
+            ],
+            "group":{
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}

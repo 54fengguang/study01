@@ -65,21 +65,23 @@ message(STATUS  "PROTO_LIST  directory is :  ${PROTO_LIST}")
 
 link_directories(${PROJECT_SOURCE_DIR}/libs/)
 
-add_executable(Path_poins  ./src/road_planning_service.cpp )
-target_link_libraries( Path_poins
-  librouting.so
-)
+# add_executable(Path_poins  ./src/road_plan_run_service.cpp )
+
+# target_link_libraries( Path_poins
+#   librouting.so
+# )
 
 
-add_executable(Server  ./src/server.cpp  ./src/routeServer.cpp  ${PROTO_LIST})
+add_executable(Server  ./src/server.cpp  ./src/route_server.cpp ./src/road_plan_run_service.cpp  ${PROTO_LIST})
 
 target_link_libraries( Server
     ${Protobuf_LIBRARIES}
      gRPC::grpc++
+     librouting.so
 )
 
 
-add_executable(Client  ./src/client.cpp  ${PROTO_LIST})
+add_executable(Client  ./src/client.cpp ./src/route_client.cpp  ${PROTO_LIST})
 
 target_link_libraries( Client
     ${Protobuf_LIBRARIES}
